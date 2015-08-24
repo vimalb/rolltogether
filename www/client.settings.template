@@ -1,0 +1,1 @@
+document.CLIENT_SETTINGS = { "SERVER_URL": "{{ env.WWW_SERVER_URL }}" }

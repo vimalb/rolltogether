@@ -1,0 +1,4 @@
+document.CLIENT_SETTINGS = { 
+    "SERVER_URL": "{{ env.MOBILE_SERVER_URL }}",
+    "WEBRTC_SERVER_URL": "{{ env.WEBRTC_SERVER_URL }}",
+}

@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-nav-title>My Trips</ion-nav-title>
+
+
+
+  <ion-content class="padding">
+
+    <div class="list card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
+      <div class="item item-body video-item">
+        <div class="list">
+          <div class="leading">
+            <h2>Trip: {{ trip.tripId }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+  </ion-content>
+
+</ion-view>

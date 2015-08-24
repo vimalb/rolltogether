@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-nav-title>My Routes</ion-nav-title>
+
+
+
+  <ion-content class="padding">
+
+    <div class="list card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
+      <div class="item item-body video-item">
+        <div class="list">
+          <div class="leading">
+            <h2>Route: {{ route.routeId }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+  </ion-content>
+
+</ion-view>
