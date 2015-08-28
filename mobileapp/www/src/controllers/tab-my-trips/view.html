@@ -1,16 +1,25 @@
 <ion-view>
   <ion-nav-title>My Trips</ion-nav-title>
-
-
-
   <ion-content class="padding">
+    <div class="list">
+      <div class="item item-divider">
+        Today
+      </div>
+      <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
+        <div class="item item-body video-item">
+          <div class="list header">
+            <div class="item item-avatar header">
+              <img class="profile-img" src="assets/img/profile_pic.png">
+              <div>8:30am</div>
+              <div>Going to the Office</div>
+              <div>
+                <span class="summary-stats">50km</span>
+                <span class="summary-stats">2h41m</span>
+              </div>
+            </div>
 
-    <div class="list card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
-      <div class="item item-body video-item">
-        <div class="list">
-          <div class="leading">
-            <h2>Trip: {{ trip.tripId }}</h2>
           </div>
+          <img class="trip-map-summary" src="assets/img/map1.png" >
         </div>
       </div>
     </div>

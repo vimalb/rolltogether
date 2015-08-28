@@ -4,3 +4,104 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
     color: lightblue;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/*
+ * Feed tab styling
+ */
+
+/* trip card background image */
+img.trip-map-summary {
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+}
+
+/* header details for the card */
+.item.item-avatar.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, .8);
+  color: black;
+}
+
+/* stats for trip cards */
+.summary-stats {
+  padding-right: 30px;
+}
+
+
+/*
+ * Routes tab styling
+ */
+.details {
+  /*font-style: normal;*/
+  color: #AAAAAA;
+}
+
+.supporter-stats {
+  padding: 10px;
+  color: green;
+}
+
+.route-image {
+  z-index: -1;
+}
+
+.map-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: gray;
+  font-size: 2.5em;
+}
+
+.contribute-button {
+  font-style: bold;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+/*
+ * Routes Detail styling
+ */
+
+.route-detail.name {
+  padding: 20px;
+}
+
+.route-detail.stats {
+  width: 100%;
+  font-size: 1em;
+  margin: 15px auto;
+}
+
+.stats-bold {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+progress[value] {
+  margin: 5px auto;
+}
+
+.hr-divider {
+  border: none;
+  background-color: #E0E0E0;
+  height: 2px;
+  margin: 25px auto;
+}
+
+.route-detail.total {
+  background-color: rgba(214, 214, 214, .5);
+  padding: 30px;
+}

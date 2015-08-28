@@ -1,21 +1,42 @@
 <ion-view>
   <ion-nav-title>My Routes</ion-nav-title>
-
-
-
   <ion-content class="padding">
+    <div class="list">
+      <div class="item item-divider">
+        Top Routes
+      </div>
 
-    <div class="list card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
-      <div class="item item-body video-item">
-        <div class="list">
-          <div class="leading">
-            <h2>Route: {{ route.routeId }}</h2>
+      <div class="card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
+
+        <div class="item item-divider">
+          <div>
+            <span>Grupo Ultra to Skye Bar</span>
+            <span class="right">30x</span>
           </div>
+          <div class="details">
+            <span class="summary-stats">50 miles</span>
+            <span class="summary-stats">2h42m</span>
+          </div>
+        </div>
+
+        <div class="item item-image">
+          <img class="route-image" src="assets/img/map1.png" >
+          <i class="map-heart ion-heart"></i>
+          <button class="button button-balanced contribute-button" ng-click="goRouteDetail(route)">
+            PLEDGE
+          </button>
+        </div>
+
+        <div class="item item-divider">
+          <div class="supporter-stats">
+            <span class="left">$10m</span>
+            <span class="right">101<i class="ion-person-stalker"></i></span>
+          </div>
+          <!-- XXX maybe should go to different path -->
         </div>
       </div>
     </div>
     <br>
-
 
   </ion-content>
 

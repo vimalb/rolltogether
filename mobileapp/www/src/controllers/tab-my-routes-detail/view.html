@@ -1,6 +1,74 @@
 <ion-view>
   <ion-nav-title>My Route {{ route.routeId }}</ion-nav-title>
   <ion-content class="padding">
-    {{ route }}
+    <!-- route title, should this be constructed? -->
+    <div class="route-detail name">
+      <h3>Parque Villa Lobos to La Olympia</h3>
+    </div>
+    <!-- route summary -->
+    <img class="trip-map-summary" src="assets/img/route_sample1.png" >
+    <div class="route-detail stats">
+      <span><span class="stats-bold">$10,234,111</span> raised of $20,000,000</span>
+      <progress class="progress-bar" max="100" value="50"> </progress>
+    </div>
+    <div>
+      <span>
+        <span class="stats-bold">323</span>
+        pledges from
+        <span class="stats-bold">102</span>
+        riders
+      </span>
+    </div>
+
+    <hr class="hr-divider">
+
+    <div class="route-detail total">
+      <h4>This Week</h4>
+      <div>
+        <span>Total driving time:</span>
+        <span class="right">20 hours 32 minutes</span>
+      </div>
+      <div>
+        <span>Total time on new Metro:</span>
+        <span class="right">4 hours</span>
+      </div>
+      <br>
+      <div class="stats-bold">
+        <span>Time savings:</span>
+        <span class="right">16 hours</span>
+      </div>
+      <div class="stats-bold">
+        <span>Cost savings:</span>
+        <span class="right">$520</span>
+      </div>
+    </div>
+
+    <button class="button button-full button-balanced">
+      PLEDGE
+    </button>
+
+    <h4>Your related trips</h4>
+    <!--- trips making up the route -->
+    <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
+      <div class="item item-body video-item">
+        <div class="list header">
+          <div class="item item-avatar header">
+            <img class="profile-img" src="assets/img/profile_pic.png">
+            <div>8:30am</div>
+            <div>Going to the Office</div>
+            <div>
+              <span class="summary-stats left">50km</span>
+              <span class="summary-stats right">2h41m</span>
+            </div>
+          </div>
+
+        </div>
+        <img class="trip-map-summary" src="assets/img/map1.png" >
+      </div>
+    </div>
+
+    <button class="button button-full button-balanced">
+      PLEDGE
+    </button>
   </ion-content>
 </ion-view>

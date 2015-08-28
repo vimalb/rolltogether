@@ -28,11 +28,18 @@ angular.module(MODULE_NAME, ['ionic'])
   .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
       $scope.route = {};
 
+      $scope.trips = [];
+      $scope.refreshTrips = function(route) {
+        tripSearchService.getMyTrips().then(function(trips) {
+          $scope.trips = trips;
+        });
+      }
 
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;
         });
+        $scope.refreshTrips($scope.route);
       });
 
       $scope.$on('$ionicView.beforeLeave', function(){

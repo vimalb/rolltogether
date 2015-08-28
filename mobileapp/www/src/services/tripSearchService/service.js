@@ -32,6 +32,23 @@ angular.module(MODULE_NAME, [])
             ])
           return deferred.promise;
         },
+        /*getMyTrips: function(routeId) {
+          //retrieves user's trips for the route specified
+
+          console.log("Fetching my trips");
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/my-trips';
+         
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          
+          deferred.resolve([ 
+            { tripId: 100 },
+            { tripId: 101 },
+            ])
+          return deferred.promise;
+        }, */
 
         getMyRoutes: function() {
           console.log("Fetching my routes");
