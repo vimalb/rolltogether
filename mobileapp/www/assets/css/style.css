@@ -5,10 +5,9 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
     color: lightblue;
 }
 
-img.trip-map-summary {
-  z-index: -100;
+ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-google-map-container {
   width: 100%;
-  height: 100%;
+  height: 300px; /* this needs to be in px because google maps? */
 }
 
 .left {
