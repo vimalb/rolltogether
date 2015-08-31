@@ -61,6 +61,11 @@ img.trip-map-summary {
   border-radius: 50%;
 }
 
+.trip-detail .total {
+  background-color: rgba(214, 214, 214, .5);
+  padding: 30px;
+}
+
 /*
  *- Routes tab styling
  */
@@ -110,6 +115,7 @@ img.trip-map-summary {
 
 .route-detail .name {
   padding: 20px;
+  text-align: center;
 }
 
 .route-detail .stats {
@@ -138,3 +144,35 @@ img.trip-map-summary {
   background-color: rgba(214, 214, 214, .5);
   padding: 30px;
 }
+
+.route-detail .item.item-divider.section {
+  background-color: #03A9F4;
+  color: white;
+  border: none;
+}
+
+/*
+ * Routes Pledge styling
+ */
+
+.route-pledge .name {
+  padding: 20px;
+  text-align: center;
+}
+
+.route-pledge .card .item-body .checkmark {
+  float: right;
+  color: gray;
+}
+
+.route-pledge .card.selected {
+  border: 1px solid #4CAF50;
+}
+
+.route-pledge .card.selected .item-body .checkmark {
+  color: #00E676;
+  font-size: 2em;
+  float: right;
+}
+
+

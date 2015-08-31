@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-nav-title>My Route {{ route.routeId }}</ion-nav-title>
+  <ion-content class="padding route-pledge">
+    <!-- route title, should this be constructed? -->
+    <div class="name">
+      <h3>PLEDGE</h3>
+    </div>
+    <!-- route summary -->
+    <br>
+
+    <!--- trips making up the route -->
+    <div class="card" ng-class="{'selected': $index == selectedIndex }" ng-repeat="pledge in pledges" ng-click="selectPledge(pledge)">
+      <div class="item item-body">
+        <div class="list header">
+          <i class="checkmark ion-checkmark-circled"></i>
+          <div>{{pledge.name}}</div>
+          <div>$ {{pledge.price}}</div>
+          <div>{{pledge.description}}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="total">
+      <h4>Total: {{pledge_total}}</h4>
+    </div>
+    <button class="button button-full button-assertive">
+      Pay Now
+    </button>
+  </ion-content>
+</ion-view>

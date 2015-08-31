@@ -43,11 +43,16 @@
       </div>
     </div>
 
-    <button class="button button-full button-balanced">
+    <button class="button button-full button-balanced" ng-click="goRoutePledge(route)">
       PLEDGE
     </button>
 
-    <h4>Your related trips</h4>
+    <br>
+    <hr class="hr-divider">
+
+    <div class="item item-divider section">
+      Trips Related to This Route
+    </div>
     <!--- trips making up the route -->
     <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
       <div class="item item-body video-item">
@@ -67,7 +72,7 @@
       </div>
     </div>
 
-    <button class="button button-full button-balanced">
+    <button class="button button-full button-balanced" ng-click="goRoutePledge(route)">
       PLEDGE
     </button>
   </ion-content>
