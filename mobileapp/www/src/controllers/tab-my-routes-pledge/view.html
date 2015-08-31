@@ -4,27 +4,29 @@
     <!-- route title, should this be constructed? -->
     <div class="name">
       <h3>PLEDGE</h3>
+      <h3>Grupo Ultra to Skye Bar</h3>
     </div>
     <!-- route summary -->
-    <br>
 
     <!--- trips making up the route -->
     <div class="card" ng-class="{'selected': $index == selectedIndex }" ng-repeat="pledge in pledges" ng-click="selectPledge(pledge)">
+      <div class="item">
+        <i class="checkmark ion-checkmark-circled"></i>
+        <h2>{{ pledge.name }}  -  {{ pledge.price | currency }}</h2>
+      </div>
       <div class="item item-body">
-        <div class="list header">
-          <i class="checkmark ion-checkmark-circled"></i>
-          <div>{{pledge.name}}</div>
-          <div>$ {{pledge.price}}</div>
-          <div>{{pledge.description}}</div>
-        </div>
+        <div>{{ pledge.description }}</div>
       </div>
     </div>
 
 
     <div class="total">
-      <h4>Total: {{pledge_total}}</h4>
+      <h4>
+        <span>Total: </span>
+        <span class="right">{{ pledgeTotal | currency }}</span>
+      </h4>
     </div>
-    <button class="button button-full button-assertive">
+    <button class="button button-full button-balanced">
       Pay Now
     </button>
   </ion-content>

@@ -160,19 +160,31 @@ img.trip-map-summary {
   text-align: center;
 }
 
-.route-pledge .card .item-body .checkmark {
+.route-pledge .card .item h2 {
+  padding-top: 10px;
+  font-weight: 500;
+}
+
+.route-pledge .card .checkmark {
+  padding-top: 10px;
   float: right;
   color: gray;
 }
 
 .route-pledge .card.selected {
-  border: 1px solid #4CAF50;
+  border: 1px solid #00E676;
 }
 
-.route-pledge .card.selected .item-body .checkmark {
+.route-pledge .card.selected .checkmark {
+  padding-top: 0px;
   color: #00E676;
   font-size: 2em;
   float: right;
 }
 
+.route-pledge .total {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #E1F5FE;
+} 
 

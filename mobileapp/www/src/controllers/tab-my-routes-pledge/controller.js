@@ -27,7 +27,7 @@ angular.module(MODULE_NAME, ['ionic'])
   })
   .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
       $scope.route = {};
-      $scope.pledgeTotal = 0;
+      $scope.pledgeTotal = 20;
       $scope.selectedIndex = 1;
 
       $scope.pledges = [
@@ -42,6 +42,12 @@ angular.module(MODULE_NAME, ['ionic'])
           name: "Five Pack",
           price: 20.00,
           description: "Good things come in bulk. Give more support to Sao Paolo's subway system and save! Buy four train tickets and get one free!"
+        },
+        {
+          index: 2,
+          name: "Supporter of the Cause",
+          price: 100.00,
+          description: "Be the good samaritan your mom always told you to be. Do your best to make this happen and be rewarded with your first monthly pass!" 
         }
       ];
 
@@ -57,7 +63,7 @@ angular.module(MODULE_NAME, ['ionic'])
       });
 
       $scope.selectPledge = function(pledge) {
-        $scope.pledgeTotal = $scope.pledgeTotal + pledge.price;
+        $scope.pledgeTotal = pledge.price;
         $scope.selectedIndex = pledge.index;
       }
   })

@@ -69,6 +69,21 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
+        // Returns all the trips for a particular route
+        getRouteTrips: function(routeId) {
+          console.log("Fetching my feed");
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/route/' + routeId.toString() + '/trips';
+
+          /* temp fake code */
+          var tripId = 0;
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/trips/' + tripId.toString();
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
+
         getRoute: function(routeId) {
           console.log("Fetching route", routeId);
           var deferred = $q.defer();

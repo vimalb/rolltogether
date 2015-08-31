@@ -30,7 +30,7 @@ angular.module(MODULE_NAME, ['ionic'])
 
       $scope.trips = [];
       $scope.refreshTrips = function(route) {
-        tripSearchService.getMyTrips().then(function(trips) {
+        tripSearchService.getRouteTrips(route).then(function(trips) {
           $scope.trips = trips;
         });
       }
@@ -49,9 +49,8 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.$on('$ionicView.beforeLeave', function(){
         $scope.route = {};
       });
-
   })
 
-  
+
 })();
 
