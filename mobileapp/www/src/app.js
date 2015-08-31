@@ -3,7 +3,8 @@ document.APP_MODULES = document.APP_MODULES || [];
 (function() {
 
 ALL_MODULES = [ 'ionic', 
-                'ngTagsInput', 
+                'ngTagsInput',
+                'uiGmapgoogle-maps',
                 ].concat(document.APP_MODULES);
 
 angular.module('mainApp', ALL_MODULES)
@@ -11,6 +12,13 @@ angular.module('mainApp', ALL_MODULES)
       $ionicConfigProvider.tabs.style('standard');
       $ionicConfigProvider.tabs.position('bottom');
       $urlRouterProvider.otherwise('/tab/my-trips');
+    })
+    .config(function(uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            //    key: 'your api key',
+            v: '3.20', //defaults to latest 3.X anyhow
+            libraries: 'weather,geometry,visualization'
+        });
     })
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
