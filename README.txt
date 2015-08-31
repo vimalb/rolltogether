@@ -9,6 +9,7 @@ Setup:
 	# export WWW_SERVER_URL=http://ip.add.re.ss:5000
 	# export API_URL=http://ip.add.re.ss:3000
 	# export MOBILE_SERVER_URL=http://ip.add.re.ss:5000
+	# export BING_MAPS_KEY=xxxx
 	# pip install requirements.txt
 	# npm install
 	# cd mobileapp
