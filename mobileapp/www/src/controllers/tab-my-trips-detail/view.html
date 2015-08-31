@@ -10,20 +10,20 @@
     <div class="route-detail total">
       <div class="stats-bold">
         <span>Driving time:</span>
-        <span class="right">2 hours 41 minutes</span>
+        <span class="right">{{ trip.total_actual_duration_min }} minutes</span>
       </div>
       <div>
         <span>Distance:</span>
-        <span class="right">50km</span>
+        <span class="right">{{ trip.total_distance_km }} km</span>
       </div>
       <div>
         <span>Average speed:</span>
-        <span class="right">25k/h</span>
+        <span class="right">{{ trip.total_distance_km * 60.0 / trip.total_actual_duration_min }} kmph</span>
       </div>
       <br>
       <div class="stats-bold">
         <span>Suggested route time:</span>
-        <span class="right">30 min</span>
+        <span class="right">{{ trip.total_nominal_duration_min }} minutes</span>
       </div>
     </div>
 

@@ -28,20 +28,20 @@ angular.module(MODULE_NAME, ['ionic'])
   .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
-    $scope.trips = [];
+    $scope.feedItems = [];
 
-    $scope.refreshTrips = function() {
-      tripSearchService.getMyTrips().then(function(trips) {
-        $scope.trips = trips;
+    $scope.refreshFeedItems = function() {
+      tripSearchService.getMyFeed().then(function(feedItems) {
+        $scope.feedItems = feedItems;
       });
     }
 
     $scope.$on('$ionicView.beforeEnter', function(){
-      $scope.refreshTrips();
+      $scope.refreshFeedItems();
     });
 
-    $scope.goTripDetail = function(trip) {
-      $state.go('tab.my-trips-detail', {tripId: trip.tripId});
+    $scope.goTripDetail = function(tripId) {
+      $state.go('tab.my-trips-detail', {tripId: tripId});
     }
 
 

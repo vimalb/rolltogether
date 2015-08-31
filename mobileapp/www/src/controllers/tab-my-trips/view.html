@@ -5,21 +5,23 @@
       <div class="item item-divider date">
         Today
       </div>
-      <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
-        <div class="item item-body video-item">
-          <div class="list header">
-            <div class="item item-avatar header">
-              <img class="profile-img" src="assets/img/profile_pic.png">
-              <div>8:30am</div>
-              <div>Going to the Office</div>
-              <div>
-                <span class="summary-stats">50km</span>
-                <span class="summary-stats">2h41m</span>
+      <div class="card" ng-repeat="feedItem in feedItems">
+        <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)">
+          <div class="item item-body video-item">
+            <div class="list header">
+              <div class="item item-avatar header">
+                <img class="profile-img" src="assets/img/profile_pic.png">
+                <div>{{ feedItem.item_details.local_timestamp }}</div>
+                <div>Going to the Office</div>
+                <div>
+                  <span class="summary-stats">{{ feedItem.item_details.total_distance_km }} km</span>
+                  <span class="summary-stats">{{ feedItem.item_details.total_actual_duration_min }} min</span>
+                </div>
               </div>
-            </div>
 
+            </div>
+            <img class="trip-map-summary" src="assets/img/map1.png" >
           </div>
-          <img class="trip-map-summary" src="assets/img/map1.png" >
         </div>
       </div>
 

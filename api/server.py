@@ -5,6 +5,7 @@ sys.path.append(os.path.dirname(__file__))
 import json
 import dateutil.parser
 import re
+import random
 
 from flask import Flask, request, send_from_directory, safe_join, Response
 from flask.ext.cors import CORS
@@ -52,8 +53,27 @@ def sample_echo(arg):
             "Testing Data": req}
     return Response(json.dumps(resp), mimetype='application/json')
 
-        
+TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'routes_2015-08-31_16-25-43_BRT.json'))
+for i, t in enumerate(TRIPS_DB):
+    t['trip_id'] = str(i)
+TRIPS_DB = dict([(str(t['trip_id']), t) for t in TRIPS_DB])
+
+
+@app.route("/api/users/<user_id>/feed", methods=['GET'])
+def feed(user_id):
+    feed_items = []
+    for trip in random.sample(TRIPS_DB.values(), 10):
+        feed_items.append({'item_type': 'my_trip',
+                           'item_id': trip['trip_id'],
+                           'item_details': trip,
+                           })
+    return Response(json.dumps(feed_items), mimetype='application/json')
     
+@app.route("/api/trips/<trip_id>", methods=['GET'])
+def trips(trip_id):
+    return Response(json.dumps(TRIPS_DB[trip_id]), mimetype='application/json')
+
+
     
 if __name__ == "__main__":
     app.run('0.0.0.0', 3000, debug=True)

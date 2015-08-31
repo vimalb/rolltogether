@@ -16,6 +16,12 @@ angular.module(MODULE_NAME, [])
     .factory(SERVICE_NAME, function($q, CLIENT_SETTINGS, $http, $rootScope) {
       console.log("Instantiating service", SERVICE_NAME);
 
+      function rand4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser') || JSON.stringify({
         'username': undefined,
         'name': '',
@@ -24,6 +30,9 @@ angular.module(MODULE_NAME, [])
         'isTwitterEnabled': false,
         'isInstagramEnabled': false,
       }));
+      if(!$rootScope.currentUser.userId) {
+        $rootScope.currentUser.userId = rand4()+rand4()+rand4()+rand4();
+      }
 
       $rootScope.$watch('currentUser', _.debounce(function() {
         console.log('currentUser changed to', $rootScope.currentUser);

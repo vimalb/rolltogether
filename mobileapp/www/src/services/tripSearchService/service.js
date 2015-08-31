@@ -13,42 +13,19 @@ document.APP_MODULES.push(MODULE_NAME);
 
 console.log(MODULE_NAME, "Registering service", SERVICE_NAME);
 angular.module(MODULE_NAME, [])
-    .factory(SERVICE_NAME, function($q, CLIENT_SETTINGS, $http) {
+    .factory(SERVICE_NAME, function($q, CLIENT_SETTINGS, $http, userService) {
       console.log("Instantiating service", SERVICE_NAME);
 
       return {
-        getMyTrips: function() {
-          console.log("Fetching my trips");
+        getMyFeed: function() {
+          console.log("Fetching my feed");
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/my-trips';
-          /*
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/feed';
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
-          */
-          deferred.resolve([ 
-            { tripId: 100 },
-            { tripId: 101 },
-            ])
           return deferred.promise;
         },
-        /*getMyTrips: function(routeId) {
-          //retrieves user's trips for the route specified
-
-          console.log("Fetching my trips");
-          var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/my-trips';
-         
-          $http.get(url).then(function(resp) {
-            deferred.resolve(resp.data);
-          });
-          
-          deferred.resolve([ 
-            { tripId: 100 },
-            { tripId: 101 },
-            ])
-          return deferred.promise;
-        }, */
 
         getMyRoutes: function() {
           console.log("Fetching my routes");
@@ -86,14 +63,9 @@ angular.module(MODULE_NAME, [])
           console.log("Fetching trip", tripId);
           var deferred = $q.defer();
           var url = CLIENT_SETTINGS.SERVER_URL + '/api/trips/' + tripId.toString();
-          /*
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
-          */
-          deferred.resolve(
-            { tripId: tripId }
-          );
           return deferred.promise;
         },
 
