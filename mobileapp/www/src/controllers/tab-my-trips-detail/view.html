@@ -1,6 +1,41 @@
 <ion-view>
   <ion-nav-title>My Trip {{ trip.tripId }}</ion-nav-title>
-  <ion-content class="padding">
-    {{ trip }}
+  <ion-content class="padding trip-detail">
+    <div class="name">
+      <h3>Going to the Office</h3>
+    </div>
+
+    <img class="trip-map-summary" src="assets/img/map1.png" >
+
+    <div class="route-detail total">
+      <div class="stats-bold">
+        <span>Driving time:</span>
+        <span class="right">2 hours 41 minutes</span>
+      </div>
+      <div>
+        <span>Distance:</span>
+        <span class="right">50km</span>
+      </div>
+      <div>
+        <span>Average speed:</span>
+        <span class="right">25k/h</span>
+      </div>
+      <br>
+      <div class="stats-bold">
+        <span>Suggested route time:</span>
+        <span class="right">30 min</span>
+      </div>
+    </div>
+
+    <h4>Fellow commuters</h4>
+    <div>
+      <img class="avatar" src="assets/img/profile_pic1.png">
+      <img class="avatar" src="assets/img/profile_pic2.png">
+      <img class="avatar" src="assets/img/profile_pic3.png">
+    </div>
+
+    <button class="button button-block button-balanced">
+      See Suggested Route
+    </button>
   </ion-content>
 </ion-view>

@@ -1,15 +1,13 @@
 <ion-view>
   <ion-nav-title>My Routes</ion-nav-title>
-  <ion-content class="padding">
+  <ion-content class="padding routes">
     <div class="list">
-      <div class="item item-divider">
+      <div class="item item-divider section">
         Top Routes
       </div>
-
       <div class="card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
-
-        <div class="item item-divider">
-          <div>
+        <div class="item item-divider header">
+          <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
             <span class="right">30x</span>
           </div>
@@ -27,7 +25,7 @@
           </button>
         </div>
 
-        <div class="item item-divider">
+        <div class="item item-divider footer">
           <div class="supporter-stats">
             <span class="left">$10m</span>
             <span class="right">101<i class="ion-person-stalker"></i></span>

@@ -1,9 +1,30 @@
 <ion-view>
   <ion-nav-title>My Trips</ion-nav-title>
-  <ion-content class="padding">
+  <ion-content class="padding trip-feed">
     <div class="list">
-      <div class="item item-divider">
+      <div class="item item-divider date">
         Today
+      </div>
+      <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
+        <div class="item item-body video-item">
+          <div class="list header">
+            <div class="item item-avatar header">
+              <img class="profile-img" src="assets/img/profile_pic.png">
+              <div>8:30am</div>
+              <div>Going to the Office</div>
+              <div>
+                <span class="summary-stats">50km</span>
+                <span class="summary-stats">2h41m</span>
+              </div>
+            </div>
+
+          </div>
+          <img class="trip-map-summary" src="assets/img/map1.png" >
+        </div>
+      </div>
+
+      <div class="item item-divider date">
+        This Week
       </div>
       <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
         <div class="item item-body video-item">
@@ -24,8 +45,6 @@
       </div>
     </div>
     <br>
-
-
   </ion-content>
 
 </ion-view>
