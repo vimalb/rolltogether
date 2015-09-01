@@ -261,8 +261,6 @@ progress[value]::-webkit-progress-value {
 
 /* XXX this image cropping is pretty sketch */
 .pledges .list .card .item-body img.trip-map-summary {
-  position: absolute;
-  top: 0;
   height: 300px;
   z-index: 1000;
 }
@@ -298,28 +296,30 @@ progress[value]::-webkit-progress-value {
   padding: 0;
 }
 
-.pledges-detail .list .card .item-body img {
-  position: absolute;
-  top: 0;
-  height: 300px;
+
+/* start of section that probably should be pulled into directive
+   with route-detail? */
+.pledges-detail .card img.route-image {
+  width: 100%;
+  height: 300px; 
 }
 
-.pledges-detail .list .card .item-body .route-details {
-  margin-top: 150px;
+.pledges-detail .card .item-body .details {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 10px;
 }
 
-.pledges .list .card .item-body .route-details p {
-  margin-top: 5px;
-}
-
-.pledges .list .card .item-body .route-details .stats {
-  font-size: 0.8em;
-}
-
-.pledges .list .card .item-body li {
+.pledges-detail .card .item-body li {
   display: inline-block;
   padding-right: 20px
+}
+
+.pledges-detail .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.pledges-detail .details .detailed-stats li .stats-label {
+  color: darkgray;
 }
