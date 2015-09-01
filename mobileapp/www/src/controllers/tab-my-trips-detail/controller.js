@@ -25,21 +25,17 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, $timeout, tripSearchService, userService, uiGmapGoogleMapApi) {
       $scope.trip = {};
-      $scope.map = {};
-
 
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getTrip($stateParams.tripId).then(function(trip) {
           $scope.trip = trip;
-          $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
         });
       });
 
       $scope.$on('$ionicView.beforeLeave', function(){
         $scope.trip = {};
-        $scope.map = {};
       });
 
   })
