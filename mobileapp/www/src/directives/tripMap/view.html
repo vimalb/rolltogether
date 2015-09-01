@@ -1,6 +1,20 @@
 <div>
     <ui-gmap-google-map class="trip-map-summary" bounds="map.bounds" center='map.center' zoom="map.zoom">
-      <ui-gmap-polyline ng-repeat="p in map.polylines" path="p.path" stroke="p.stroke" visible='p.visible'
-                  geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
+      <ui-gmap-polyline ng-repeat="p in map.polylines" 
+      		path="p.path" 
+      		stroke="p.stroke" 
+      		visible='p.visible'
+            geodesic='p.geodesic' 
+            fit="false" 
+            editable="p.editable" 
+            draggable="p.draggable" 
+            icons='p.icons'>
+       </ui-gmap-polyline>
+       <ui-gmap-marker ng-repeat="marker in map.markers" 
+       		coords="marker.coords"
+       		options="marker.options" 
+       		icon="marker.icon"
+       		idkey="marker.id">
+       </ui-gmap-marker>
     </ui-gmap-google-map>
 </div>

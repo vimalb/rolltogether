@@ -38,6 +38,10 @@ angular.module(MODULE_NAME, [])
               }
             } 
 
+            var canMergeLegs = function(leg1, leg2) {
+              return leg1.stroke.color == leg2.stroke.color;
+            }
+
             var renderTrip = function() {
               var startPos = $scope.trip.legs[0].start;
               var finishPos = $scope.trip.legs[$scope.trip.legs.length - 1].end;
@@ -49,27 +53,88 @@ angular.module(MODULE_NAME, [])
                 $timeout(function() {
                   $scope.map.bounds = { northeast: { latitude: Math.max(startPos[0], finishPos[0]), longitude: Math.max(startPos[1], finishPos[1]) }, 
                                         southwest: { latitude: Math.min(startPos[0], finishPos[0]), longitude: Math.min(startPos[1], finishPos[1]) } };
-                  $scope.map.polylines = _.map($scope.trip.legs, function(leg) { 
-                    return {path: [ { latitude: leg.start[0], longitude: leg.start[1] },
+                  $scope.map.polylines = [];
+                  _.each($scope.trip.legs, function(leg) { 
+
+                    var leg_color = '#6060FB';
+                    if(leg.warning_level == 'Clear' && leg.nominal_kmph > 75.0) {
+                      leg_color = '#10FF00'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 75.0 && leg.nominal_kmph > 65.0) {
+                      leg_color = '#40FF00'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 65.0 && leg.nominal_kmph > 55.0) {
+                      leg_color = '#80FF00'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 55.0 && leg.nominal_kmph > 45.0) {
+                      leg_color = '#C0FF00'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 45.0 && leg.nominal_kmph > 35.0) {
+                      leg_color = '#FFFF00'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 35.0 && leg.nominal_kmph > 25.0) {
+                      leg_color = '#FFC000'
+                    }
+                    else if(leg.warning_level == 'Clear' && leg.nominal_kmph <= 25.0) {
+                      leg_color = '#FF8000'
+                    }
+                    else if(leg.warning_level == 'Low Impact') {
+                      leg_color = '#FFFF00'
+                    }
+                    else if(leg.warning_level == 'Minor') {
+                      leg_color = '#FFFF00'
+                    }
+                    else if(leg.warning_level == 'Moderate') {
+                      leg_color = '#10FF00'
+                    }
+                    else if(leg.warning_level == 'Serious') {
+                      leg_color = '#10FF00'
+                    }
+                    proposed_path = {path: [ { latitude: leg.start[0], longitude: leg.start[1] },
                                          { latitude: leg.end[0], longitude: leg.end[1] },
                                        ],
                             stroke: {
-                                  color: '#6060FB',
+                                  color: leg_color,
                                   weight: 3
                               },
                             visible: true,
                             editable: false,
                             draggable: false,
                             geodesic: true,
+                            /*
                             icons: [{
                                       icon: {
                                           path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
                                       },
                                       offset: '25px',
                                       repeat: '50px'
-                                  }]
-                            }
+                                  }],
+                            */
+                            };
+                    if($scope.map.polylines.length > 0 && canMergeLegs($scope.map.polylines[$scope.map.polylines.length-1], proposed_path)) {
+                      $scope.map.polylines[$scope.map.polylines.length-1].path.push({ latitude: leg.end[0], longitude: leg.end[1] });
+                    }
+                    else {
+                      $scope.map.polylines.push(proposed_path);  
+                    }
                   });
+
+                  $scope.map.markers = [{ coords: { latitude: startPos[0], longitude: startPos[1] },
+                                          options: {  icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' 
+                                                    },
+                                          id: 0,
+                                        },
+                                        { coords: { latitude: finishPos[0], longitude: finishPos[1] },
+                                          options: {  icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
+                                                    },
+                                          id: 1,
+                                        },
+                                        ];
+
+
+                  console.log('trip', $scope.trip);
+                  console.log('map', $scope.map);
+                  
                   var staticUri = URI('https://maps.googleapis.com/maps/api/staticmap');
                   var mapUriParams = {  'size': '400x400',
                                         'markers': [ 'color:red|'+coordToStr(startPos), 'color:green|'+coordToStr(finishPos)],
