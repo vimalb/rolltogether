@@ -43,6 +43,9 @@ angular.module(MODULE_NAME, ['ionic'])
         $scope.route = {};
       });
 
+      $scope.goRoutePledge = function(route) {
+        $state.go('tab.my-routes-pledge', {routeId: route.routeId});
+      }
   })
 
 

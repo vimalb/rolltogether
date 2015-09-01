@@ -22,6 +22,20 @@
       <div class="item item-divider section">
         Friends' Pledges 
       </div> 
+
+      <div class="card" ng-repeat="pledge in pledges" ng-click="goPledgeDetail(pledge)">
+        <div class="item item-avatar">
+          <img class="profile-img" src="assets/img/profile_pic.png">
+          <h2>
+            {{ pledge.amount | currency }}
+          </h2>
+          <p>Grupo Ultro to Skye Bar</p>
+        </div>
+        <div class="item item-body">
+          <div class="spacer"> </div>
+          <img class="trip-map-summary" src="assets/img/map1.png" >
+        </div><!-- /item item-body -->
+      </div><!-- /card -->
     </div><!-- /list -->
     <br>
 

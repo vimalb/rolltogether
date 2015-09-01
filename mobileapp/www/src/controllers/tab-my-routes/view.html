@@ -3,8 +3,8 @@
   <ion-content class="padding routes">
     <div class="list">
       <div class="item item-divider section">
-        Top Routes
-      </div>
+        Your Routes
+      </div><!-- /item item-divider section -->
       <div class="card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
         <div class="item item-divider header">
           <div class="route-title">
@@ -15,7 +15,7 @@
             <span class="summary-stats">50 miles</span>
             <span class="summary-stats">2h42m</span>
           </div>
-        </div>
+        </div><!-- item item-divider header -->
 
         <div class="item item-image">
           <img class="route-image" src="assets/img/map1.png" >
@@ -23,7 +23,7 @@
           <button class="button button-balanced contribute-button" ng-click="goRouteDetail(route)">
             PLEDGE
           </button>
-        </div>
+        </div><!-- /item item-image -->
 
         <!-- not sure if this info belongs on index view -->
         <!--div class="item item-divider footer">
@@ -32,7 +32,31 @@
             <span class="right">101<i class="ion-person-stalker"></i></span>
           </div>
         </div-->
-      </div>
+      </div><!-- /card -->
+
+      <div class="item item-divider section">
+        Popular Routes
+      </div><!-- /item item-divider section -->
+      <div class="card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
+        <div class="item item-divider header">
+          <div class="route-title">
+            <span>Grupo Ultra to Skye Bar</span>
+            <span class="right">30x</span>
+          </div>
+          <div class="details">
+            <span class="summary-stats">50 miles</span>
+            <span class="summary-stats">2h42m</span>
+          </div>
+        </div><!-- item item-divider header -->
+
+        <div class="item item-image">
+          <img class="route-image" src="assets/img/map1.png" >
+          <i class="map-heart ion-heart"></i>
+          <button class="button button-balanced contribute-button" ng-click="goRouteDetail(route)">
+            PLEDGE
+          </button>
+        </div><!-- /item item-image -->
+      </div><!-- /card -->
     </div>
     <br>
 
