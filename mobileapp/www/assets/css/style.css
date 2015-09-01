@@ -10,6 +10,19 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   height: 300px; /* this needs to be in px because google maps? */
 }
 
+/* temporarily here because we still have some images */
+img.trip-map-summary {
+  width: 100%;
+  height: 300px;
+}
+
+/* list dividers */
+.item.item-divider.section {
+  background-color: #03A9F4;
+  color: white;
+  border: none;
+}
+
 .left {
   float: left;
 }
@@ -17,6 +30,19 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 .right {
   float: right;
 }
+
+/*
+progress[value]::-webkit-progress-bar {
+  background-color: #00E676;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+*/
+
+
 
 /*
  * Feed tab styling
@@ -117,6 +143,7 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   text-align: center;
 }
 
+
 .route-detail .stats {
   width: 100%;
   font-size: 1em;
@@ -130,6 +157,28 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 
 .route-detail .stats progress[value] {
   margin: 5px auto;
+}
+
+.route-detail .details {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+}
+
+.route-detail .details .detailed-stats {
+  font-size: 1em;
+}
+.route-detail .details .detailed-stats li {
+  display: inline-block;
+  padding-right: 40px
+}
+
+.route-detail .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.route-detail .details .detailed-stats li .stats-label {
+  color: darkgray;
 }
 
 .route-detail .hr-divider {
@@ -185,5 +234,101 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   margin-top: 50px;
   padding: 20px;
   background-color: #E1F5FE;
-} 
+}
 
+/*
+ * My Pledges tab styling
+ */
+.pledges .name {
+  padding: 20px;
+  text-align: center;
+}
+
+.pledges .name h3{
+  margin: 0 auto;
+}
+
+.pledges .list .card .item-avatar h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.pledges .list .card .item-avatar h2 .price {
+  font-style: bold;
+}
+
+.pledges .list .card .item-body {
+  padding: 0;
+}
+
+/* XXX this image cropping is pretty sketch */
+.pledges .list .card .item-body .spacer {
+  margin: 100px;
+}
+
+.pledges .list .card .item-body img.trip-map-summary {
+  height: 300px;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+}
+/* end of sketch image cropping */
+
+/*
+ * Pledges detail
+ */
+.pledges-detail .card .item.price h2{
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.pledges-detail .name {
+  padding: 20px;
+  text-align: center;
+}
+
+.pledges-detail .name h3{
+  margin: 0 auto;
+}
+
+.pledges-detail .list .card .item-avatar h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.pledges-detail .list .card .item-avatar h2 .price {
+  font-style: bold;
+}
+
+.pledges-detail .list .card .item-body {
+  padding: 0;
+}
+
+
+/* start of section that probably should be pulled into directive
+   with route-detail? */
+.pledges-detail .card img.route-image {
+  width: 100%;
+  height: 300px;
+}
+
+.pledges-detail .card .item-body .details {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 10px;
+}
+
+.pledges-detail .card .item-body li {
+  display: inline-block;
+  padding-right: 20px
+}
+
+.pledges-detail .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.pledges-detail .details .detailed-stats li .stats-label {
+  color: darkgray;
+}

@@ -36,7 +36,7 @@ angular.module(MODULE_NAME, [])
             deferred.resolve(resp.data);
           });
           */
-          deferred.resolve([ 
+          deferred.resolve([
             { routeId: 200 },
             { routeId: 201 },
             ])
@@ -52,7 +52,7 @@ angular.module(MODULE_NAME, [])
             deferred.resolve(resp.data);
           });
           */
-          deferred.resolve([ 
+          deferred.resolve([
             { routeId: 300 },
             { routeId: 301 },
             ])
@@ -99,9 +99,30 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
+        /* XXX likely this should be in user service instead? */
+        getPledge: function(pledgeId) {
+          console.log("Fetching pledge", pledgeId);
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/pledges/' + pledgeId.toString();
+          /*
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          */
+          deferred.resolve(
+            {
+              pledgeId: 0,
+              routeId: 200,
+              amount: 5.00,
+              description: "Be one of the pioneers of Sao Paulo's new subway! Guarantee your spot by buying a ticket on YOUR ROUTE now"
+            }
+          );
+          return deferred.promise;
+        },
+
       };
 
     });
-  
-  
+
+
 })();

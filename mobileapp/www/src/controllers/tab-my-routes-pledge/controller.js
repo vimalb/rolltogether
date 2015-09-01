@@ -30,24 +30,25 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.pledgeTotal = 20;
       $scope.selectedIndex = 1;
 
-      $scope.pledges = [
+      // XXX should probably be moved elsewhere
+      $scope.pledgeLevels = [
         {
           index: 0,
           name: "One Trip",
           price: 5.00,
-          description: "Be one of the pioneers of Sao Paolo's new subway! Guarantee your spot by buying a ticket on YOUR ROUTE now"
+          description: "Be one of the pioneers of Sao Paulo's new subway! Guarantee your spot by buying a ticket on YOUR ROUTE now"
         },
         {
           index: 1,
           name: "Five Pack",
           price: 20.00,
-          description: "Good things come in bulk. Give more support to Sao Paolo's subway system and save! Buy four train tickets and get one free!"
+          description: "Good things come in bulk. Give more support to Sao Paulo's subway system and save! Buy four train tickets and get one free!"
         },
         {
           index: 2,
           name: "Supporter of the Cause",
           price: 100.00,
-          description: "Be the good samaritan your mom always told you to be. Do your best to make this happen and be rewarded with your first monthly pass!" 
+          description: "Be the good samaritan your mom always told you to be. Do your best to make this happen and be rewarded with your first monthly pass!"
         }
       ];
 
