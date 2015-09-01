@@ -9,7 +9,7 @@
     <!-- route summary -->
 
     <!--- trips making up the route -->
-    <div class="card" ng-class="{'selected': $index == selectedIndex }" ng-repeat="pledge in pledges" ng-click="selectPledge(pledge)">
+    <div class="card" ng-class="{'selected': $index == selectedIndex }" ng-repeat="pledge in pledgeLevels" ng-click="selectPledge(pledge)">
       <div class="item">
         <i class="checkmark ion-checkmark-circled"></i>
         <h2>{{ pledge.name }}  -  {{ pledge.price | currency }}</h2>

@@ -1,0 +1,27 @@
+<ion-view>
+  <ion-nav-title>Pledges</ion-nav-title>
+  <ion-content class="padding pledges">
+    <div class="name">
+      <h3>My Pledges</h3>
+    </div>
+    <div class="list">
+      <div class="card" ng-repeat="pledge in pledges" ng-click="goPledgeDetail(pledge)">
+        <div class="item item-avatar">
+          <img class="profile-img" src="assets/img/profile_pic.png">
+          <h2>
+            {{ pledge.amount | currency }}
+          </h2>
+          <p>Grupo Ultro to Skye Bar</p>
+        </div>
+        <div class="item item-body">
+          <div class="spacer"> </div>
+          <img class="trip-map-summary" src="assets/img/map1.png" >
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+  </ion-content>
+
+</ion-view>

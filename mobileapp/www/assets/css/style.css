@@ -187,3 +187,92 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   background-color: #E1F5FE;
 } 
 
+/*
+ * My Pledges tab styling
+ */
+.pledges .name {
+  padding: 20px;
+  text-align: center;
+}
+
+.pledges .name h3{
+  margin: 0 auto;
+}
+
+.pledges .list .card .item-avatar h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.pledges .list .card .item-avatar h2 .price {
+  font-style: bold;
+}
+
+.pledges .list .card .item-body {
+  padding: 0;
+}
+
+.pledges .list .card .item-body .spacer {
+  margin: 200px;
+}
+
+.pledges .list .card .item-body img.trip-map-summary {
+  position: absolute; 
+  height: 300px;  
+  z-index: 1000;
+}
+
+
+
+
+
+/*
+ * Pledges detail
+ */ 
+.pledges-detail .name {
+  padding: 20px;
+  text-align: center;
+}
+
+.pledges-detail .name h3{
+  margin: 0 auto;
+}
+
+.pledges-detail .list .card .item-avatar h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.pledges-detail .list .card .item-avatar h2 .price {
+  font-style: bold;
+}
+
+.pledges-detail .list .card .item-body {
+  padding: 0;
+}
+
+.pledges-detail .list .card .item-body img {
+  position: absolute; 
+  top: 0;
+  height: 300px;  
+}
+
+.pledges-detail .list .card .item-body .route-details {
+  margin-top: 150px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  width: 100%;
+  padding: 10px;
+}
+
+.pledges .list .card .item-body .route-details p {
+  margin-top: 5px;
+}
+
+.pledges .list .card .item-body .route-details .stats {
+  font-size: 0.8em;
+}
+
+.pledges .list .card .item-body li {
+  display: inline-block;
+  padding-right: 20px
+}

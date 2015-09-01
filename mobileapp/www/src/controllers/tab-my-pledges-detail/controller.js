@@ -7,7 +7,7 @@ var TEMPLATE_URL = CONTROLLER_URL.replace('controller.js','view.html');
 var CONTROLLER_PATH = URI(CONTROLLER_URL).path();
 CONTROLLER_PATH = CONTROLLER_PATH.substring(CONTROLLER_PATH.indexOf('/src/controllers/'));
 
-var ROUTE_URL = '/popular-routes/:routeId';
+var ROUTE_URL = '/my-pledges/pledgeId';
 var MODULE_NAME = 'mainApp'+CONTROLLER_PATH.replace('/src','').replace('/controller.js','').replace(/\//g,'.');
 var CONTROLLER_NAME = MODULE_NAME.replace(/\./g,'_').replace(/-/g,'_');
 document.APP_MODULES.push(MODULE_NAME);

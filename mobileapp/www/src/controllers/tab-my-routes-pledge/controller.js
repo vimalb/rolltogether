@@ -30,7 +30,8 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.pledgeTotal = 20;
       $scope.selectedIndex = 1;
 
-      $scope.pledges = [
+      // XXX should probably be moved elsewhere
+      $scope.pledgeLevels = [
         {
           index: 0,
           name: "One Trip",
