@@ -10,6 +10,13 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   height: 300px; /* this needs to be in px because google maps? */
 }
 
+/* list dividers */
+.item.item-divider.section {
+  background-color: #03A9F4;
+  color: white;
+  border: none;
+}
+
 .left {
   float: left;
 }
@@ -17,6 +24,19 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 .right {
   float: right;
 }
+
+/*
+progress[value]::-webkit-progress-bar {
+  background-color: #00E676;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+*/
+
+
 
 /*
  * Feed tab styling
@@ -250,6 +270,12 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 /*
  * Pledges detail
  */
+.pledges-detail .card .item.price h2{
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
 .pledges-detail .name {
   padding: 20px;
   text-align: center;

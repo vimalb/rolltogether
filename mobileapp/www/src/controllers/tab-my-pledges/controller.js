@@ -56,8 +56,8 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.refreshPledges();
     });
 
-    $scope.goRouteDetail = function(route) {
-      $state.go('tab.my-routes-detail', {routeId: route.routeId});
+    $scope.goPledgeDetail = function(pledge) {
+      $state.go('tab.my-pledges-detail', {pledgeId: pledge.pledgeId});
     }
   })
 })();

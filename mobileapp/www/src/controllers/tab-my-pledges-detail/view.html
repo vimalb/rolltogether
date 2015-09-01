@@ -1,43 +1,24 @@
 <ion-view>
-  <ion-nav-title>Pledge {{ route.routeId }}</ion-nav-title>
-  <ion-content class="padding pledges">
+  <ion-nav-title>Pledge {{ pledge.pledgeId }}</ion-nav-title>
+  <ion-content class="padding pledges-detail">
     <div class="name">
       <h3>My Pledge</h3>
+      <h3>Grupo Ultra to Skye Bar</h3>
     </div>
-    <div class="list">
-      <div class="card" ng-repeat="pledge in pledges" ng-click="goPledgeDetail(pledge)">
-        <div class="item item-avatar">
-          <img class="profile-img" src="assets/img/profile_pic.png">
-          <h2>
-            {{ pledge.amount | currency }}
-          </h2>
-          <p>Grupo Ultro to Skye Bar</p>
-        </div>
-        <div class="item item-body">
-          <img class="trip-map-summary" src="assets/img/map1.png" >
-          <div class="route-details">
-            <p>This routes goes through the center of Sao Paolo and features 5 stops at...</p>
-            <progress class="progress-bar" max="100" value="50"> </progress>
-            <ul class="stats">
-              <li>
-                <div class="stats-value">50%</div>
-                <span class="stats-label">funded</span>
-              </li>
-              <li>
-                <div class="stats-value">$243,245</div>
-                <span class="stats-label">pledged</span>
-              </li>
-              <li>
-                <div class="stats-value">19</div>
-                <span class="stats-label">days left</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
 
+    <div class="card">
+      <div class="item price">
+        <h2>{{ pledge.amount | currency }}</h2>
+      </div>
+      <div class="item item-body">
+        <div>{{ pledge.description }}</div>
+      </div>
+      <img class="trip-map-summary" src="assets/img/map1.png" >
+    </div>
+
+    <button class="button button-full button-balanced">
+      Change your pledge
+    </button>
 
   </ion-content>
 
