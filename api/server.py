@@ -53,7 +53,7 @@ def sample_echo(arg):
             "Testing Data": req}
     return Response(json.dumps(resp), mimetype='application/json')
 
-TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'routes_2015-08-31_16-25-43_BRT.json'))
+TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'routes_2015-08-31_23_BRT.json'))
 for i, t in enumerate(TRIPS_DB):
     t['trip_id'] = str(i)
 TRIPS_DB = dict([(str(t['trip_id']), t) for t in TRIPS_DB])

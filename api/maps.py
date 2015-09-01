@@ -5,6 +5,7 @@ import json
 from math import sqrt
 from datetime import datetime
 import pytz
+import dateutil.parser
 
 URL_PARAMS = {'key': os.environ['BING_MAPS_KEY']}
 
@@ -37,28 +38,19 @@ def closest(target, points):
     return point, distance
 
 
-
-def get_route(start_lat_lon, end_lat_lon):
-    url_params = deepcopy(URL_PARAMS)
-    url_params['wp.0'] = ",".join([str(x) for x in start_lat_lon])
-    url_params['wp.1'] = ",".join([str(x) for x in end_lat_lon])
-    url_params['optmz'] = 'timeWithTraffic'
-    url_params['ra'] = 'routePath'
-    url_params['du'] = 'km'
-    resp = requests.get(ROUTES_URL, params=url_params)
-    resp_json = json.loads(resp.content)
-    route_cache = jload(ROUTE_CACHE_FILE) if os.path.exists(ROUTE_CACHE_FILE) else []
-    route_cache.append({'start_lat_lon': start_lat_lon,
-                        'end_lat_lon': end_lat_lon,
-                        'timestamp': datetime.utcnow().isoformat(),
-                        'request_url': ROUTES_URL,
-                        'request_params': url_params,
-                        'response_json': resp_json,
-                        })
-    jdump(route_cache, ROUTE_CACHE_FILE)
+def convert_response_to_route(resp_json):
     info = resp_json['resourceSets'][0]['resources'][0]
-    path = [tuple(coord) for coord in info['routePath']['line']['coordinates']]
     itinerary = info['routeLegs'][0]['itineraryItems']
+    
+    raw_path = [tuple(coord) for coord in info['routePath']['line']['coordinates']]
+    path = raw_path
+    path_cutoff = max(20, len(itinerary))
+    for generalization in info['routePath']['generalizations']:
+        proposed_path = [raw_path[i] for i in generalization['pathIndices']]
+        if (len(proposed_path) < len(path)) and (len(path) > path_cutoff):
+            path = proposed_path
+        elif (len(proposed_path) > len(path)) and (len(proposed_path) <= path_cutoff):
+            path = proposed_path
     for itin in itinerary:
         itin['path_start'] = closest(itin['maneuverPoint']['coordinates'], path)[0]
     warnings = [w for itin in itinerary for w in itin.get('warnings',[]) if w.get('origin') and w.get('to') and w.get('severity') in SEVERITIES]
@@ -93,6 +85,31 @@ def get_route(start_lat_lon, end_lat_lon):
              'total_actual_duration_min': total_actual_duration_min,
              }
     return route
+    
+
+
+def get_route(start_lat_lon, end_lat_lon):
+    url_params = deepcopy(URL_PARAMS)
+    url_params['wp.0'] = ",".join([str(x) for x in start_lat_lon])
+    url_params['wp.1'] = ",".join([str(x) for x in end_lat_lon])
+    url_params['optmz'] = 'timeWithTraffic'
+    url_params['ra'] = 'routePath'
+    url_params['du'] = 'km'
+    url_params['tl'] = '0.0001,0.001,0.01'
+    resp = requests.get(ROUTES_URL, params=url_params)
+    if resp.status_code != 200:
+        return None
+    resp_json = json.loads(resp.content)
+    route_cache = jload(ROUTE_CACHE_FILE) if os.path.exists(ROUTE_CACHE_FILE) else []
+    route_cache.append({'start_lat_lon': start_lat_lon,
+                        'end_lat_lon': end_lat_lon,
+                        'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
+                        'request_url': ROUTES_URL,
+                        'request_params': url_params,
+                        'response_json': resp_json,
+                        })
+    jdump(route_cache, ROUTE_CACHE_FILE)
+    return convert_response_to_route(resp_json)
 
 
 destinations = [(-23.51557, -46.73141),
@@ -118,14 +135,27 @@ for start in destinations:
             paths.append([start, end])
 
 
-route_timestamp = datetime.utcnow().replace(tzinfo=pytz.UTC).astimezone(pytz.timezone('Brazil/East'))
-route_filename = os.path.join(os.path.dirname(__file__), 'routes_'+route_timestamp.strftime("%Y-%m-%d_%H-%M-%S_%Z")+'.json')
-
-routes = []
 for start, end in paths:
     print "Routing from", start, "to", end
     route = get_route(start, end)
-    route['local_timestamp'] = route_timestamp.isoformat()
-    routes.append(route)
+
+route_cache = jload(ROUTE_CACHE_FILE)
+route_cache = [r for r in route_cache if r['response_json'].get('statusCode') == 200]
+route_files = {}
+for raw_route in route_cache:
+    route_timestamp = dateutil.parser.parse(raw_route['timestamp']).astimezone(pytz.timezone('Brazil/East'))
+    route_filename = os.path.join(os.path.dirname(__file__), 'routes_'+route_timestamp.strftime("%Y-%m-%d_%H_%Z")+'.json')
+    if route_filename not in route_files:
+        route_files[route_filename] = []
+    resp_json = raw_route['response_json']
+    route = convert_response_to_route(resp_json)
+    route_files[route_filename].append(route)
+
+for route_filename, routes in route_files.iteritems():
     jdump(routes, route_filename)
+
+
+
+    
+    
 

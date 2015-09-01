@@ -29,6 +29,15 @@ angular.module(MODULE_NAME, [])
 
             $scope.map = {};
 
+            var coordToStr = function(coord) {
+              if( Object.prototype.toString.call( coord ) === '[object Array]' ) {
+                return coord[0].toString()+','+coord[1].toString();
+              }
+              else {
+                return coord.latitude.toString()+','+coord.longitude.toString();
+              }
+            } 
+
             var renderTrip = function() {
               var startPos = $scope.trip.legs[0].start;
               var finishPos = $scope.trip.legs[$scope.trip.legs.length - 1].end;
@@ -61,7 +70,16 @@ angular.module(MODULE_NAME, [])
                                   }]
                             }
                   });
-                  console.log('map', $scope.map);
+                  var staticUri = URI('https://maps.googleapis.com/maps/api/staticmap');
+                  var mapUriParams = {  'size': '400x400',
+                                        'markers': [ 'color:red|'+coordToStr(startPos), 'color:green|'+coordToStr(finishPos)],
+                                        'path': _.map(_.sample($scope.trip.legs, 20), function(leg) {
+                                          return 'color:blue|'+coordToStr(leg.start)+'|'+coordToStr(leg.end);
+                                        }),
+
+                                      }
+                  staticUri.addQuery(mapUriParams);
+                  console.log('URI', staticUri.toString());
                 }, 10);
               });
             }
