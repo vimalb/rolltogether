@@ -117,6 +117,7 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   text-align: center;
 }
 
+
 .route-detail .stats {
   width: 100%;
   font-size: 1em;
@@ -130,6 +131,28 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 
 .route-detail .stats progress[value] {
   margin: 5px auto;
+}
+
+.route-detail .details {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+}
+
+.route-detail .details .detailed-stats {
+  font-size: 1em;
+}
+.route-detail .details .detailed-stats li {
+  display: inline-block;
+  padding-right: 40px
+}
+
+.route-detail .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.route-detail .details .detailed-stats li .stats-label {
+  color: darkgray;
 }
 
 .route-detail .hr-divider {
@@ -185,7 +208,7 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   margin-top: 50px;
   padding: 20px;
   background-color: #E1F5FE;
-} 
+}
 
 /*
  * My Pledges tab styling
@@ -213,22 +236,20 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 }
 
 .pledges .list .card .item-body .spacer {
-  margin: 200px;
+  margin: 100px;
 }
 
+/* XXX this image cropping is pretty sketch */
 .pledges .list .card .item-body img.trip-map-summary {
-  position: absolute; 
-  height: 300px;  
+  position: absolute;
+  top: 0;
+  height: 300px;
   z-index: 1000;
 }
 
-
-
-
-
 /*
  * Pledges detail
- */ 
+ */
 .pledges-detail .name {
   padding: 20px;
   text-align: center;
@@ -252,14 +273,14 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 }
 
 .pledges-detail .list .card .item-body img {
-  position: absolute; 
+  position: absolute;
   top: 0;
-  height: 300px;  
+  height: 300px;
 }
 
 .pledges-detail .list .card .item-body .route-details {
   margin-top: 150px;
-  background-color: rgba(255, 255, 255, 0.9); 
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 10px;
 }
