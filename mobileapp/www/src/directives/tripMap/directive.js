@@ -16,7 +16,7 @@ document.APP_MODULES.push(MODULE_NAME);
 
 console.log(MODULE_NAME, "Registering directive", DIRECTIVE_NAME);
 angular.module(MODULE_NAME, [])
-  .directive(DIRECTIVE_NAME, function($http, CLIENT_SETTINGS, SERVER_SETTINGS) {
+  .directive(DIRECTIVE_NAME, function($http, CLIENT_SETTINGS, SERVER_SETTINGS, uiGmapGoogleMapApi, $timeout) {
     console.log("Loading directive", DIRECTIVE_NAME);
 
     return {
@@ -30,8 +30,8 @@ angular.module(MODULE_NAME, [])
             $scope.map = {};
 
             var renderTrip = function() {
-              var startPos = trip.legs[0].start;
-              var finishPos = trip.legs[trip.legs.length - 1].end;
+              var startPos = $scope.trip.legs[0].start;
+              var finishPos = $scope.trip.legs[$scope.trip.legs.length - 1].end;
               uiGmapGoogleMapApi.then(function(maps) {
                 $scope.map = { bounds: {},
                                center: { latitude: (startPos[0] + finishPos[0]) / 2.0, longitude: (startPos[1] + finishPos[1]) / 2.0 },

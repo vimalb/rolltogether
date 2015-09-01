@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, $timeout, tripSearchService, userService, uiGmapGoogleMapApi) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
       $scope.trip = {};
 
       $scope.$on('$ionicView.beforeEnter', function(){
