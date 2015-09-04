@@ -4,6 +4,7 @@
     <div class="list">
       <div class="item item-divider date">
         Today
+        <span>{{feedItems.length}}
       </div>
       <div class="card" ng-repeat="feedItem in feedItems">
         <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)">
@@ -17,9 +18,8 @@
                   <span class="summary-stats">{{ feedItem.item_details.total_distance_km }} km</span>
                   <span class="summary-stats">{{ feedItem.item_details.total_actual_duration_min }} min</span>
                 </div>
-              </div>
-
-            </div>
+              </div><!-- /item item-avatar header -->
+            </div><!-- /list header -->
             <img ng-src="{{ SERVER_URL+'/api/trips/'+feedItem.item_id.toString()+'/map' }}"></img>
             <!--<trip-map trip="feedItem.item_details"></trip-map>-->
           </div>
