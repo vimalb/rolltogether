@@ -120,13 +120,13 @@ angular.module(MODULE_NAME, [])
                   });
 
                   $scope.map.markers = [{ coords: { latitude: startPos[0], longitude: startPos[1] },
-                                          options: {  icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' 
-                                                    },
+                                          options: { },
+                                          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ,
                                           id: 0,
                                         },
                                         { coords: { latitude: finishPos[0], longitude: finishPos[1] },
-                                          options: {  icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
-                                                    },
+                                          options: { },
+                                          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' ,
                                           id: 1,
                                         },
                                         ];
