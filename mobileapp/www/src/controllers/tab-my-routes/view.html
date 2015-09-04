@@ -20,7 +20,7 @@
         <div class="item item-image">
           <img class="route-image" src="assets/img/map1.png" >
           <i class="map-heart ion-heart"></i>
-          <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id)">
+          <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
             PLEDGE
           </button>
         </div><!-- /item item-image -->
