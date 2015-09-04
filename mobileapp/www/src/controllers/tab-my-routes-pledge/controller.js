@@ -25,10 +25,11 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, CLIENT_SETTINGS) {
       $scope.route = {};
       $scope.pledgeTotal = 20;
       $scope.selectedIndex = 1;
+      $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       // XXX should probably be moved elsewhere
       $scope.pledgeLevels = [

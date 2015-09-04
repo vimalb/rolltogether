@@ -37,6 +37,16 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
+        getPopularRoutes: function() {
+          console.log("Fetching popular routes");
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/routes/popular';
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
+
         getAllRoutes: function() {
           console.log("Fetching all routes");
           var deferred = $q.defer();

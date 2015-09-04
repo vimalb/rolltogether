@@ -25,9 +25,10 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, CLIENT_SETTINGS) {
       $scope.pledge = {};
       $scope.route = {};
+      $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getPledge($stateParams.pledgeId).then(function(pledge) {

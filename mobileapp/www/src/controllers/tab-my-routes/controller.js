@@ -25,15 +25,19 @@ angular.module(MODULE_NAME, ['ionic'])
         }
       });
   })
-  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state) {
+  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
     $scope.myRoutes = [];
     $scope.popularRoutes = [];
+    $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
     $scope.refreshRoutes = function() {
       tripSearchService.getMyRoutes().then(function(routes) {
         $scope.myRoutes = routes;
+      });
+      tripSearchService.getPopularRoutes().then(function(routes) {
+        $scope.popularRoutes = routes;
       });
     }
 

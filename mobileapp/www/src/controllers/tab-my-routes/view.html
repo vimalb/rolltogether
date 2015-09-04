@@ -18,7 +18,7 @@
         </div><!-- item item-divider header -->
 
         <div class="item item-image">
-          <img class="route-image" src="assets/img/map1.png" >
+          <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
           <i class="map-heart ion-heart"></i>
           <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
             PLEDGE
@@ -37,7 +37,7 @@
       <div class="item item-divider section">
         Popular Routes
       </div><!-- /item item-divider section -->
-      <div class="card" ng-repeat="route in routes" ng-click="goRouteDetail(route)">
+      <div class="card" ng-repeat="route in popularRoutes" ng-click="goRouteDetail(route)">
         <div class="item item-divider header">
           <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
@@ -50,9 +50,9 @@
         </div><!-- item item-divider header -->
 
         <div class="item item-image">
-          <img class="route-image" src="assets/img/map1.png" >
+          <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
           <i class="map-heart ion-heart"></i>
-          <button class="button button-balanced contribute-button" ng-click="goRouteDetail(route)">
+          <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
             PLEDGE
           </button>
         </div><!-- /item item-image -->

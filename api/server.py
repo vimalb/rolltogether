@@ -70,7 +70,7 @@ def coord_to_str(coord):
     else:
         return str(coord['latitude'])+','+str(coord['longitude'])
 
-def get_map(route):
+def get_trip_map(route):
     map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/trip_'+route['route_id']+'.png')
     if not os.path.exists(map_filename):
         start_pos = route['legs'][0]['start']
@@ -88,11 +88,34 @@ def get_map(route):
         sleep(1)        
     with open(map_filename) as r:
         return r.read()
+
+def get_route_map(route):
+    map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/route_'+route['route_id']+'.png')
+    if not os.path.exists(map_filename):
+        start_pos = route['legs'][0]['start']
+        finish_pos = route['legs'][-1]['end']
+        map_url = 'https://maps.googleapis.com/maps/api/staticmap'
+        map_params = {'size': '330x350',
+                      'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
+                      'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
+                      'key': 'AIzaSyAt2y4z718FkdgpVTnXB_yMntYtiUuJG4I',
+                      }
+        resp = requests.get(map_url, map_params)
+        if resp.status_code == 200:
+            with open(map_filename, 'wb') as w:
+                w.write(resp.content)
+        print resp.status_code, map_url
+        sleep(1)        
+    with open(map_filename) as r:
+        return r.read()
+
+
     
 ROUTES_DB = jload(os.path.join(os.path.dirname(__file__), 'routes_2015-08-31_23_BRT.json'))
 for i, route in enumerate(ROUTES_DB):
     route['route_id'] = str(i)
-    get_map(route)
+    get_trip_map(route)
+    get_route_map(route)
 ROUTES_DB = dict([(str(t['route_id']), t) for t in ROUTES_DB])
 
 
@@ -130,7 +153,7 @@ def trips(trip_id):
 @app.route("/api/trips/<trip_id>/map", methods=['GET'])
 def trip_map(trip_id):
     trip = MONGO_DB.trips.find_one({'_id': ObjectId(trip_id)})
-    return Response(get_map(ROUTES_DB[trip['route_id']]), mimetype='image/png')
+    return Response(get_trip_map(ROUTES_DB[trip['route_id']]), mimetype='image/png')
 
 @app.route("/api/users/<user_id>/routes", methods=['GET'])
 def user_routes(user_id):
@@ -141,8 +164,24 @@ def user_routes(user_id):
     routes = routes[:5]
     return Response(json.dumps(routes), mimetype='application/json')
     
-        
-    
+
+@app.route("/api/routes/all/<route_id>", methods=['GET'])
+def routes(route_id):
+    return Response(json.dumps(ROUTES_DB[route_id]), mimetype='application/json')
+
+@app.route("/api/routes/all/<route_id>/map", methods=['GET'])
+def route_map(route_id):
+    return Response(get_route_map(ROUTES_DB[route_id]), mimetype='image/png')
+
+@app.route("/api/routes/popular", methods=['GET'])
+def popular_routes():
+    route_counts = list(MONGO_DB.trips.aggregate([ {"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}} ]))
+    route_counts.sort(key=lambda x: x['count'])
+    route_counts.reverse()
+    route_counts = route_counts[:5]
+    routes = [ROUTES_DB[x['_id']] for x in route_counts]
+    return Response(json.dumps(routes), mimetype='application/json')
+
     
     
     
