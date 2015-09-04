@@ -28,11 +28,12 @@ angular.module(MODULE_NAME, ['ionic'])
   .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
-    $scope.routes = [];
+    $scope.myRoutes = [];
+    $scope.popularRoutes = [];
 
     $scope.refreshRoutes = function() {
       tripSearchService.getMyRoutes().then(function(routes) {
-        $scope.routes = routes;
+        $scope.myRoutes = routes;
       });
     }
 
@@ -40,8 +41,12 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.refreshRoutes();
     });
 
-    $scope.goRouteDetail = function(route) {
-      $state.go('tab.my-routes-detail', {routeId: route.routeId});
+    $scope.goRouteDetail = function(routeId) {
+      $state.go('tab.my-routes-detail', {routeId: routeId});
+    }
+
+    $scope.goRoutePledgeDetail = function(routeId) {
+      $state.go('tab.my-routes-pledge', {routeId: routeId});
     }
 
 

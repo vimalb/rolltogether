@@ -138,6 +138,7 @@ def user_routes(user_id):
     routes = [deepcopy(ROUTES_DB[route_id]) for route_id in route_ids.keys()]
     routes.sort(key=lambda route: route_ids[route['route_id']])
     routes.reverse()
+    routes = routes[:5]
     return Response(json.dumps(routes), mimetype='application/json')
     
         
