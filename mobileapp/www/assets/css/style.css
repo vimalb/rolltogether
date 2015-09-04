@@ -18,9 +18,12 @@ img.trip-map-summary {
 
 /* list dividers */
 .item.item-divider.section {
-  background-color: #03A9F4;
-  color: white;
+  /*background-color: #03A9F4;
+  color: white;*/
+  /*background-color: rgba(173, 216, 230, 0.2);*/
   border: none;
+  /*text-transform: uppercase;*/
+  font-weight: 500;
 }
 
 .left {
@@ -50,9 +53,13 @@ progress[value]::-webkit-progress-value {
 
 /* trip card background image */
 .trip-feed .item.item-divider.date {
-  background-color: #03A9F4;
-  color: white;
+  /*background-color: #03A9F4;
+  color: white;*/
   border: none;
+}
+
+.trip-feed .card {
+  margin: 10px;
 }
 
 /* header details for the card */
@@ -95,10 +102,21 @@ progress[value]::-webkit-progress-value {
  *- Routes tab styling
  */
 
-.routes .item.item-divider.section {
-  background-color: #03A9F4;
-  color: white;
-  border: none;
+
+.routes .list .card {
+  margin: 10px;
+  position: relative;
+}
+
+.routes .list .card .item.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 15px;
+  line-height: 1.5em;
+  background-color: rgba(255, 255, 255, .8);
+  color: black;
+  z-index: 1000;
 }
 
 .routes .list .card .item.header .details {
@@ -107,11 +125,12 @@ progress[value]::-webkit-progress-value {
 
 .routes .list .card .item.item-image .route-image {
   z-index: -1;
+  padding-top: 40px;
 }
 
 .routes .list .card .item.item-image .map-heart {
   position: absolute;
-  top: 10px;
+  top: 90px;
   right: 10px;
   color: gray;
   font-size: 2.5em;
@@ -193,11 +212,6 @@ progress[value]::-webkit-progress-value {
   padding: 30px;
 }
 
-.route-detail .item.item-divider.section {
-  background-color: #03A9F4;
-  color: white;
-  border: none;
-}
 
 /*
  * Routes Pledge styling
@@ -239,6 +253,7 @@ progress[value]::-webkit-progress-value {
 /*
  * My Pledges tab styling
  */
+
 .pledges .name {
   padding: 20px;
   text-align: center;
@@ -246,6 +261,11 @@ progress[value]::-webkit-progress-value {
 
 .pledges .name h3{
   margin: 0 auto;
+}
+
+.pledges .list .card {
+  margin: 20px 10px;
+  position: relative;
 }
 
 .pledges .list .card .item-avatar h2 {
