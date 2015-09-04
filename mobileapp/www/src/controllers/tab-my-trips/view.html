@@ -20,7 +20,8 @@
               </div>
 
             </div>
-            <trip-map trip="feedItem.item_details"></trip-map>
+            <img ng-src="{{ SERVER_URL+'/api/trips/'+feedItem.item_id.toString()+'/map' }}"></img>
+            <!--<trip-map trip="feedItem.item_details"></trip-map>-->
           </div>
         </div>
       </div>

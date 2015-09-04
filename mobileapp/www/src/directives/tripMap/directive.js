@@ -132,11 +132,8 @@ angular.module(MODULE_NAME, [])
                                         ];
 
 
-                  console.log('trip', $scope.trip);
-                  console.log('map', $scope.map);
-                  
                   var staticUri = URI('https://maps.googleapis.com/maps/api/staticmap');
-                  var mapUriParams = {  'size': '400x400',
+                  var mapUriParams = {  'size': '330x350',
                                         'markers': [ 'color:red|'+coordToStr(startPos), 'color:green|'+coordToStr(finishPos)],
                                         'path': _.map(_.sample($scope.trip.legs, 20), function(leg) {
                                           return 'color:blue|'+coordToStr(leg.start)+'|'+coordToStr(leg.end);
@@ -144,7 +141,11 @@ angular.module(MODULE_NAME, [])
 
                                       }
                   staticUri.addQuery(mapUriParams);
-                  console.log('URI', staticUri.toString());
+                  $scope.map.url = staticUri.toString();
+
+                  console.log('trip', $scope.trip);
+                  console.log('map', $scope.map);
+                  
                 }, 10);
               });
             }
