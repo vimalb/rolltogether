@@ -6,6 +6,8 @@ from math import sqrt
 from datetime import datetime
 import pytz
 import dateutil.parser
+import random
+from geopy.distance import great_circle
 
 URL_PARAMS = {'key': os.environ['BING_MAPS_KEY']}
 
@@ -13,7 +15,9 @@ ROUTES_URL = 'http://dev.virtualearth.net/REST/v1/Routes'
 
 SEVERITIES = ['Clear','Low Impact', 'Minor', 'Moderate','Serious']
 
-ROUTE_CACHE_FILE = os.path.join(os.path.dirname(__file__), 'raw_route_cache.json')
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
+
+TRIP_CACHE_FILE = os.path.join(os.path.dirname(__file__), 'raw_trip_cache.json')
 
 def jdump(jval, filename):
     jdir = os.path.dirname(filename)
@@ -28,7 +32,7 @@ def jload(filename):
 
 
 def dist(a,b):
-    return sqrt(pow(a[0]-b[0],2)+pow(a[1]-b[1],2))
+    return great_circle(a,b).meters
 
 def closest(target, points):
     candidates = [(p, dist(p,target)) for p in points]
@@ -38,7 +42,7 @@ def closest(target, points):
     return point, distance
 
 
-def convert_response_to_route(resp_json):
+def convert_response_to_trip(resp_json):
     info = resp_json['resourceSets'][0]['resources'][0]
     itinerary = info['routeLegs'][0]['itineraryItems']
     
@@ -71,6 +75,7 @@ def convert_response_to_route(resp_json):
         nominal_kmph = active_itin['travelDistance'] * 3600.0 / active_itin['travelDuration']
         legs.append({'start': leg_start,
                      'end': leg_end,
+                     'distance_km': dist(leg_start, leg_end) / 1000,
                      'warning_level': warning_level,
                      'nominal_kmph': nominal_kmph,
                      })
@@ -78,17 +83,17 @@ def convert_response_to_route(resp_json):
     total_distance_km = info['travelDistance']
     total_nominal_duration_min = info['travelDuration'] / 60.0
     total_actual_duration_min = info['travelDurationTraffic'] / 60.0
-    route = {'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
+    trip = {'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
              'legs': legs,
              'total_distance_km': total_distance_km,
              'total_nominal_duration_min': total_nominal_duration_min,
              'total_actual_duration_min': total_actual_duration_min,
              }
-    return route
+    return trip
     
 
 
-def get_route(start_lat_lon, end_lat_lon):
+def get_trip(start_lat_lon, end_lat_lon):
     url_params = deepcopy(URL_PARAMS)
     url_params['wp.0'] = ",".join([str(x) for x in start_lat_lon])
     url_params['wp.1'] = ",".join([str(x) for x in end_lat_lon])
@@ -100,16 +105,16 @@ def get_route(start_lat_lon, end_lat_lon):
     if resp.status_code != 200:
         return None
     resp_json = json.loads(resp.content)
-    route_cache = jload(ROUTE_CACHE_FILE) if os.path.exists(ROUTE_CACHE_FILE) else []
-    route_cache.append({'start_lat_lon': start_lat_lon,
+    trip_cache = jload(TRIP_CACHE_FILE) if os.path.exists(TRIP_CACHE_FILE) else []
+    trip_cache.append({'start_lat_lon': start_lat_lon,
                         'end_lat_lon': end_lat_lon,
                         'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
                         'request_url': ROUTES_URL,
                         'request_params': url_params,
                         'response_json': resp_json,
                         })
-    jdump(route_cache, ROUTE_CACHE_FILE)
-    return convert_response_to_route(resp_json)
+    jdump(trip_cache, TRIP_CACHE_FILE)
+    return convert_response_to_trip(resp_json)
 
 
 destinations = [(-23.51557, -46.73141),
@@ -135,27 +140,139 @@ for start in destinations:
             paths.append([start, end])
 
 
+"""
 for start, end in paths:
     print "Routing from", start, "to", end
-    route = get_route(start, end)
+    get_trip(start, end)
+"""
 
-route_cache = jload(ROUTE_CACHE_FILE)
-route_cache = [r for r in route_cache if r['response_json'].get('statusCode') == 200]
-route_files = {}
-for raw_route in route_cache:
-    route_timestamp = dateutil.parser.parse(raw_route['timestamp']).astimezone(pytz.timezone('Brazil/East'))
-    route_filename = os.path.join(os.path.dirname(__file__), 'routes_'+route_timestamp.strftime("%Y-%m-%d_%H_%Z")+'.json')
-    if route_filename not in route_files:
-        route_files[route_filename] = []
-    resp_json = raw_route['response_json']
-    route = convert_response_to_route(resp_json)
-    route_files[route_filename].append(route)
+trip_cache = jload(TRIP_CACHE_FILE)
+trip_cache = [r for r in trip_cache if r['response_json'].get('statusCode') == 200]
+trip_files = {}
+for raw_trip in trip_cache:
+    trip_timestamp = dateutil.parser.parse(raw_trip['timestamp']).astimezone(pytz.timezone('Brazil/East'))
+    trip_filename = os.path.join(os.path.dirname(__file__), 'trips_'+trip_timestamp.strftime("%Y-%m-%d_%H_%Z")+'.json')
+    if trip_filename not in trip_files:
+        trip_files[trip_filename] = []
+    resp_json = raw_trip['response_json']
+    trip = convert_response_to_trip(resp_json)
+    trip_files[trip_filename].append(trip)
 
-for route_filename, routes in route_files.iteritems():
-    jdump(routes, route_filename)
+for trip_filename, trips in trip_files.iteritems():
+    jdump(trips, trip_filename)
+
+route_points = []
+for trips in trip_files.values():
+    for trip in trips:
+        for leg in trip['legs']:
+            start = tuple(leg['start'])
+            end = tuple(leg['end'])
+            if start not in route_points:
+                route_points.append(start)
+            if end not in route_points:
+                route_points.append(end)
+
+random.shuffle(route_points)
+
+def calc_transit_points(route_points, threshold_meters):
+    transit_points = {route_points[0]: []}
+    for route_point in route_points:
+        closest_point, distance = closest(route_point, transit_points.keys())
+        if distance < threshold_meters:
+            transit_points[closest_point].append(route_point)
+        else:
+            transit_points[route_point] = [route_point]
+    return transit_points
+
+TRANSIT_POINTS = calc_transit_points(route_points, 3000)
+
+TRANSIT_POINTS = [(-23.5166, -46.726709),
+(-23.586487, -46.690038),
+(-23.630889, -46.644328),
+(-23.526561, -46.630182),
+(-23.607838, -46.614008),
+(-23.630277, -46.734868),
+(-23.559982, -46.712408),
+(-23.61435, -46.70089),
+(-23.619757, -46.671321),
+(-23.57953, -46.599857),
+(-23.604007, -46.74741),
+(-23.51433, -46.677979),
+(-23.552289, -46.658608),
+(-23.556001, -46.623031),
+(-23.585318, -46.654971)]
+
+raw_trip_id = 0
+
+routes = []
+
+TRANSIT_KMPH = 50.0
+for trip_filename in trip_files.keys():
+    trips = jload(trip_filename)
+    for trip in trips:
+        leg_points = [l['start'] for l in trip['legs']] + [trip['legs'][-1]['end']]
+        leg_transit_points = []
+        for leg_point in leg_points:
+            leg_transit_point, distance = closest(leg_point, TRANSIT_POINTS)
+            if leg_transit_point not in leg_transit_points:
+                leg_transit_points.append(tuple(leg_transit_point))
+        if len(leg_transit_points) > 1:
+            transit_legs = [{'start': leg_transit_points[i],
+                            'end': leg_transit_points[i+1],
+                            'distance_km': dist(leg_transit_points[i], leg_transit_points[i+1]) / 1000,
+                            'nominal_kmph': TRANSIT_KMPH,
+                         } for i in range(len(leg_transit_points) - 1)]
+            trip['transit_legs'] = transit_legs
+            transit_km = sum([l['distance_km'] for l in transit_legs])
+            trip['transit_distance_km'] = transit_km
+            avg_kmph = trip['total_distance_km'] * 60.0 / trip['total_nominal_duration_min']
+            remaining_km = trip['total_distance_km'] - transit_km
+            trip['total_transit_duration_min'] = (transit_km / TRANSIT_KMPH)*60.0 + (remaining_km / avg_kmph)*60.0
+            trip['raw_trip_id'] = str(raw_trip_id)
+            raw_trip_id = raw_trip_id + 1            
+            print "saved", (trip['total_actual_duration_min'] - trip['total_transit_duration_min']) * 100.0 / trip['total_actual_duration_min']
+
+            matching_route = None
+            for route in routes:
+                route_transit_points = set([tuple(l['start']) for l in route['legs']] + [tuple(route['legs'][-1]['end'])])
+                overlap = set(leg_transit_points).intersection(route_transit_points)
+                if len(overlap) == len(route_transit_points):
+                    route['legs'] = trip['transit_legs']
+                    matching_route = route
+                elif len(overlap) == len(leg_transit_points):
+                    matching_route = route
+            if not matching_route:
+                matching_route = {'route_id': str(len(routes)),
+                                  'legs': trip['transit_legs'],
+                                  }
+                routes.append(matching_route)
+            trip['route_id'] = matching_route['route_id']
+            
+    trips = [r for r in trips if r.get('transit_legs')]
+    jdump(trips, trip_filename)
+
+route_filename = os.path.join(os.path.dirname(__file__), 'routes.json')
+jdump(routes, route_filename)
 
 
 
-    
+
+
+"""
+def coord_to_str(coord):
+    if type(coord) == list or type(coord) == tuple:
+        return str(coord[0])+','+str(coord[1])
+    else:
+        return str(coord['latitude'])+','+str(coord['longitude'])
+
+map_url = 'https://maps.googleapis.com/maps/api/staticmap'
+map_params = {'size': '330x350',
+              'markers': [ 'color:red|'+coord_to_str(tp) for tp in transit_points],
+              'key': GOOGLE_API_KEY,
+              }
+with open('foo.png','wb') as w:
+    resp = requests.get(map_url, map_params)
+    w.write(resp.content)
+"""
     
 

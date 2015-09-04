@@ -9,3 +9,5 @@ nltk
 pytz
 gunicorn
 pymongo
+geopy
+

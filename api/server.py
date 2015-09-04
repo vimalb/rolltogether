@@ -72,15 +72,15 @@ def coord_to_str(coord):
     else:
         return str(coord['latitude'])+','+str(coord['longitude'])
 
-def get_trip_map(route):
-    map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/trip_'+route['route_id']+'.png')
+def get_trip_map(trip):
+    map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/trip_'+trip['raw_trip_id']+'.png')
     if not os.path.exists(map_filename):
-        start_pos = route['legs'][0]['start']
-        finish_pos = route['legs'][-1]['end']
+        start_pos = trip['legs'][0]['start']
+        finish_pos = trip['legs'][-1]['end']
         map_url = 'https://maps.googleapis.com/maps/api/staticmap'
         map_params = {'size': '330x350',
                       'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
-                      'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
+                      'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in trip['legs']],
                       'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
@@ -114,13 +114,15 @@ def get_route_map(route):
 
 
     
-ROUTES_DB = jload(os.path.join(os.path.dirname(__file__), 'routes_2015-08-31_23_BRT.json'))
-for i, route in enumerate(ROUTES_DB):
-    route['route_id'] = str(i)
-    get_trip_map(route)
-    get_route_map(route)
+ROUTES_DB = jload(os.path.join(os.path.dirname(__file__), 'routes.json'))
+#for route in ROUTES_DB:
+#    get_route_map(route)
 ROUTES_DB = dict([(str(t['route_id']), t) for t in ROUTES_DB])
 
+RAW_TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'trips_2015-08-31_23_BRT.json'))
+#for trip in RAW_TRIPS_DB:
+#    get_trip_map(trip)
+RAW_TRIPS_DB = dict([(str(t['raw_trip_id']), t) for t in RAW_TRIPS_DB if t['route_id'] in ROUTES_DB])
 
 
 
@@ -130,8 +132,8 @@ def feed(user_id):
 
     trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB]
     if len(trips) == 0:
-        for route in random.sample(ROUTES_DB.values(), 10):
-            trip = deepcopy(route)
+        for raw_trip in random.sample(RAW_TRIPS_DB.values(), 10):
+            trip = deepcopy(raw_trip)
             trip['user_id'] = user_id
             trips.append(trip)
         MONGO_DB.trips.insert_many(trips)
@@ -156,7 +158,7 @@ def trips(trip_id):
 @app.route("/api/trips/<trip_id>/map", methods=['GET'])
 def trip_map(trip_id):
     trip = MONGO_DB.trips.find_one({'_id': ObjectId(trip_id)})
-    return Response(get_trip_map(ROUTES_DB[trip['route_id']]), mimetype='image/png')
+    return Response(get_trip_map(RAW_TRIPS_DB[trip['raw_trip_id']]), mimetype='image/png')
 
 @app.route("/api/users/<user_id>/routes", methods=['GET'])
 def user_routes(user_id):
@@ -186,6 +188,11 @@ def popular_routes():
     return Response(json.dumps(routes), mimetype='application/json')
 
     
+    
+
+@app.route("/api/reset", methods=['GET'])
+def reset():
+    MONGO_DB.trips.drop()
     
     
 
