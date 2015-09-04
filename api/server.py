@@ -23,6 +23,8 @@ MONGO_URL = os.environ['MONGOLAB_URI']
 MONGO_CLIENT = MongoClient(MONGO_URL)
 MONGO_DB = MONGO_CLIENT[urlparse(MONGO_URL).path[1:]]
 
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
+
 
 def dump(filename, content):
     dirname = os.path.dirname(filename)
@@ -79,6 +81,7 @@ def get_trip_map(route):
         map_params = {'size': '330x350',
                       'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
                       'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
+                      'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
         if resp.status_code == 200:
@@ -98,7 +101,7 @@ def get_route_map(route):
         map_params = {'size': '330x350',
                       'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
                       'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
-                      'key': 'AIzaSyAt2y4z718FkdgpVTnXB_yMntYtiUuJG4I',
+                      'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
         if resp.status_code == 200:
