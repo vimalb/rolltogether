@@ -25,8 +25,9 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, CLIENT_SETTINGS) {
       $scope.trip = {};
+      $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getTrip($stateParams.tripId).then(function(trip) {

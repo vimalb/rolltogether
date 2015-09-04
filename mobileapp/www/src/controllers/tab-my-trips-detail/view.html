@@ -5,7 +5,8 @@
       <h3>Going to the Office</h3>
     </div>
 
-    <trip-map trip="trip"></trip-map>
+    <img ng-src="{{ SERVER_URL+'/api/trips/'+trip.trip_id.toString()+'/map' }}"></img>
+    <!--<trip-map trip="trip"></trip-map>-->
 
     <div class="total">
       <div class="stats-bold">
