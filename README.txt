@@ -1,3 +1,4 @@
+
 Overview:
 	This is a skeleton for a generic responsive web + mobile app featuring:
 	* AngularJS / Material Design web app

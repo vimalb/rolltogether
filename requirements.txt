@@ -7,3 +7,5 @@ flask-cors
 beautifulsoup4
 nltk
 pytz
+gunicorn
+
