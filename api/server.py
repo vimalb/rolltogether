@@ -193,6 +193,7 @@ def popular_routes():
 @app.route("/api/reset", methods=['GET'])
 def reset():
     MONGO_DB.trips.drop()
+    return Response(json.dumps({'status': 'reset_complete'}), mimetype='application/json')
     
     
 
