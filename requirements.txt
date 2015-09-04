@@ -8,4 +8,4 @@ beautifulsoup4
 nltk
 pytz
 gunicorn
-
+pymongo
