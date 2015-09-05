@@ -14,6 +14,7 @@ from urlparse import urlparse
 from copy import deepcopy
 from datetime import datetime, timedelta
 import pytz
+import urllib
 
 from flask import Flask, request, send_from_directory, safe_join, Response
 from flask.ext.cors import CORS
@@ -74,22 +75,64 @@ def coord_to_str(coord):
     else:
         return str(coord['latitude'])+','+str(coord['longitude'])
 
+TRIP_ICON_URLS = {
+    'trip-start-home': 'http://goo.gl/sWSDFa',
+    'trip-start-work': 'http://goo.gl/RG2kNl',
+    'trip-start-errand': 'http://goo.gl/PS4Dor',
+    'trip-start-friend': 'http://goo.gl/8uGb5R',
+    'trip-end-home': 'http://goo.gl/Rt3GUW',
+    'trip-end-work': 'http://goo.gl/Nid5Bb',
+    'trip-end-errand': 'http://goo.gl/9L3o9I',
+    'trip-end-friend': 'http://goo.gl/1IsuaC',
+    }
+
 def get_trip_map(trip):
     map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/trip_'+trip['raw_trip_id']+'.png')
     if not os.path.exists(map_filename):
         start_pos = trip['legs'][0]['start']
         finish_pos = trip['legs'][-1]['end']
+        start_icon_url = TRIP_ICON_URLS['trip-start-'+trip['start_point_info']['type']]
+        end_icon_url = TRIP_ICON_URLS['trip-end-'+trip['end_point_info']['type']]
+        path = []
+        for leg in trip['legs']:
+            leg_color = '0x6060FBFF'
+
+            if (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] > 75.0):
+              leg_color = '0x10FF00FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 75.0) and (leg['nominal_kmph'] > 65.0):
+              leg_color = '0x40FF00FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 65.0) and (leg['nominal_kmph'] > 55.0):
+              leg_color = '0x80FF00FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 55.0) and (leg['nominal_kmph'] > 45.0):
+              leg_color = '0xC0FF00FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 45.0) and (leg['nominal_kmph'] > 35.0):
+              leg_color = '0xFFFF00FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 35.0) and (leg['nominal_kmph'] > 25.0):
+              leg_color = '0xFFC000FF'
+            elif (leg['warning_level'] == 'Clear') and (leg['nominal_kmph'] <= 25.0):
+              leg_color = '0xFF8000FF'
+            elif (leg['warning_level'] == 'Low Impact'):
+              leg_color = '0xFFFF00FF'
+            elif (leg['warning_level'] == 'Minor'):
+              leg_color = '0xFFFF00FF'
+            elif (leg['warning_level'] == 'Moderate'):
+              leg_color = '0x10FF00FF'
+            elif (leg['warning_level'] == 'Serious'):
+              leg_color = '0x10FF00FF'
+            
+            path.append('weight:8|color:'+leg_color+'|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']))
+            
         map_url = 'https://maps.googleapis.com/maps/api/staticmap'
         map_params = {'size': '330x350',
-                      'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
-                      'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in trip['legs']],
+                      'markers': [ 'icon:'+start_icon_url+'|'+coord_to_str(start_pos), 'icon:'+end_icon_url+'|'+coord_to_str(finish_pos)],
+                      'path': path,
                       'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
         if resp.status_code == 200:
             with open(map_filename, 'wb') as w:
                 w.write(resp.content)
-        print resp.status_code, map_url
+        print resp.status_code, resp.url
         sleep(1)        
     with open(map_filename) as r:
         return r.read()
@@ -121,8 +164,8 @@ for route in ROUTES_DB:
 ROUTES_DB = dict([(str(t['route_id']), t) for t in ROUTES_DB])
 
 RAW_TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'trips_2015-08-31_23_BRT.json'))
-#for trip in RAW_TRIPS_DB:
-#    get_trip_map(trip)
+for trip in RAW_TRIPS_DB:
+    get_trip_map(trip)
 RAW_TRIPS_DB = dict([(str(t['raw_trip_id']), t) for t in RAW_TRIPS_DB if t['route_id'] in ROUTES_DB])
 
 def utcnow():
