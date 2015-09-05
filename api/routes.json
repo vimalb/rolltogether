@@ -4,7 +4,7 @@
     "driving_duration_min": 0, 
     "transit_stop_count": 6, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Northwest to Southwest and features 5 stops.", 
+    "description": "This route goes from Vila Leopoldina to Vila Suzana and features 5 stops.", 
     "route_id": "0", 
     "target_amount": 5000.0, 
     "legs": [
@@ -69,14 +69,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name B"
+    "name": "Vila Leopoldina to Vila Suzana"
   }, 
   {
     "transit_distance_km": 17.39219313391672, 
     "driving_duration_min": 49.25, 
     "transit_stop_count": 5, 
     "transit_duration_min": 26.751754577012868, 
-    "description": "This route goes from Northwest to East and features 4 stops.", 
+    "description": "This route goes from Vila Leopoldina to Cambuci and features 4 stops.", 
     "route_id": "1", 
     "target_amount": 4000.0, 
     "legs": [
@@ -129,14 +129,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name E"
+    "name": "Vila Leopoldina to Cambuci"
   }, 
   {
     "transit_distance_km": 12.344824384274537, 
     "driving_duration_min": 41.46666666666667, 
     "transit_stop_count": 4, 
     "transit_duration_min": 23.585504952890396, 
-    "description": "This route goes from Northwest to South center and features 3 stops.", 
+    "description": "This route goes from Vila Leopoldina to Moema and features 3 stops.", 
     "route_id": "2", 
     "target_amount": 3000.0, 
     "legs": [
@@ -177,14 +177,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name F"
+    "name": "Vila Leopoldina to Moema"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 4, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Northwest to South and features 3 stops.", 
+    "description": "This route goes from Vila Leopoldina to Campo Belo and features 3 stops.", 
     "route_id": "3", 
     "target_amount": 3000.0, 
     "legs": [
@@ -225,14 +225,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name 9"
+    "name": "Vila Leopoldina to Campo Belo"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 5, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Northwest to Center and features 4 stops.", 
+    "description": "This route goes from Vila Leopoldina to Consolacao and features 4 stops.", 
     "route_id": "4", 
     "target_amount": 4000.0, 
     "legs": [
@@ -285,14 +285,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name D"
+    "name": "Vila Leopoldina to Consolacao"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 5, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Northwest to Southeast and features 4 stops.", 
+    "description": "This route goes from Vila Leopoldina to Vila Mariana and features 4 stops.", 
     "route_id": "5", 
     "target_amount": 4000.0, 
     "legs": [
@@ -345,14 +345,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 1 to Name 5"
+    "name": "Vila Leopoldina to Vila Mariana"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 5, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Southwest to North and features 4 stops.", 
+    "description": "This route goes from Vila Suzana to Lim\u00e3o and features 4 stops.", 
     "route_id": "6", 
     "target_amount": 4000.0, 
     "legs": [
@@ -405,14 +405,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name B to Name C"
+    "name": "Vila Suzana to Lim\u00e3o"
   }, 
   {
     "transit_distance_km": 14.935435513810548, 
     "driving_duration_min": 60.516666666666666, 
     "transit_stop_count": 8, 
     "transit_duration_min": 27.88146262046324, 
-    "description": "This route goes from East to Southwest and features 7 stops.", 
+    "description": "This route goes from Cambuci to Vila Suzana and features 7 stops.", 
     "route_id": "7", 
     "target_amount": 7000.0, 
     "legs": [
@@ -501,14 +501,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name E to Name B"
+    "name": "Cambuci to Vila Suzana"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 7, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Southwest to Southeast and features 6 stops.", 
+    "description": "This route goes from Vila Suzana to Vila Mariana and features 6 stops.", 
     "route_id": "8", 
     "target_amount": 6000.0, 
     "legs": [
@@ -585,14 +585,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name B to Name 5"
+    "name": "Vila Suzana to Vila Mariana"
   }, 
   {
     "transit_distance_km": 19.093547466230923, 
     "driving_duration_min": 63.63333333333333, 
     "transit_stop_count": 5, 
     "transit_duration_min": 23.124301215296803, 
-    "description": "This route goes from Southwest to East and features 4 stops.", 
+    "description": "This route goes from Vila Suzana to Cambuci and features 4 stops.", 
     "route_id": "9", 
     "target_amount": 4000.0, 
     "legs": [
@@ -645,14 +645,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name B to Name E"
+    "name": "Vila Suzana to Cambuci"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 5, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Southwest to Northeast and features 4 stops.", 
+    "description": "This route goes from Vila Suzana to Bom Retiro and features 4 stops.", 
     "route_id": "10", 
     "target_amount": 4000.0, 
     "legs": [
@@ -705,14 +705,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name B to Name 4"
+    "name": "Vila Suzana to Bom Retiro"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 4, 
     "transit_duration_min": 0, 
-    "description": "This route goes from North to South center and features 3 stops.", 
+    "description": "This route goes from Lim\u00e3o to Itaim Bibi and features 3 stops.", 
     "route_id": "11", 
     "target_amount": 3000.0, 
     "legs": [
@@ -753,14 +753,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name C to Name 2"
+    "name": "Lim\u00e3o to Itaim Bibi"
   }, 
   {
     "transit_distance_km": 13.21164530579703, 
     "driving_duration_min": 35.3, 
     "transit_stop_count": 4, 
     "transit_duration_min": 7.968612565772266, 
-    "description": "This route goes from North to South center and features 3 stops.", 
+    "description": "This route goes from Lim\u00e3o to Moema and features 3 stops.", 
     "route_id": "12", 
     "target_amount": 3000.0, 
     "legs": [
@@ -801,14 +801,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name C to Name F"
+    "name": "Lim\u00e3o to Moema"
   }, 
   {
     "transit_distance_km": 12.920325087324594, 
     "driving_duration_min": 40.416666666666664, 
     "transit_stop_count": 5, 
     "transit_duration_min": 18.225771084189294, 
-    "description": "This route goes from South to North and features 4 stops.", 
+    "description": "This route goes from Campo Belo to Lim\u00e3o and features 4 stops.", 
     "route_id": "13", 
     "target_amount": 4000.0, 
     "legs": [
@@ -861,14 +861,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 9 to Name C"
+    "name": "Campo Belo to Lim\u00e3o"
   }, 
   {
     "transit_distance_km": 8.31211779874791, 
     "driving_duration_min": 35.15, 
     "transit_stop_count": 5, 
     "transit_duration_min": 14.609416335438222, 
-    "description": "This route goes from Southeast to North and features 4 stops.", 
+    "description": "This route goes from Vila Mariana to Lim\u00e3o and features 4 stops.", 
     "route_id": "14", 
     "target_amount": 4000.0, 
     "legs": [
@@ -921,14 +921,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 5 to Name C"
+    "name": "Vila Mariana to Lim\u00e3o"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 5, 
     "transit_duration_min": 0, 
-    "description": "This route goes from West to Southeast and features 4 stops.", 
+    "description": "This route goes from Pinheiros to Vila Mariana and features 4 stops.", 
     "route_id": "15", 
     "target_amount": 4000.0, 
     "legs": [
@@ -981,14 +981,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 7 to Name 5"
+    "name": "Pinheiros to Vila Mariana"
   }, 
   {
     "transit_distance_km": 12.351424811477653, 
     "driving_duration_min": 39.416666666666664, 
     "transit_stop_count": 5, 
     "transit_duration_min": 14.666530069809571, 
-    "description": "This route goes from Northeast to West and features 4 stops.", 
+    "description": "This route goes from Bom Retiro to Pinheiros and features 4 stops.", 
     "route_id": "16", 
     "target_amount": 4000.0, 
     "legs": [
@@ -1041,14 +1041,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 4 to Name 7"
+    "name": "Bom Retiro to Pinheiros"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 4, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Center to South and features 3 stops.", 
+    "description": "This route goes from Consolacao to Campo Belo and features 3 stops.", 
     "route_id": "17", 
     "target_amount": 3000.0, 
     "legs": [
@@ -1089,14 +1089,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name D to Name 9"
+    "name": "Consolacao to Campo Belo"
   }, 
   {
     "transit_distance_km": 8.785508063907066, 
     "driving_duration_min": 36.13333333333333, 
     "transit_stop_count": 4, 
     "transit_duration_min": 18.827527580682098, 
-    "description": "This route goes from Northeast to South and features 3 stops.", 
+    "description": "This route goes from Bom Retiro to Campo Belo and features 3 stops.", 
     "route_id": "18", 
     "target_amount": 3000.0, 
     "legs": [
@@ -1137,14 +1137,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 4 to Name 9"
+    "name": "Bom Retiro to Campo Belo"
   }, 
   {
     "transit_distance_km": 18.000122733955234, 
     "driving_duration_min": 46.516666666666666, 
     "transit_stop_count": 5, 
     "transit_duration_min": 27.392581366821194, 
-    "description": "This route goes from South center to Northwest and features 4 stops.", 
+    "description": "This route goes from Moema to Vila Leopoldina and features 4 stops.", 
     "route_id": "19", 
     "target_amount": 4000.0, 
     "legs": [
@@ -1197,14 +1197,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name F to Name 1"
+    "name": "Moema to Vila Leopoldina"
   }, 
   {
     "transit_distance_km": 14.328779440871596, 
     "driving_duration_min": 51.416666666666664, 
     "transit_stop_count": 5, 
     "transit_duration_min": 22.478281220038426, 
-    "description": "This route goes from South center to Southwest and features 4 stops.", 
+    "description": "This route goes from Moema to Vila Suzana and features 4 stops.", 
     "route_id": "20", 
     "target_amount": 4000.0, 
     "legs": [
@@ -1257,14 +1257,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name F to Name B"
+    "name": "Moema to Vila Suzana"
   }, 
   {
     "transit_distance_km": 13.391915445378544, 
     "driving_duration_min": 32.95, 
     "transit_stop_count": 6, 
     "transit_duration_min": 20.050002570889227, 
-    "description": "This route goes from Southeast to Northwest and features 5 stops.", 
+    "description": "This route goes from Vila Mariana to Vila Leopoldina and features 5 stops.", 
     "route_id": "21", 
     "target_amount": 5000.0, 
     "legs": [
@@ -1329,14 +1329,14 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 5 to Name 1"
+    "name": "Vila Mariana to Vila Leopoldina"
   }, 
   {
     "transit_distance_km": 0, 
     "driving_duration_min": 0, 
     "transit_stop_count": 4, 
     "transit_duration_min": 0, 
-    "description": "This route goes from Southeast to West and features 3 stops.", 
+    "description": "This route goes from Vila Mariana to Pinheiros and features 3 stops.", 
     "route_id": "22", 
     "target_amount": 3000.0, 
     "legs": [
@@ -1377,6 +1377,6 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Name 5 to Name 7"
+    "name": "Vila Mariana to Pinheiros"
   }
 ]

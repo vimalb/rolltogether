@@ -1,3 +1,4 @@
+# -*- coding: cp1252 -*-
 import requests
 import os
 from copy import deepcopy
@@ -247,78 +248,78 @@ TRANSIT_POINTS = calc_transit_points(route_points, 3000)
 TRANSIT_POINT_INFO_RAW = [
     { 'point': (-23.5166, -46.726709),
       'id': '1',
-      'name': 'Name 1',
-      'area': 'Northwest'
+      'name': 'Vila Leopoldina',
+      'area': 'Vila Leopoldina'
         },
     { 'point': (-23.586487, -46.690038),
       'id': '2',
-      'name': 'Name 2',
-      'area': 'South center'
+      'name': 'Itaim Bibi',
+      'area': 'Itaim Bibi'
         },
     { 'point': (-23.630889, -46.644328),
       'id': '3',
-      'ame': 'Name 3',
-      'area': 'South'
+      'ame': 'Jabaquara',
+      'area': 'Jabaquara'
         },
     { 'point': (-23.526561, -46.630182),
       'id': '4',
-      'name': 'Name 4',
-      'area': 'Northeast'
+      'name': 'Bom Retiro',
+      'area': 'Bom Retiro'
         },
     { 'point': (-23.607838, -46.614008),
       'id': '5',
-      'name': 'Name 5',
-      'area': 'Southeast'
+      'name': 'Vila Mariana',
+      'area': 'Vila Mariana'
         },
     { 'point': (-23.630277, -46.734868),
       'id': '6',
-      'name': 'Name 6',
-      'area': 'Southwest'
+      'name': 'Vila Sonia',
+      'area': 'Vila Sonia'
         },
     { 'point': (-23.559982, -46.712408),
       'id': '7',
-      'name': 'Name 7',
-      'area': 'West'
+      'name': 'Pinheiros',
+      'area': 'Pinheiros'
         },
     { 'point': (-23.61435, -46.70089),
       'id': '8',
-      'name': 'Name 8',
-      'area': 'Southwest'
+      'name': 'Brooklin',
+      'area': 'Brooklin'
         },
     { 'point': (-23.619757, -46.671321),
       'id': '9',
-      'name': 'Name 9',
-      'area': 'South'
+      'name': 'Campo Belo',
+      'area': 'Campo Belo'
         },
     { 'point': (-23.57953, -46.599857),
       'id': 'A',
-      'name': 'Name A',
-      'area': 'East'
+      'name': 'Ipiranga',
+      'area': 'Ipiranga'
         },
     { 'point': (-23.604007, -46.74741),
       'id': 'B',
-      'name': 'Name B',
-      'area': 'Southwest'
+      'name': 'Vila Suzana',
+      'area': 'Vila Suzana'
         },
     { 'point': (-23.51433, -46.677979),
       'id': 'C',
-      'name': 'Name C',
-      'area': 'North'
+      'name': u'Limão',
+      'area': u'Limão'
         },
     { 'point': (-23.552289, -46.658608),
       'id': 'D',
-      'name': 'Name D',
-      'area': 'Center'
+      'name': 'Consolacao',
+      'area': 'Consolacao'
         },
     { 'point': (-23.556001, -46.623031),
       'id': 'E',
-      'name': 'Name E',
-      'area': 'East'
+      'name': 'Cambuci',
+      'area': 'Cambuci'
         },
     { 'point': (-23.585318, -46.654971),
       'id': 'F',
-      'name': 'Name F',
-      'area': 'South center'
+      'name': 'Moema',
+      'area': 'Moema'
         },
     ]
 TRANSIT_POINT_INFO = dict([ (p['point'],p) for p in TRANSIT_POINT_INFO_RAW ])
