@@ -13,7 +13,7 @@ var CONTROLLER_NAME = MODULE_NAME.replace(/\./g,'_').replace(/-/g,'_');
 document.APP_MODULES.push(MODULE_NAME);
 
 console.log(MODULE_NAME, "Registering route", ROUTE_URL);
-angular.module(MODULE_NAME, ['ionic'])
+angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
   .config(function($stateProvider) {
     $stateProvider.state('tab.my-routes-pledge', {
       url: ROUTE_URL,
@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, tripSearchService, userService, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, tripSearchService, userService, $cordovaSocialSharing, CLIENT_SETTINGS) {
       $scope.route = {};
       $scope.currentPledge = 0;
       $scope.pledgeTotal = 20;
@@ -91,6 +91,21 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.finishPledge = function() {
         $state.go('tab.my-pledges');
         //$state.go('tab.my-routes');
+      }
+
+      $scope.shareOnFacebook = function () {
+        var message = "I just pledged $" + $scope.pledgeTotal + " to improve the Sao Paulo Metro!";
+        var image = $scope.SERVER_URL+'/api/routes/all/'+$scope.route.route_id.toString()+"/map";
+        var link = "http://www.google.com";
+        $cordovaSocialSharing
+          .shareViaFacebook(message, image, link)
+          .then(function(result) {
+            console.log('shared via facebook!');
+          }, function(err) {
+            // An error occurred. Show a message to the user
+             console.log('share failed');
+             console.dir(err);
+          });
       }
 
   })

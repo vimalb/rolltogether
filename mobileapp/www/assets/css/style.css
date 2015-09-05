@@ -297,6 +297,11 @@ progress[value]::-webkit-progress-value {
   background-color: #E1F5FE;
 }
 
+.route-pledge .thanks {
+  margin: 10px auto;
+  text-align: center;
+}
+
 /*
  * My Pledges tab styling
  */

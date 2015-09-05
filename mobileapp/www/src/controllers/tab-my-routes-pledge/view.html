@@ -29,8 +29,17 @@
     <button ng-show="currentPledge != pledgeTotal" class="button button-full button-balanced" ng-click="makePledge()">
       Pledge Now!
     </button>
-    <button ng-show="currentPledge == pledgeTotal" class="button button-full button-balanced" ng-click="finishPledge()">
-      Thank You!
-    </button>
+    <div ng-show="currentPledge == pledgeTotal">
+      <div class="thanks">Thank you for pledging!</div>
+      <button ng-show="currentPledge == pledgeTotal" class="button button-full button-balanced" ng-click="shareOnFacebook()">
+        Share on Facebook
+      </button>
+      <div class="hide success">
+        Your post has been shared on Facebook!
+      </div>
+      <button ng-show="currentPledge == pledgeTotal" class="button button-full button-calm" ng-click="finishPledge()">
+        See all pledges
+      </button>
+    </div>
   </ion-content>
 </ion-view>

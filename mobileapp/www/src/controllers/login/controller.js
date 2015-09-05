@@ -26,7 +26,6 @@ function displayData($http, access_token)
 
         document.getElementsByClassName("sign-in-text")[0].className = "sign-in-text hide";
         document.getElementsByClassName("success")[0].className -= "hide";
-        //$.mobile.changePage($("#tab.my-trips"), "slide", true, true);
     }, function(error) {
         alert("Error: " + error);
     });
@@ -44,7 +43,7 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $cordovaOauth, $http, $stateParams, $localStorage, $location) {
+  .controller(CONTROLLER_NAME, function($scope, $state, $cordovaOauth, $http, $stateParams, $localStorage, $location) {
     console.log("Instantiating controller", CONTROLLER_NAME);
     window.cordovaOauth = $cordovaOauth;
     window.http = $http;
@@ -62,9 +61,6 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
     }
 
     $scope.$on('$ionicView.beforeEnter', function(){
-      if($localStorage.hasOwnProperty("accessToken") === true) {
-        $state.go('tab.my-pledges');
-      }
     });
 
     $scope.goToFeed = function () {

@@ -64,7 +64,7 @@ angular.module(MODULE_NAME, ['ionic'])
       });
 
       $scope.goRoutePledge = function(route) {
-        $state.go('tab.my-routes-pledge', {routeId: route.routeId});
+        $state.go('tab.my-routes-pledge', {routeId: route.route_id});
       }
 
       $scope.$on('$ionicView.beforeLeave', function(){
