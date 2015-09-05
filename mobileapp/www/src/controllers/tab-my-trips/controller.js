@@ -13,7 +13,7 @@ var CONTROLLER_NAME = MODULE_NAME.replace(/\./g,'_').replace(/-/g,'_');
 document.APP_MODULES.push(MODULE_NAME);
 
 console.log(MODULE_NAME, "Registering route", ROUTE_URL);
-angular.module(MODULE_NAME, ['ionic'])
+angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
   .config(function($stateProvider) {
     $stateProvider.state('tab.my-trips', {
         url: ROUTE_URL,
@@ -25,11 +25,25 @@ angular.module(MODULE_NAME, ['ionic'])
         }
       });
   })
-  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, $localStorage, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
     $scope.feedItems = [];
+    $scope.profileData = null;
     $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
+
+    $scope.init = function() {
+      if($localStorage.hasOwnProperty("accessToken") === true) {
+        $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status", format: "json" }}).then(function(result) {
+            $scope.profileData = result.data;
+        }, function(error) {
+            alert("There was a problem getting your profile.  Check the logs for details.");
+            console.log(error);
+        });
+      } else {
+        console.log("Not signed in");
+      }
+    }
 
     $scope.refreshFeedItems = function() {
       tripSearchService.getMyFeed().then(function(feedItems) {
@@ -37,7 +51,7 @@ angular.module(MODULE_NAME, ['ionic'])
       });
     }
 
-    $scope.$on('$ionicView.beforeEnter', function(){
+    $scope.$on('$ionicView.beforeEnter', function() {
       $scope.refreshFeedItems();
     });
 
@@ -45,9 +59,11 @@ angular.module(MODULE_NAME, ['ionic'])
       $state.go('tab.my-trips-detail', {tripId: tripId});
     }
 
+    $scope.goLogin = function() {
+      $state.go('tab.login');
+    }
 
   })
 
-  
 })();
 

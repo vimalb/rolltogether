@@ -1,26 +1,31 @@
 <ion-view>
   <ion-nav-title>My Trips</ion-nav-title>
   <ion-content class="padding trip-feed">
+
+    <button id="login-button" class="login button button-full button-balanced" ng-click="goLogin()">Sign in</button>
+
+    <div id="profileHeader"></div>
+
     <div class="list">
       <div class="item item-divider date">
         Today
-        <span>{{feedItems.length}}
+        <span class="right feed-item-count">{{feedItems.length}}<span>
       </div>
       <div class="card" ng-repeat="feedItem in feedItems">
         <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)">
           <div class="item item-body video-item">
             <div class="list header">
               <div class="item item-avatar header">
-                <img class="profile-img" src="assets/img/profile_pic.png">
+                <img class="profile-img" src="assets/img/profile_pic1.png">
                 <div>{{ feedItem.item_details.local_timestamp }}</div>
                 <div>Going to the Office</div>
                 <div>
-                  <span class="summary-stats">{{ feedItem.item_details.total_distance_km }} km</span>
-                  <span class="summary-stats">{{ feedItem.item_details.total_actual_duration_min }} min</span>
+                  <span class="summary-stats">{{ feedItem.item_details.total_distance_km | number: 1}} km</span>
+                  <span class="summary-stats">{{ feedItem.item_details.total_actual_duration_min | number: 0 }} min</span>
                 </div>
               </div><!-- /item item-avatar header -->
             </div><!-- /list header -->
-            <img ng-src="{{ SERVER_URL+'/api/trips/'+feedItem.item_id.toString()+'/map' }}"></img>
+            <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/trips/'+feedItem.item_id.toString()+'/map' }}"></img>
             <!--<trip-map trip="feedItem.item_details"></trip-map>-->
           </div>
         </div>

@@ -3,18 +3,29 @@
   <ion-content class="padding routes">
     <div class="list">
       <div class="item item-divider section">
-        Your Routes
+        Your Suggested Metro Routes
       </div><!-- /item item-divider section -->
       <div class="card" ng-repeat="route in myRoutes" ng-click="goRouteDetail(route.route_id)">
         <div class="item item-divider header">
           <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
-            <span class="right">{{ routeTripCounts[route.route_id] || 0 }}x</span>
+            <span class="right">Driven {{ routeTripCounts[route.route_id] || 0 }}x</span>
           </div>
           <div class="details">
-            <span class="summary-stats">50 miles</span>
-            <span class="summary-stats">2h42m</span>
-          </div>
+            <ul class="detailed-stats">
+              <li>
+                <div class="stats-label">Driving</div>
+                <span class="stats-value">50 miles</span>
+                <span class="stats-value">2 hrs 42 min</span>
+              </li>
+              <li>
+                <div class="stats-label">Metro</div>
+                <!--span class="stats-label">Metro</span-->
+                <span class="stats-value">4 stops</span>
+                <span class="stats-value">30 min</span>
+              </li>
+            </ul>
+          </div><!-- /details -->
         </div><!-- item item-divider header -->
 
         <div class="item item-image">
@@ -42,7 +53,7 @@
         <div class="item item-divider header">
           <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
-            <span class="right">{{ routeTripCounts[route.route_id] || 0 }}x</span>
+            <span class="right">Driven {{ routeTripCounts[route.route_id] || 0 }}x</span>
           </div>
           <div class="details">
             <span class="summary-stats">50 miles</span>

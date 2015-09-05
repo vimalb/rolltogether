@@ -18,11 +18,7 @@ img.trip-map-summary {
 
 /* list dividers */
 .item.item-divider.section {
-  /*background-color: #03A9F4;
-  color: white;*/
-  /*background-color: rgba(173, 216, 230, 0.2);*/
   border: none;
-  /*text-transform: uppercase;*/
   font-weight: 500;
 }
 
@@ -33,6 +29,15 @@ img.trip-map-summary {
 .right {
   float: right;
 }
+
+.hide {
+  display: none;
+}
+
+.login.button {
+  margin: 10px auto;
+}
+
 
 /*
 progress[value]::-webkit-progress-bar {
@@ -60,6 +65,10 @@ progress[value]::-webkit-progress-value {
 
 .trip-feed .card {
   margin: 10px;
+}
+
+.trip-feed .card.avatar {
+  height: 75px;
 }
 
 /* header details for the card */
@@ -114,13 +123,27 @@ progress[value]::-webkit-progress-value {
   width: 100%;
   padding: 20px 15px;
   line-height: 1.5em;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 1);
   color: black;
   z-index: 1000;
 }
 
 .routes .list .card .item.header .details {
   color: #AAAAAA;
+}
+
+.routes .list .card .item.header .details .detailed-stats li {
+  display: inline-block;
+  padding-right: 40px
+}
+
+.routes .list .card .item.header .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.routes .list .card .item.header .details .detailed-stats li .stats-label {
+  color: darkgray;
 }
 
 .routes .list .card .item.item-image .route-image {

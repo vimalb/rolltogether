@@ -11,20 +11,20 @@
     <div class="total">
       <div class="stats-bold">
         <span>Driving time:</span>
-        <span class="right">{{ trip.total_actual_duration_min }} minutes</span>
+        <span class="right">{{ trip.total_actual_duration_min | number:0 }} minutes</span>
       </div>
       <div>
         <span>Distance:</span>
-        <span class="right">{{ trip.total_distance_km }} km</span>
+        <span class="right">{{ trip.total_distance_km | number:1 }} km</span>
       </div>
       <div>
         <span>Average speed:</span>
-        <span class="right">{{ trip.total_distance_km * 60.0 / trip.total_actual_duration_min }} kmph</span>
+        <span class="right">{{ trip.total_distance_km * 60.0 / trip.total_actual_duration_min | number:1 }} kph</span>
       </div>
       <br>
       <div class="stats-bold">
         <span>Suggested route time:</span>
-        <span class="right">{{ trip.total_nominal_duration_min }} minutes</span>
+        <span class="right">{{ trip.total_nominal_duration_min | number:0 }} minutes</span>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
     </div>
 
     <button class="button button-block button-balanced" >
-      Pledge to this Route
+      Pledge to this metro route
     </button>
   </ion-content>
 </ion-view>
