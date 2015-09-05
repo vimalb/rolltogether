@@ -98,11 +98,11 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
-        getRouteTripCounts: function() {
+        getRouteTripCounts: function(routeIds) {
           console.log("Fetching route trip counts");
           var deferred = $q.defer();
           var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/route_trip_counts';
-          $http.get(url).then(function(resp) {
+          $http.post(url, JSON.stringify({route_ids: routeIds})).then(function(resp) {
             deferred.resolve(resp.data);
           });
           return deferred.promise;

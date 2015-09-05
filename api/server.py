@@ -242,13 +242,37 @@ def trips(trip_id):
 
 
 
-@app.route("/api/users/<user_id>/route_trip_counts", methods=['GET'])
+@app.route("/api/users/<user_id>/route_trip_counts", methods=['GET', 'POST'])
 def route_trip_counts(user_id):
-    route_counts = MONGO_DB.trips.aggregate([
+    if request.method in ['POST']:
+        req = json.loads(request.get_data())
+    else:
+        req = {}  
+    query = []
+    route_ids = req.get('route_ids') or []
+    if route_ids:
+        query.append({"$match" : {'route_id': { '$in': route_ids }} })
+    query.append({"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}})
+    
+    self_route_counts = MONGO_DB.trips.aggregate([
         {"$match" : { 'user_id' : user_id } },
-        {"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}}
-        ])
-    route_counts = dict([(x['_id'], x['count']) for x in route_counts])
+        ] + query)
+    all_route_counts = MONGO_DB.trips.aggregate(query)
+    
+    route_counts = {}
+    for route_id in route_ids:
+        route_counts[route_id] = {'mine': 0, 'total': 0}
+    for result in self_route_counts:
+        route_id = result['_id']
+        if route_id not in route_counts:
+            route_counts[route_id] = {'mine': 0, 'total': 0}
+        route_counts[route_id]['mine'] = result['count']
+    for result in all_route_counts:
+        route_id = result['_id']
+        if route_id not in route_counts:
+            route_counts[route_id] = {'mine': 0, 'total': 0}
+        route_counts[route_id]['total'] = result['count']
+
     return Response(json.dumps(route_counts), mimetype='application/json')
  
 

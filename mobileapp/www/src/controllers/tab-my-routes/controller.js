@@ -35,14 +35,14 @@ angular.module(MODULE_NAME, ['ionic'])
     $scope.routeTripCounts = {};
 
     $scope.refreshRoutes = function() {
-      tripSearchService.getRouteTripCounts().then(function(routeTripCounts) {
-        $scope.routeTripCounts = routeTripCounts;
-      });
       tripSearchService.getMyRoutes().then(function(routes) {
         $scope.myRoutes = routes;
         var routeIds = _.map(routes, function(route) { return route.route_id; });
         tripSearchService.getPledges(routeIds).then(function(pledges) {
           _.assign($scope.pledges, pledges);
+        });
+        tripSearchService.getRouteTripCounts(routeIds).then(function(routeTripCounts) {
+          _.assign($scope.routeTripCounts, routeTripCounts);
         });
       });
       tripSearchService.getPopularRoutes().then(function(routes) {
@@ -50,6 +50,10 @@ angular.module(MODULE_NAME, ['ionic'])
         var routeIds = _.map(routes, function(route) { return route.route_id; });
         tripSearchService.getPledges(routeIds).then(function(pledges) {
           _.assign($scope.pledges, pledges);
+        });
+        tripSearchService.getRouteTripCounts(routeIds).then(function(routeTripCounts) {
+          _.assign($scope.routeTripCounts, routeTripCounts);
+          console.log($scope.routeTripCounts);
         });
       });
     }
