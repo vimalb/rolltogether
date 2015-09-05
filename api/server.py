@@ -95,12 +95,11 @@ def get_trip_map(trip):
 def get_route_map(route):
     map_filename = os.path.join(os.path.dirname(__file__), 'map_cache/route_'+route['route_id']+'.png')
     if not os.path.exists(map_filename):
-        start_pos = route['legs'][0]['start']
-        finish_pos = route['legs'][-1]['end']
+        route_points = [leg['start'] for leg in route['legs']] + [route['legs'][-1]['end']]
         map_url = 'https://maps.googleapis.com/maps/api/staticmap'
         map_params = {'size': '330x350',
-                      'markers': [ 'color:red|'+coord_to_str(start_pos), 'color:green|'+coord_to_str(finish_pos)],
-                      'path': ['color:blue|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
+                      'markers': [ 'color:0x00F900|label:T|'+coord_to_str(p) for p in route_points ] ,
+                      'path': ['color:0x00F900|weight:10|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
                       'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
@@ -115,8 +114,8 @@ def get_route_map(route):
 
     
 ROUTES_DB = jload(os.path.join(os.path.dirname(__file__), 'routes.json'))
-#for route in ROUTES_DB:
-#    get_route_map(route)
+for route in ROUTES_DB:
+    get_route_map(route)
 ROUTES_DB = dict([(str(t['route_id']), t) for t in ROUTES_DB])
 
 RAW_TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'trips_2015-08-31_23_BRT.json'))
