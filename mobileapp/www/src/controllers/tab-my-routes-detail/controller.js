@@ -59,7 +59,6 @@ angular.module(MODULE_NAME, ['ionic'])
           });
           tripSearchService.getPledges([route.route_id]).then(function(pledges) {
             _.assign($scope.pledges, pledges);
-            console.log($scope.pledges);
           });
         });
       });

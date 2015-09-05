@@ -28,37 +28,27 @@ angular.module(MODULE_NAME, ['ionic'])
   .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
-    $scope.routes = [];
-    $scope.pledges = [];
+    $scope.my_pledges = [];
     $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
-    $scope.refreshRoutes = function() {
-      tripSearchService.getAllRoutes().then(function(routes) {
-        $scope.routes = routes;
+
+    $scope.refreshPledges = function() {
+      tripSearchService.getPledges().then(function(pledges) {
+        $scope.my_pledges = [];
+        _.forOwn(pledges, function(pledge) {
+          if(pledge.mine) {
+            $scope.my_pledges.push(pledge);
+          }
+        });
       });
     }
 
-    $scope.refreshPledges = function() {
-      $scope.pledges = [
-        {
-          pledgeId: 0,
-          amount: 5.00,
-          routeId: 200
-        },
-        {
-          pledgeId: 1, 
-          amount: 100.00,
-          routeId: 201
-        }];
-    }
-
     $scope.$on('$ionicView.beforeEnter', function(){
-      $scope.refreshRoutes();
       $scope.refreshPledges();
     });
 
     $scope.goPledgeDetail = function(pledge) {
-      $state.go('tab.my-pledges-detail', {pledgeId: pledge.pledgeId});
+      $state.go('tab.my-pledges-detail', {routeId: pledge.route_id});
     }
   })
 })();

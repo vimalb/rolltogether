@@ -77,21 +77,6 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
-        getAllRoutes: function() {
-          console.log("Fetching all routes");
-          var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/all-routes';
-          /*
-          $http.get(url).then(function(resp) {
-            deferred.resolve(resp.data);
-          });
-          */
-          deferred.resolve([
-            { routeId: 300 },
-            { routeId: 301 },
-            ])
-          return deferred.promise;
-        },
 
         getTrip: function(tripId) {
           console.log("Fetching trip", tripId);

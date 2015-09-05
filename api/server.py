@@ -242,6 +242,9 @@ def user_pledges(user_id):
     for pledge in MONGO_DB.pledges.find({'route_id': { '$in': route_ids }}):
         del pledge['_id']
         route_id = pledge['route_id']
+        pledge_map[route_id]['route_id'] = route_id
+        pledge_map[route_id]['user_id'] = user_id
+        pledge_map[route_id]['name'] = ROUTES_DB[route_id]['name']
         pledge_map[route_id]['total_count'] = pledge_map[route_id]['total_count'] + 1
         pledge_map[route_id]['total_amount'] = pledge_map[route_id]['total_amount'] + pledge['amount']
         pledge_map[route_id]['pledges'].append(pledge)

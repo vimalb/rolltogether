@@ -5,17 +5,17 @@
       <h3>My Pledges</h3>
     </div>
     <div class="list">
-      <div class="card" ng-repeat="pledge in pledges" ng-click="goPledgeDetail(pledge)">
+      <div class="card" ng-repeat="pledge in my_pledges" ng-click="goPledgeDetail(pledge)">
         <div class="item item-avatar">
           <img class="profile-img" src="assets/img/profile_pic.png">
           <h2>
-            {{ pledge.amount | currency }}
+            R$ {{ pledge.mine_amount | number: 2 }}
           </h2>
-          <p>Grupo Ultro to Skye Bar</p>
+          <p>{{ pledge.name }}</p>
         </div>
         <div class="item item-body">
           <div class="spacer"> </div>
-          <img class="trip-map-summary" src="assets/img/map1.png" >
+          <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+pledge.route_id.toString()+'/map' }}" >
         </div><!-- /item item-body -->
       </div><!-- /card -->
 

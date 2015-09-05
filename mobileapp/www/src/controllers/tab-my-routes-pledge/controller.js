@@ -64,6 +64,7 @@ angular.module(MODULE_NAME, ['ionic'])
               console.log(level.price, pledge.amount);
               if(level.price == pledge.amount) {
                 $scope.selectedIndex = level.index;
+                $scope.pledgeTotal = level.price;
               }
             });
           });
@@ -87,8 +88,9 @@ angular.module(MODULE_NAME, ['ionic'])
         });
       }
 
-      $scope.goToRoutes = function() {
-        $state.go('tab.my-routes');
+      $scope.finishPledge = function() {
+        $state.go('tab.my-pledges');
+        //$state.go('tab.my-routes');
       }
 
   })

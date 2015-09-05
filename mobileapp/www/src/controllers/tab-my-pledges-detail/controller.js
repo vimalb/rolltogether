@@ -7,7 +7,7 @@ var TEMPLATE_URL = CONTROLLER_URL.replace('controller.js','view.html');
 var CONTROLLER_PATH = URI(CONTROLLER_URL).path();
 CONTROLLER_PATH = CONTROLLER_PATH.substring(CONTROLLER_PATH.indexOf('/src/controllers/'));
 
-var ROUTE_URL = '/my-pledges/:pledgeId';
+var ROUTE_URL = '/my-pledges/:routeId';
 var MODULE_NAME = 'mainApp'+CONTROLLER_PATH.replace('/src','').replace('/controller.js','').replace(/\//g,'.');
 var CONTROLLER_NAME = MODULE_NAME.replace(/\./g,'_').replace(/-/g,'_');
 document.APP_MODULES.push(MODULE_NAME);
@@ -25,17 +25,17 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, CLIENT_SETTINGS) {
-      $scope.pledge = {};
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, CLIENT_SETTINGS, $timeout) {
+      $scope.pledges = {};
       $scope.route = {};
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       $scope.$on('$ionicView.beforeEnter', function(){
-        tripSearchService.getPledge($stateParams.pledgeId).then(function(pledge) {
-          $scope.pledge = pledge;
-          var routeId = pledge.routeId
-          tripSearchService.getRoute(routeId).then(function(route) {
-            $scope.route = route;
+        console.log('stateParams', $stateParams);
+        tripSearchService.getRoute($stateParams.routeId).then(function(route) {
+          $scope.route = route;
+          tripSearchService.getPledges([route.route_id]).then(function(pledges) {
+            _.assign($scope.pledges, pledges);
           });
         });
       });
@@ -45,7 +45,11 @@ angular.module(MODULE_NAME, ['ionic'])
       });
 
       $scope.goRoutePledge = function(route) {
-        $state.go('tab.my-routes-pledge', {routeId: route.routeId});
+        $timeout(function() {
+          $state.go('tab.my-routes-pledge', {routeId: route.route_id});
+        }, 10);
+        $state.go('tab.my-routes');
+
       }
   })
 
