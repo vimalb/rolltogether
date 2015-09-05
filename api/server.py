@@ -134,9 +134,8 @@ def localnow():
 def between(x,a,b):
     return x >= a and x < b
 
-def fuzzify(raw_trip_id, target_time, trip_name):
+def fuzzify(raw_trip_id, target_time):
     trip = deepcopy(RAW_TRIPS_DB[raw_trip_id])
-    trip['name'] = trip_name
     trip['local_timestamp'] = target_time.astimezone(pytz.timezone('Brazil/East')).isoformat()
     return trip
 
@@ -148,7 +147,7 @@ def seed_trip_history(user_id):
     trip_seed = MONGO_DB.trip_seeds.find_one({'user_id': user_id})
     if not trip_seed:
         trip_seed = { 'user_id': user_id,
-                      'commute_raw_trip_id': random.choice(RAW_TRIPS_DB.keys()),
+                      'commute_raw_trip_id': random.choice([t['raw_trip_id'] for t in RAW_TRIPS_DB.values() if t['start_point_info']['type'] == 'home' and t['end_point_info']['type'] == 'work']),
                     }
         MONGO_DB.trip_seeds.insert_one(trip_seed)
         print "Created seed for user_id", user_id
@@ -160,24 +159,19 @@ def seed_trip_history(user_id):
     add_trips = []
 
     # Today trips
-    add_trips.append(fuzzify(random.choice(commute_trip['trips_same_start']), now-timedelta(hours=2), 'Go shopping'))
+    add_trips.append(fuzzify(random.choice(commute_trip['trips_same_start_fun']), now-timedelta(hours=2)))
 
     # Past month daily trips
     yesterday = (now-timedelta(days=1)).replace(hour=0,minute=0,second=0,microsecond=0)
     for i in range(30):
         ref_day = yesterday - timedelta(days=i)
         if ref_day.isoweekday() in [1, 2, 4, 5]:
-            add_trips.append(fuzzify(commute_trip['raw_trip_id'], ref_day+timedelta(hours=7), 'Drive to work'))
-            add_trips.append(fuzzify(reverse_trip_id(commute_trip['raw_trip_id']), ref_day+timedelta(hours=17), 'Return home from work'))
-            if random.random() < 0.33:
-                errand_trip_id = random.choice(commute_trip['trips_same_start'])
-                add_trips.append(fuzzify(errand_trip_id, ref_day+timedelta(hours=19), 'Run errands'))
-                #add_trips.append(fuzzify(reverse_trip_id(errand_trip_id), ref_day+timedelta(hours=20), 'Return home'))
-            elif random.random() < 0.33:
-                friend_name = random.choice(['Rodrigo', 'Miguel', 'Lucas', 'Maria', 'Carolina', 'Laura'])
-                friend_trip_id = random.choice(commute_trip['trips_same_start'])
-                add_trips.append(fuzzify(friend_trip_id, ref_day+timedelta(hours=19), 'Visit '+ friend_name))
-                #add_trips.append(fuzzify(reverse_trip_id(friend_trip_id), ref_day+timedelta(hours=22), 'Return home'))
+            add_trips.append(fuzzify(commute_trip['raw_trip_id'], ref_day+timedelta(hours=7)))
+            add_trips.append(fuzzify(reverse_trip_id(commute_trip['raw_trip_id']), ref_day+timedelta(hours=17)))
+            if random.random() < 0.5:
+                fun_trip_id = random.choice(commute_trip['trips_same_start_fun'])
+                add_trips.append(fuzzify(fun_trip_id, ref_day+timedelta(hours=19)))
+                #add_trips.append(fuzzify(reverse_trip_id(fun_trip_id), ref_day+timedelta(hours=20)))
                 
     for trip in add_trips:
         trip['user_id'] = user_id
@@ -374,7 +368,7 @@ def reset():
     MONGO_DB.pledges.create_index('route_id')
 
     now = localnow()
-    user_ids = ['demo'+str(i) for i in range(100)]
+    user_ids = ['demo'+str(i) for i in range(1)]
     pledges = []
     for user_id in user_ids:
         seed_trip_history(user_id)

@@ -206,6 +206,30 @@ home_endpoints = all_endpoints[:3]
 work_endpoints = all_endpoints[3:7]
 friend_endpoints = all_endpoints[7:11]
 errand_endpoints = all_endpoints[11:]
+ENDPOINT_INFO = {}
+for endpoint in home_endpoints:
+    ENDPOINT_INFO[endpoint] = {'type': 'home',
+                               'name': 'home',
+                               'dst_name': 'Return home',
+                                }
+for endpoint in work_endpoints:
+    ENDPOINT_INFO[endpoint] = {'type': 'work',
+                               'name': 'work',
+                               'dst_name': 'Go to work',
+                                }
+for i, endpoint in enumerate(friend_endpoints):
+    friend_name = ['Rodrigo', 'Maria', 'Miguel', 'Carolina', 'Lucas', 'Laura'][i%6]
+    ENDPOINT_INFO[endpoint] = {'type': 'friend',
+                               'name': friend_name+"'s pad",
+                               'dst_name': 'Visit '+ friend_name,
+                                }
+for i, endpoint in enumerate(errand_endpoints):
+    errand_name = ['groceries', 'clothes', 'toys', 'gifts'][i%4]
+    ENDPOINT_INFO[endpoint] = {'type': 'errand',
+                               'name': 'picking up '+errand_name,
+                               'dst_name': 'Pick up '+ errand_name,
+                                }
+    
 
 
 def calc_transit_points(route_points, threshold_meters):
@@ -335,8 +359,8 @@ for trip_filename in trip_filenames:
             
             trip['raw_trip_id'] = str(raw_trip_id)
             raw_trip_id = raw_trip_id + 1
-            print "saved", (trip['total_actual_duration_min'] - trip['total_transit_duration_min']) * 100.0 / trip['total_actual_duration_min'], "minutes"
-            print "saved", (trip['total_trip_cost_real'] - trip['transit_trip_cost_real']), " R$"
+            #print "saved", (trip['total_actual_duration_min'] - trip['total_transit_duration_min']) * 100.0 / trip['total_actual_duration_min'], "minutes"
+            #print "saved", (trip['total_trip_cost_real'] - trip['transit_trip_cost_real']), " R$"
 
             matching_route = None
             for route in routes:
@@ -353,9 +377,20 @@ for trip_filename in trip_filenames:
                                   }
                 routes.append(matching_route)
             trip['route_id'] = matching_route['route_id']
+        trip_start_point, distance = closest(leg_points[0], ENDPOINT_INFO.keys())
+        trip_end_point, distance = closest(leg_points[-1], ENDPOINT_INFO.keys())
+        trip['start_point_info'] = ENDPOINT_INFO[trip_start_point]
+        trip['end_point_info'] = ENDPOINT_INFO[trip_end_point]
+        #print trip['start_point_info']['type'], trip['end_point_info']['type']
+        
+        
             
-    trips = [r for r in trips if r.get('transit_legs')]
+    trips = [trip for trip in trips if trip.get('transit_legs')
+                 and ((trip['start_point_info']['type'] == 'home') or (trip['end_point_info']['type'] == 'home'))
+                 and (trip['start_point_info']['type'] != trip['end_point_info']['type'])
+             ]
     for trip in trips:
+        same_start_fun = []
         same_start = []
         same_end = []
         continue_from_end = []
@@ -380,13 +415,18 @@ for trip_filename in trip_filenames:
                 continue_from_end.append(other_trip['raw_trip_id'])
             elif start_to_other_start:
                 same_start.append(other_trip['raw_trip_id'])
+                if other_trip['end_point_info']['type'] in ['friend','errand']:
+                    same_start_fun.append(other_trip['raw_trip_id'])
             elif end_to_other_end:
                 same_end.append(other_trip['raw_trip_id'])
         trip['trips_same_start'] = same_start
+        trip['trips_same_start_fun'] = same_start_fun
         trip['trips_same_end'] = same_end
         trip['trips_continue_from_end'] = continue_from_end
         trip['trips_return_to_start'] = return_to_start
         trip['trips_alternative_path'] = alternative_path
+        trip['name'] = trip['end_point_info']['dst_name']
+        print trip['name']
 
     all_trips = all_trips + trips
     jdump(trips, trip_filename)

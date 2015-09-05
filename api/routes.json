@@ -1,9 +1,9 @@
 [
   {
-    "transit_distance_km": 19.137148658788476, 
-    "driving_duration_min": 52.03333333333333, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 6, 
-    "transit_duration_min": 28.20340382802516, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Northwest to Southwest and features 5 stops.", 
     "route_id": "0", 
     "target_amount": 5000.0, 
@@ -180,10 +180,10 @@
     "name": "Name 1 to Name F"
   }, 
   {
-    "transit_distance_km": 12.931194650577751, 
-    "driving_duration_min": 34.516666666666666, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 4, 
-    "transit_duration_min": 20.072721463466962, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Northwest to South and features 3 stops.", 
     "route_id": "3", 
     "target_amount": 3000.0, 
@@ -228,10 +228,10 @@
     "name": "Name 1 to Name 9"
   }, 
   {
-    "transit_distance_km": 17.04273887226993, 
-    "driving_duration_min": 43.416666666666664, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 22.36296508524079, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Northwest to Center and features 4 stops.", 
     "route_id": "4", 
     "target_amount": 4000.0, 
@@ -288,10 +288,10 @@
     "name": "Name 1 to Name D"
   }, 
   {
-    "transit_distance_km": 19.930023025956093, 
-    "driving_duration_min": 56.266666666666666, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 29.609008750016173, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Northwest to Southeast and features 4 stops.", 
     "route_id": "5", 
     "target_amount": 4000.0, 
@@ -348,10 +348,10 @@
     "name": "Name 1 to Name 5"
   }, 
   {
-    "transit_distance_km": 20.104018411195955, 
-    "driving_duration_min": 62.416666666666664, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 22.04528032601571, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Southwest to North and features 4 stops.", 
     "route_id": "6", 
     "target_amount": 4000.0, 
@@ -408,7 +408,7 @@
     "name": "Name B to Name C"
   }, 
   {
-    "transit_distance_km": 25.066386312031746, 
+    "transit_distance_km": 14.935435513810548, 
     "driving_duration_min": 60.516666666666666, 
     "transit_stop_count": 8, 
     "transit_duration_min": 27.88146262046324, 
@@ -504,10 +504,10 @@
     "name": "Name E to Name B"
   }, 
   {
-    "transit_distance_km": 21.564081035773015, 
-    "driving_duration_min": 68.05, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 7, 
-    "transit_duration_min": 26.30431348630464, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Southwest to Southeast and features 6 stops.", 
     "route_id": "8", 
     "target_amount": 6000.0, 
@@ -648,10 +648,10 @@
     "name": "Name B to Name E"
   }, 
   {
-    "transit_distance_km": 19.51591686029092, 
-    "driving_duration_min": 57.083333333333336, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 17.024426596968787, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Southwest to Northeast and features 4 stops.", 
     "route_id": "10", 
     "target_amount": 4000.0, 
@@ -708,10 +708,10 @@
     "name": "Name B to Name 4"
   }, 
   {
-    "transit_distance_km": 13.744263679217447, 
-    "driving_duration_min": 41.31666666666667, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 4, 
-    "transit_duration_min": 21.817464278831707, 
+    "transit_duration_min": 0, 
     "description": "This route goes from North to South center and features 3 stops.", 
     "route_id": "11", 
     "target_amount": 3000.0, 
@@ -804,10 +804,10 @@
     "name": "Name C to Name F"
   }, 
   {
-    "transit_distance_km": 17.097625862654976, 
-    "driving_duration_min": 48.05, 
+    "transit_distance_km": 12.920325087324594, 
+    "driving_duration_min": 40.416666666666664, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 21.911302173042046, 
+    "transit_duration_min": 18.225771084189294, 
     "description": "This route goes from South to North and features 4 stops.", 
     "route_id": "13", 
     "target_amount": 4000.0, 
@@ -864,10 +864,10 @@
     "name": "Name 9 to Name C"
   }, 
   {
-    "transit_distance_km": 15.301075700883942, 
-    "driving_duration_min": 54.8, 
+    "transit_distance_km": 8.31211779874791, 
+    "driving_duration_min": 35.15, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 23.216602708323247, 
+    "transit_duration_min": 14.609416335438222, 
     "description": "This route goes from Southeast to North and features 4 stops.", 
     "route_id": "14", 
     "target_amount": 4000.0, 
@@ -924,10 +924,10 @@
     "name": "Name 5 to Name C"
   }, 
   {
-    "transit_distance_km": 17.26188317508409, 
-    "driving_duration_min": 53.5, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 5, 
-    "transit_duration_min": 16.95171559933174, 
+    "transit_duration_min": 0, 
     "description": "This route goes from West to Southeast and features 4 stops.", 
     "route_id": "15", 
     "target_amount": 4000.0, 
@@ -984,7 +984,7 @@
     "name": "Name 7 to Name 5"
   }, 
   {
-    "transit_distance_km": 16.128501685323815, 
+    "transit_distance_km": 12.351424811477653, 
     "driving_duration_min": 39.416666666666664, 
     "transit_stop_count": 5, 
     "transit_duration_min": 14.666530069809571, 
@@ -1044,10 +1044,10 @@
     "name": "Name 4 to Name 7"
   }, 
   {
-    "transit_distance_km": 16.558275204337235, 
-    "driving_duration_min": 41.78333333333333, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 4, 
-    "transit_duration_min": 15.195787297355674, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Center to South and features 3 stops.", 
     "route_id": "17", 
     "target_amount": 3000.0, 
@@ -1092,7 +1092,7 @@
     "name": "Name D to Name 9"
   }, 
   {
-    "transit_distance_km": 14.539028575960685, 
+    "transit_distance_km": 8.785508063907066, 
     "driving_duration_min": 36.13333333333333, 
     "transit_stop_count": 4, 
     "transit_duration_min": 18.827527580682098, 
@@ -1260,10 +1260,10 @@
     "name": "Name F to Name B"
   }, 
   {
-    "transit_distance_km": 20.380873347514402, 
-    "driving_duration_min": 52.25, 
+    "transit_distance_km": 13.391915445378544, 
+    "driving_duration_min": 32.95, 
     "transit_stop_count": 6, 
-    "transit_duration_min": 29.232959678779572, 
+    "transit_duration_min": 20.050002570889227, 
     "description": "This route goes from Southeast to Northwest and features 5 stops.", 
     "route_id": "21", 
     "target_amount": 5000.0, 
@@ -1332,10 +1332,10 @@
     "name": "Name 5 to Name 1"
   }, 
   {
-    "transit_distance_km": 14.53141251531543, 
-    "driving_duration_min": 50.833333333333336, 
+    "transit_distance_km": 0, 
+    "driving_duration_min": 0, 
     "transit_stop_count": 4, 
-    "transit_duration_min": 23.73507039152545, 
+    "transit_duration_min": 0, 
     "description": "This route goes from Southeast to West and features 3 stops.", 
     "route_id": "22", 
     "target_amount": 3000.0, 
