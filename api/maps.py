@@ -83,7 +83,7 @@ def convert_response_to_trip(resp_json):
     total_distance_km = info['travelDistance']
     total_nominal_duration_min = info['travelDuration'] / 60.0
     total_actual_duration_min = info['travelDurationTraffic'] / 60.0
-    trip = {'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
+    trip = { #'timestamp': datetime.utcnow().replace(tzinfo=pytz.UTC).isoformat(),
              'legs': legs,
              'total_distance_km': total_distance_km,
              'total_nominal_duration_min': total_nominal_duration_min,
