@@ -37,6 +37,7 @@ angular.module(MODULE_NAME, ['ionic'])
     $scope.refreshRoutes = function() {
       tripSearchService.getMyRoutes().then(function(routes) {
         $scope.myRoutes = routes;
+        console.log('routes', routes);
         var routeIds = _.map(routes, function(route) { return route.route_id; });
         tripSearchService.getPledges(routeIds).then(function(pledges) {
           _.assign($scope.pledges, pledges);
@@ -53,7 +54,6 @@ angular.module(MODULE_NAME, ['ionic'])
         });
         tripSearchService.getRouteTripCounts(routeIds).then(function(routeTripCounts) {
           _.assign($scope.routeTripCounts, routeTripCounts);
-          console.log($scope.routeTripCounts);
         });
       });
     }

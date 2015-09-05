@@ -20,7 +20,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 26.196130615466387, 
     "raw_trip_id": "0", 
-    "timestamp": "2015-09-05T16:38:04.618255+00:00", 
+    "timestamp": "2015-09-05T17:32:35.106417+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -351,7 +351,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.889118800404841, 
     "raw_trip_id": "1", 
-    "timestamp": "2015-09-05T16:38:04.624363+00:00", 
+    "timestamp": "2015-09-05T17:32:35.112085+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -550,7 +550,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.678199009635685, 
     "raw_trip_id": "2", 
-    "timestamp": "2015-09-05T16:38:04.630542+00:00", 
+    "timestamp": "2015-09-05T17:32:35.117511+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -781,7 +781,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 18.445429025123996, 
     "raw_trip_id": "3", 
-    "timestamp": "2015-09-05T16:38:04.641127+00:00", 
+    "timestamp": "2015-09-05T17:32:35.126043+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1068,7 +1068,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 20.072721463466962, 
     "raw_trip_id": "4", 
-    "timestamp": "2015-09-05T16:38:04.649006+00:00", 
+    "timestamp": "2015-09-05T17:32:35.132088+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1341,7 +1341,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 19.901096182569006, 
     "raw_trip_id": "5", 
-    "timestamp": "2015-09-05T16:38:04.658208+00:00", 
+    "timestamp": "2015-09-05T17:32:35.139733+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1613,7 +1613,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.329644957676393, 
     "raw_trip_id": "6", 
-    "timestamp": "2015-09-05T16:38:04.682929+00:00", 
+    "timestamp": "2015-09-05T17:32:35.164400+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1949,7 +1949,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 29.609008750016173, 
     "raw_trip_id": "7", 
-    "timestamp": "2015-09-05T16:38:04.686375+00:00", 
+    "timestamp": "2015-09-05T17:32:35.168040+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2115,7 +2115,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 26.751754577012868, 
     "raw_trip_id": "8", 
-    "timestamp": "2015-09-05T16:38:04.705421+00:00", 
+    "timestamp": "2015-09-05T17:32:35.186637+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2422,7 +2422,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.36296508524079, 
     "raw_trip_id": "9", 
-    "timestamp": "2015-09-05T16:38:04.722209+00:00", 
+    "timestamp": "2015-09-05T17:32:35.202129+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2715,7 +2715,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.7062888491352, 
     "raw_trip_id": "10", 
-    "timestamp": "2015-09-05T16:38:04.737788+00:00", 
+    "timestamp": "2015-09-05T17:32:35.217338+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2968,7 +2968,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.524349158237307, 
     "raw_trip_id": "11", 
-    "timestamp": "2015-09-05T16:38:04.754978+00:00", 
+    "timestamp": "2015-09-05T17:32:35.238022+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3247,7 +3247,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 28.20340382802516, 
     "raw_trip_id": "12", 
-    "timestamp": "2015-09-05T16:38:04.760208+00:00", 
+    "timestamp": "2015-09-05T17:32:35.243597+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3410,7 +3410,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.77511126623209, 
     "raw_trip_id": "13", 
-    "timestamp": "2015-09-05T16:38:04.770174+00:00", 
+    "timestamp": "2015-09-05T17:32:35.254643+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3693,7 +3693,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.451694774685043, 
     "raw_trip_id": "14", 
-    "timestamp": "2015-09-05T16:38:04.778213+00:00", 
+    "timestamp": "2015-09-05T17:32:35.263344+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3935,7 +3935,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 11.95939239048479, 
     "raw_trip_id": "15", 
-    "timestamp": "2015-09-05T16:38:04.784916+00:00", 
+    "timestamp": "2015-09-05T17:32:35.270335+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4161,7 +4161,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 10.575063740230897, 
     "raw_trip_id": "16", 
-    "timestamp": "2015-09-05T16:38:04.790246+00:00", 
+    "timestamp": "2015-09-05T17:32:35.276156+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4367,7 +4367,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 11.483614388993985, 
     "raw_trip_id": "17", 
-    "timestamp": "2015-09-05T16:38:04.797460+00:00", 
+    "timestamp": "2015-09-05T17:32:35.283458+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4655,7 +4655,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 10.287910448906118, 
     "raw_trip_id": "18", 
-    "timestamp": "2015-09-05T16:38:04.803778+00:00", 
+    "timestamp": "2015-09-05T17:32:35.290030+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4891,7 +4891,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.492556882728787, 
     "raw_trip_id": "19", 
-    "timestamp": "2015-09-05T16:38:04.811327+00:00", 
+    "timestamp": "2015-09-05T17:32:35.297645+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5138,7 +5138,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 18.86527423267976, 
     "raw_trip_id": "20", 
-    "timestamp": "2015-09-05T16:38:04.821000+00:00", 
+    "timestamp": "2015-09-05T17:32:35.307744+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5385,7 +5385,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.58203784029003, 
     "raw_trip_id": "21", 
-    "timestamp": "2015-09-05T16:38:04.835657+00:00", 
+    "timestamp": "2015-09-05T17:32:35.323399+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5759,7 +5759,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 23.124301215296803, 
     "raw_trip_id": "22", 
-    "timestamp": "2015-09-05T16:38:04.850967+00:00", 
+    "timestamp": "2015-09-05T17:32:35.337439+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6055,7 +6055,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 21.34077416236546, 
     "raw_trip_id": "23", 
-    "timestamp": "2015-09-05T16:38:04.867003+00:00", 
+    "timestamp": "2015-09-05T17:32:35.352417+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6323,7 +6323,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.248078419093872, 
     "raw_trip_id": "24", 
-    "timestamp": "2015-09-05T16:38:04.881032+00:00", 
+    "timestamp": "2015-09-05T17:32:35.366277+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6690,7 +6690,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.024426596968787, 
     "raw_trip_id": "25", 
-    "timestamp": "2015-09-05T16:38:04.889011+00:00", 
+    "timestamp": "2015-09-05T17:32:35.373964+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6909,7 +6909,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.04528032601571, 
     "raw_trip_id": "26", 
-    "timestamp": "2015-09-05T16:38:04.893270+00:00", 
+    "timestamp": "2015-09-05T17:32:35.378340+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7044,7 +7044,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.282091531542395, 
     "raw_trip_id": "27", 
-    "timestamp": "2015-09-05T16:38:04.905401+00:00", 
+    "timestamp": "2015-09-05T17:32:35.389988+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7361,7 +7361,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 7.968612565772266, 
     "raw_trip_id": "28", 
-    "timestamp": "2015-09-05T16:38:04.912154+00:00", 
+    "timestamp": "2015-09-05T17:32:35.396496+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7605,7 +7605,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 21.911302173042046, 
     "raw_trip_id": "29", 
-    "timestamp": "2015-09-05T16:38:04.928933+00:00", 
+    "timestamp": "2015-09-05T17:32:35.412691+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7925,7 +7925,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.874423317703545, 
     "raw_trip_id": "30", 
-    "timestamp": "2015-09-05T16:38:04.937205+00:00", 
+    "timestamp": "2015-09-05T17:32:35.420871+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8180,7 +8180,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.959038179775305, 
     "raw_trip_id": "31", 
-    "timestamp": "2015-09-05T16:38:04.954215+00:00", 
+    "timestamp": "2015-09-05T17:32:35.437412+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8511,7 +8511,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.609416335438222, 
     "raw_trip_id": "32", 
-    "timestamp": "2015-09-05T16:38:04.962762+00:00", 
+    "timestamp": "2015-09-05T17:32:35.445466+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8751,7 +8751,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.92729254810848, 
     "raw_trip_id": "33", 
-    "timestamp": "2015-09-05T16:38:04.973612+00:00", 
+    "timestamp": "2015-09-05T17:32:35.454877+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8961,7 +8961,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.204082567458318, 
     "raw_trip_id": "34", 
-    "timestamp": "2015-09-05T16:38:04.981100+00:00", 
+    "timestamp": "2015-09-05T17:32:35.462083+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9211,7 +9211,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.969626614286025, 
     "raw_trip_id": "35", 
-    "timestamp": "2015-09-05T16:38:04.991594+00:00", 
+    "timestamp": "2015-09-05T17:32:35.472360+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9479,7 +9479,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 9.931496849602464, 
     "raw_trip_id": "36", 
-    "timestamp": "2015-09-05T16:38:05.003100+00:00", 
+    "timestamp": "2015-09-05T17:32:35.483685+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9782,7 +9782,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.298948461010344, 
     "raw_trip_id": "37", 
-    "timestamp": "2015-09-05T16:38:05.010571+00:00", 
+    "timestamp": "2015-09-05T17:32:35.490964+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9993,7 +9993,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 10.337570255834894, 
     "raw_trip_id": "38", 
-    "timestamp": "2015-09-05T16:38:05.018600+00:00", 
+    "timestamp": "2015-09-05T17:32:35.499005+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10176,7 +10176,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 7.414438326262484, 
     "raw_trip_id": "39", 
-    "timestamp": "2015-09-05T16:38:05.025357+00:00", 
+    "timestamp": "2015-09-05T17:32:35.505825+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10368,7 +10368,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.39447241487584, 
     "raw_trip_id": "40", 
-    "timestamp": "2015-09-05T16:38:05.033029+00:00", 
+    "timestamp": "2015-09-05T17:32:35.513342+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10639,7 +10639,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.74601013667325, 
     "raw_trip_id": "41", 
-    "timestamp": "2015-09-05T16:38:05.041362+00:00", 
+    "timestamp": "2015-09-05T17:32:35.521604+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10900,7 +10900,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.322252722441409, 
     "raw_trip_id": "42", 
-    "timestamp": "2015-09-05T16:38:05.053104+00:00", 
+    "timestamp": "2015-09-05T17:32:35.532991+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11179,7 +11179,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.95171559933174, 
     "raw_trip_id": "43", 
-    "timestamp": "2015-09-05T16:38:05.063970+00:00", 
+    "timestamp": "2015-09-05T17:32:35.544167+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11457,7 +11457,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.623752758353621, 
     "raw_trip_id": "44", 
-    "timestamp": "2015-09-05T16:38:05.071234+00:00", 
+    "timestamp": "2015-09-05T17:32:35.551612+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11646,7 +11646,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 21.817464278831707, 
     "raw_trip_id": "45", 
-    "timestamp": "2015-09-05T16:38:05.075814+00:00", 
+    "timestamp": "2015-09-05T17:32:35.556027+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11803,7 +11803,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.645421515800663, 
     "raw_trip_id": "46", 
-    "timestamp": "2015-09-05T16:38:05.077606+00:00", 
+    "timestamp": "2015-09-05T17:32:35.557650+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11900,7 +11900,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 9.589795148786894, 
     "raw_trip_id": "47", 
-    "timestamp": "2015-09-05T16:38:05.081805+00:00", 
+    "timestamp": "2015-09-05T17:32:35.561825+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12113,7 +12113,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.543731828281283, 
     "raw_trip_id": "48", 
-    "timestamp": "2015-09-05T16:38:05.091564+00:00", 
+    "timestamp": "2015-09-05T17:32:35.571540+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12394,7 +12394,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.406762192215448, 
     "raw_trip_id": "49", 
-    "timestamp": "2015-09-05T16:38:05.101371+00:00", 
+    "timestamp": "2015-09-05T17:32:35.580420+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12634,7 +12634,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.34873935530343, 
     "raw_trip_id": "50", 
-    "timestamp": "2015-09-05T16:38:05.109549+00:00", 
+    "timestamp": "2015-09-05T17:32:35.588022+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12872,7 +12872,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 9.354415986758086, 
     "raw_trip_id": "51", 
-    "timestamp": "2015-09-05T16:38:05.116082+00:00", 
+    "timestamp": "2015-09-05T17:32:35.594413+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13106,7 +13106,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 9.088780550041847, 
     "raw_trip_id": "52", 
-    "timestamp": "2015-09-05T16:38:05.125372+00:00", 
+    "timestamp": "2015-09-05T17:32:35.603544+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13347,7 +13347,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 23.585504952890396, 
     "raw_trip_id": "53", 
-    "timestamp": "2015-09-05T16:38:05.130424+00:00", 
+    "timestamp": "2015-09-05T17:32:35.608516+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13500,7 +13500,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.342055879208814, 
     "raw_trip_id": "54", 
-    "timestamp": "2015-09-05T16:38:05.139828+00:00", 
+    "timestamp": "2015-09-05T17:32:35.618350+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13837,7 +13837,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.522748613950982, 
     "raw_trip_id": "55", 
-    "timestamp": "2015-09-05T16:38:05.146343+00:00", 
+    "timestamp": "2015-09-05T17:32:35.625504+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14086,7 +14086,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.912357231732539, 
     "raw_trip_id": "56", 
-    "timestamp": "2015-09-05T16:38:05.152538+00:00", 
+    "timestamp": "2015-09-05T17:32:35.632163+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14277,7 +14277,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 25.942624757628316, 
     "raw_trip_id": "57", 
-    "timestamp": "2015-09-05T16:38:05.156104+00:00", 
+    "timestamp": "2015-09-05T17:32:35.636117+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14423,7 +14423,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.660430098590185, 
     "raw_trip_id": "58", 
-    "timestamp": "2015-09-05T16:38:05.164084+00:00", 
+    "timestamp": "2015-09-05T17:32:35.644516+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14715,7 +14715,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 21.60455059864264, 
     "raw_trip_id": "59", 
-    "timestamp": "2015-09-05T16:38:05.178159+00:00", 
+    "timestamp": "2015-09-05T17:32:35.658402+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15020,7 +15020,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.195787297355674, 
     "raw_trip_id": "60", 
-    "timestamp": "2015-09-05T16:38:05.187628+00:00", 
+    "timestamp": "2015-09-05T17:32:35.667709+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15284,7 +15284,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.899534712340628, 
     "raw_trip_id": "61", 
-    "timestamp": "2015-09-05T16:38:05.197964+00:00", 
+    "timestamp": "2015-09-05T17:32:35.678716+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15520,7 +15520,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 10.615732981763227, 
     "raw_trip_id": "62", 
-    "timestamp": "2015-09-05T16:38:05.204888+00:00", 
+    "timestamp": "2015-09-05T17:32:35.685317+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15725,7 +15725,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.279499121368502, 
     "raw_trip_id": "63", 
-    "timestamp": "2015-09-05T16:38:05.216685+00:00", 
+    "timestamp": "2015-09-05T17:32:35.697173+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15980,7 +15980,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.266263863356711, 
     "raw_trip_id": "64", 
-    "timestamp": "2015-09-05T16:38:05.228056+00:00", 
+    "timestamp": "2015-09-05T17:32:35.707892+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16233,7 +16233,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.849647329553022, 
     "raw_trip_id": "65", 
-    "timestamp": "2015-09-05T16:38:05.240286+00:00", 
+    "timestamp": "2015-09-05T17:32:35.719492+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16483,7 +16483,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.814214265705122, 
     "raw_trip_id": "66", 
-    "timestamp": "2015-09-05T16:38:05.256793+00:00", 
+    "timestamp": "2015-09-05T17:32:35.735988+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16750,7 +16750,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 27.392581366821194, 
     "raw_trip_id": "67", 
-    "timestamp": "2015-09-05T16:38:05.275980+00:00", 
+    "timestamp": "2015-09-05T17:32:35.755815+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17082,7 +17082,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 22.478281220038426, 
     "raw_trip_id": "68", 
-    "timestamp": "2015-09-05T16:38:05.281496+00:00", 
+    "timestamp": "2015-09-05T17:32:35.761158+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17249,7 +17249,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 18.225771084189294, 
     "raw_trip_id": "69", 
-    "timestamp": "2015-09-05T16:38:05.290096+00:00", 
+    "timestamp": "2015-09-05T17:32:35.769455+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17496,7 +17496,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 18.126155612321888, 
     "raw_trip_id": "70", 
-    "timestamp": "2015-09-05T16:38:05.307956+00:00", 
+    "timestamp": "2015-09-05T17:32:35.786455+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17764,7 +17764,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 21.352685199309114, 
     "raw_trip_id": "71", 
-    "timestamp": "2015-09-05T16:38:05.310558+00:00", 
+    "timestamp": "2015-09-05T17:32:35.789118+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17893,7 +17893,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 12.048151591791232, 
     "raw_trip_id": "72", 
-    "timestamp": "2015-09-05T16:38:05.318423+00:00", 
+    "timestamp": "2015-09-05T17:32:35.797134+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18111,7 +18111,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 29.232959678779572, 
     "raw_trip_id": "73", 
-    "timestamp": "2015-09-05T16:38:05.323491+00:00", 
+    "timestamp": "2015-09-05T17:32:35.801993+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18305,7 +18305,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 26.30431348630464, 
     "raw_trip_id": "74", 
-    "timestamp": "2015-09-05T16:38:05.328858+00:00", 
+    "timestamp": "2015-09-05T17:32:35.807702+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18478,7 +18478,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 23.216602708323247, 
     "raw_trip_id": "75", 
-    "timestamp": "2015-09-05T16:38:05.343315+00:00", 
+    "timestamp": "2015-09-05T17:32:35.821588+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18782,7 +18782,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 23.73507039152545, 
     "raw_trip_id": "76", 
-    "timestamp": "2015-09-05T16:38:05.348801+00:00", 
+    "timestamp": "2015-09-05T17:32:35.826489+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18927,7 +18927,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.190873402177363, 
     "raw_trip_id": "77", 
-    "timestamp": "2015-09-05T16:38:05.354639+00:00", 
+    "timestamp": "2015-09-05T17:32:35.831906+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19136,7 +19136,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.246401729496952, 
     "raw_trip_id": "78", 
-    "timestamp": "2015-09-05T16:38:05.362085+00:00", 
+    "timestamp": "2015-09-05T17:32:35.839166+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19402,7 +19402,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.879207177046675, 
     "raw_trip_id": "79", 
-    "timestamp": "2015-09-05T16:38:05.369913+00:00", 
+    "timestamp": "2015-09-05T17:32:35.846774+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19615,7 +19615,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.02577481619059, 
     "raw_trip_id": "80", 
-    "timestamp": "2015-09-05T16:38:05.381207+00:00", 
+    "timestamp": "2015-09-05T17:32:35.857408+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19890,7 +19890,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.967894846073154, 
     "raw_trip_id": "81", 
-    "timestamp": "2015-09-05T16:38:05.393992+00:00", 
+    "timestamp": "2015-09-05T17:32:35.869876+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20175,7 +20175,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 20.050002570889227, 
     "raw_trip_id": "82", 
-    "timestamp": "2015-09-05T16:38:05.403973+00:00", 
+    "timestamp": "2015-09-05T17:32:35.879670+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20409,7 +20409,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 27.88146262046324, 
     "raw_trip_id": "83", 
-    "timestamp": "2015-09-05T16:38:05.408623+00:00", 
+    "timestamp": "2015-09-05T17:32:35.884280+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20556,7 +20556,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.15027147483594, 
     "raw_trip_id": "84", 
-    "timestamp": "2015-09-05T16:38:05.415557+00:00", 
+    "timestamp": "2015-09-05T17:32:35.891095+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20744,7 +20744,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.6034635259442, 
     "raw_trip_id": "85", 
-    "timestamp": "2015-09-05T16:38:05.426502+00:00", 
+    "timestamp": "2015-09-05T17:32:35.901679+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20966,7 +20966,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.666530069809571, 
     "raw_trip_id": "86", 
-    "timestamp": "2015-09-05T16:38:05.434735+00:00", 
+    "timestamp": "2015-09-05T17:32:35.909892+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21149,7 +21149,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 17.358996427905414, 
     "raw_trip_id": "87", 
-    "timestamp": "2015-09-05T16:38:05.446245+00:00", 
+    "timestamp": "2015-09-05T17:32:35.921307+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21428,7 +21428,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.124032598761922, 
     "raw_trip_id": "88", 
-    "timestamp": "2015-09-05T16:38:05.454949+00:00", 
+    "timestamp": "2015-09-05T17:32:35.930240+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21648,7 +21648,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 18.827527580682098, 
     "raw_trip_id": "89", 
-    "timestamp": "2015-09-05T16:38:05.472424+00:00", 
+    "timestamp": "2015-09-05T17:32:35.946975+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21930,7 +21930,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.646688298538386, 
     "raw_trip_id": "90", 
-    "timestamp": "2015-09-05T16:38:05.478445+00:00", 
+    "timestamp": "2015-09-05T17:32:35.952394+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22137,7 +22137,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 23.659729568528192, 
     "raw_trip_id": "91", 
-    "timestamp": "2015-09-05T16:38:05.495924+00:00", 
+    "timestamp": "2015-09-05T17:32:35.970074+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22552,7 +22552,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 5.587912275815029, 
     "raw_trip_id": "92", 
-    "timestamp": "2015-09-05T16:38:05.500632+00:00", 
+    "timestamp": "2015-09-05T17:32:35.974805+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22725,7 +22725,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 7.94088091092774, 
     "raw_trip_id": "93", 
-    "timestamp": "2015-09-05T16:38:05.508218+00:00", 
+    "timestamp": "2015-09-05T17:32:35.982888+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22932,7 +22932,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.101311319314783, 
     "raw_trip_id": "94", 
-    "timestamp": "2015-09-05T16:38:05.516078+00:00", 
+    "timestamp": "2015-09-05T17:32:35.990893+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -23183,7 +23183,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.21523284561059, 
     "raw_trip_id": "95", 
-    "timestamp": "2015-09-05T16:38:05.527516+00:00", 
+    "timestamp": "2015-09-05T17:32:36.003038+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -23438,7 +23438,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 13.009725680931858, 
     "raw_trip_id": "96", 
-    "timestamp": "2015-09-05T16:38:05.533860+00:00", 
+    "timestamp": "2015-09-05T17:32:36.009971+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -23690,7 +23690,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.304531551530829, 
     "raw_trip_id": "97", 
-    "timestamp": "2015-09-05T16:38:05.541124+00:00", 
+    "timestamp": "2015-09-05T17:32:36.017448+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -23897,7 +23897,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 24.109793482318967, 
     "raw_trip_id": "98", 
-    "timestamp": "2015-09-05T16:38:05.545365+00:00", 
+    "timestamp": "2015-09-05T17:32:36.021714+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -24054,7 +24054,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 7.697652491603634, 
     "raw_trip_id": "99", 
-    "timestamp": "2015-09-05T16:38:05.552070+00:00", 
+    "timestamp": "2015-09-05T17:32:36.029130+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -24247,7 +24247,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.04988927277042, 
     "raw_trip_id": "100", 
-    "timestamp": "2015-09-05T16:38:05.559001+00:00", 
+    "timestamp": "2015-09-05T17:32:36.036164+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -24484,7 +24484,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.923394469365322, 
     "raw_trip_id": "101", 
-    "timestamp": "2015-09-05T16:38:05.569457+00:00", 
+    "timestamp": "2015-09-05T17:32:36.046662+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -24725,7 +24725,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.732568718983474, 
     "raw_trip_id": "102", 
-    "timestamp": "2015-09-05T16:38:05.580044+00:00", 
+    "timestamp": "2015-09-05T17:32:36.057326+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -25002,7 +25002,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 15.0570070943638, 
     "raw_trip_id": "103", 
-    "timestamp": "2015-09-05T16:38:05.588511+00:00", 
+    "timestamp": "2015-09-05T17:32:36.065834+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -25234,7 +25234,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 24.3251280276712, 
     "raw_trip_id": "104", 
-    "timestamp": "2015-09-05T16:38:05.594587+00:00", 
+    "timestamp": "2015-09-05T17:32:36.071256+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -25415,7 +25415,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 14.711219247992231, 
     "raw_trip_id": "105", 
-    "timestamp": "2015-09-05T16:38:05.605313+00:00", 
+    "timestamp": "2015-09-05T17:32:36.081142+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -25677,7 +25677,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.631072896187725, 
     "raw_trip_id": "106", 
-    "timestamp": "2015-09-05T16:38:05.620340+00:00", 
+    "timestamp": "2015-09-05T17:32:36.095294+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -25943,7 +25943,7 @@
     "trips_alternative_path": [], 
     "total_transit_duration_min": 16.75433906262435, 
     "raw_trip_id": "107", 
-    "timestamp": "2015-09-05T16:38:05.635235+00:00", 
+    "timestamp": "2015-09-05T17:32:36.110119+00:00", 
     "transit_legs": [
       {
         "start": [

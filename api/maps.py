@@ -351,7 +351,8 @@ for trip_filename in trip_files.keys():
         trip['trips_continue_from_end'] = continue_from_end
         trip['trips_return_to_start'] = return_to_start
         trip['trips_alternative_path'] = alternative_path
-    
+
+    all_trips = all_trips + trips
     jdump(trips, trip_filename)
 
 for route in routes:
