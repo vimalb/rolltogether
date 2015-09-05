@@ -3,7 +3,7 @@
     "transit_distance_km": 19.137148658788476, 
     "total_transit_duration_min": 26.196130615466387, 
     "raw_trip_id": "108", 
-    "timestamp": "2015-09-04T23:51:16.014137+00:00", 
+    "timestamp": "2015-09-05T04:17:46.235447+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -66,9 +66,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "0", 
+    "transit_trip_cost_real": 1.8751074874832083, 
     "total_nominal_duration_min": 21.4, 
     "total_actual_duration_min": 44.85, 
-    "route_id": "0", 
+    "total_trip_cost_real": 5.795140826666667, 
     "total_distance_km": 22.541, 
     "legs": [
       {
@@ -285,7 +287,7 @@
     "transit_distance_km": 10.592427163544503, 
     "total_transit_duration_min": 15.889118800404841, 
     "raw_trip_id": "109", 
-    "timestamp": "2015-09-04T23:51:16.020920+00:00", 
+    "timestamp": "2015-09-05T04:17:46.242544+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -312,9 +314,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "1", 
+    "transit_trip_cost_real": 1.6595916724337982, 
     "total_nominal_duration_min": 16.3, 
     "total_actual_duration_min": 29.216666666666665, 
-    "route_id": "1", 
+    "total_trip_cost_real": 3.3828340799999994, 
     "total_distance_km": 13.158, 
     "legs": [
       {
@@ -453,7 +457,7 @@
     "transit_distance_km": 8.767921578679665, 
     "total_transit_duration_min": 15.678199009635685, 
     "raw_trip_id": "110", 
-    "timestamp": "2015-09-04T23:51:16.027423+00:00", 
+    "timestamp": "2015-09-05T04:17:46.249489+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -480,9 +484,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "11", 
+    "transit_trip_cost_real": 2.4726507749319824, 
     "total_nominal_duration_min": 13.05, 
     "total_actual_duration_min": 19.75, 
-    "route_id": "11", 
+    "total_trip_cost_real": 3.72682496, 
     "total_distance_km": 14.496, 
     "legs": [
       {
@@ -647,7 +653,7 @@
     "transit_distance_km": 12.344824384274537, 
     "total_transit_duration_min": 18.445429025123996, 
     "raw_trip_id": "111", 
-    "timestamp": "2015-09-04T23:51:16.038338+00:00", 
+    "timestamp": "2015-09-05T04:17:46.260118+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -686,9 +692,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "2", 
+    "transit_trip_cost_real": 1.9026998429655784, 
     "total_nominal_duration_min": 16.4, 
     "total_actual_duration_min": 27.25, 
-    "route_id": "2", 
+    "total_trip_cost_real": 4.076471893333332, 
     "total_distance_km": 15.856, 
     "legs": [
       {
@@ -905,7 +913,7 @@
     "transit_distance_km": 12.931194650577751, 
     "total_transit_duration_min": 20.072721463466962, 
     "raw_trip_id": "112", 
-    "timestamp": "2015-09-04T23:51:16.046135+00:00", 
+    "timestamp": "2015-09-05T04:17:46.268121+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -944,9 +952,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "3", 
+    "transit_trip_cost_real": 2.24016819663413, 
     "total_nominal_duration_min": 16.766666666666666, 
     "total_actual_duration_min": 34.516666666666666, 
-    "route_id": "3", 
+    "total_trip_cost_real": 4.564692133333333, 
     "total_distance_km": 17.755, 
     "legs": [
       {
@@ -1137,7 +1147,7 @@
     "transit_distance_km": 12.344824384274537, 
     "total_transit_duration_min": 19.901096182569006, 
     "raw_trip_id": "113", 
-    "timestamp": "2015-09-04T23:51:16.055584+00:00", 
+    "timestamp": "2015-09-05T04:17:46.277884+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1176,9 +1186,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "2", 
+    "transit_trip_cost_real": 2.266744002965578, 
     "total_nominal_duration_min": 17.833333333333332, 
     "total_actual_duration_min": 31.85, 
-    "route_id": "2", 
+    "total_trip_cost_real": 4.440516053333333, 
     "total_distance_km": 17.272, 
     "legs": [
       {
@@ -1382,7 +1394,7 @@
     "transit_distance_km": 17.04273887226993, 
     "total_transit_duration_min": 22.329644957676393, 
     "raw_trip_id": "114", 
-    "timestamp": "2015-09-04T23:51:16.080265+00:00", 
+    "timestamp": "2015-09-05T04:17:46.304084+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1433,9 +1445,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "4", 
+    "transit_trip_cost_real": 1.4093597208652167, 
     "total_nominal_duration_min": 21.983333333333334, 
     "total_actual_duration_min": 43.416666666666664, 
-    "route_id": "4", 
+    "total_trip_cost_real": 4.7909342666666666, 
     "total_distance_km": 18.635, 
     "legs": [
       {
@@ -1691,7 +1705,7 @@
     "transit_distance_km": 19.930023025956093, 
     "total_transit_duration_min": 29.609008750016173, 
     "raw_trip_id": "115", 
-    "timestamp": "2015-09-04T23:51:16.085062+00:00", 
+    "timestamp": "2015-09-05T04:17:46.309100+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1742,9 +1756,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "5", 
+    "transit_trip_cost_real": 2.3458776801801946, 
     "total_nominal_duration_min": 27.366666666666667, 
     "total_actual_duration_min": 56.266666666666666, 
-    "route_id": "5", 
+    "total_trip_cost_real": 6.469753733333333, 
     "total_distance_km": 25.165, 
     "legs": [
       {
@@ -1818,7 +1834,7 @@
     "transit_distance_km": 17.39219313391672, 
     "total_transit_duration_min": 26.751754577012868, 
     "raw_trip_id": "116", 
-    "timestamp": "2015-09-04T23:51:16.109758+00:00", 
+    "timestamp": "2015-09-05T04:17:46.335045+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -1869,9 +1885,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "1", 
+    "transit_trip_cost_real": 2.27024850655757, 
     "total_nominal_duration_min": 26.583333333333332, 
     "total_actual_duration_min": 49.25, 
-    "route_id": "1", 
+    "total_trip_cost_real": 5.741665413333332, 
     "total_distance_km": 22.333, 
     "legs": [
       {
@@ -2088,7 +2106,7 @@
     "transit_distance_km": 13.39191544537852, 
     "total_transit_duration_min": 22.36296508524079, 
     "raw_trip_id": "117", 
-    "timestamp": "2015-09-04T23:51:16.126210+00:00", 
+    "timestamp": "2015-09-05T04:17:46.352143+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2127,9 +2145,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 2.300656911762818, 
     "total_nominal_duration_min": 22.95, 
     "total_actual_duration_min": 43.38333333333333, 
-    "route_id": "21", 
+    "total_trip_cost_real": 4.7436290933333325, 
     "total_distance_km": 18.451, 
     "legs": [
       {
@@ -2346,7 +2366,7 @@
     "transit_distance_km": 10.0372079655921, 
     "total_transit_duration_min": 17.7062888491352, 
     "raw_trip_id": "118", 
-    "timestamp": "2015-09-04T23:51:16.140783+00:00", 
+    "timestamp": "2015-09-05T04:17:46.367903+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2373,9 +2393,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 2.2517339734327084, 
     "total_nominal_duration_min": 17.333333333333332, 
     "total_actual_duration_min": 35.25, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.8322332266666668, 
     "total_distance_km": 14.906, 
     "legs": [
       {
@@ -2566,7 +2588,7 @@
     "transit_distance_km": 10.0372079655921, 
     "total_transit_duration_min": 17.524349158237307, 
     "raw_trip_id": "119", 
-    "timestamp": "2015-09-04T23:51:16.157437+00:00", 
+    "timestamp": "2015-09-05T04:17:46.385367+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2593,9 +2615,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 2.130900106766042, 
     "total_nominal_duration_min": 17.983333333333334, 
     "total_actual_duration_min": 35.31666666666667, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.7113993599999997, 
     "total_distance_km": 14.436, 
     "legs": [
       {
@@ -2812,7 +2836,7 @@
     "transit_distance_km": 14.78968623458197, 
     "total_transit_duration_min": 28.20340382802516, 
     "raw_trip_id": "120", 
-    "timestamp": "2015-09-04T23:51:16.163690+00:00", 
+    "timestamp": "2015-09-05T04:17:46.391425+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2839,9 +2863,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "0", 
+    "transit_trip_cost_real": 3.4201002136638725, 
     "total_nominal_duration_min": 26.883333333333333, 
     "total_actual_duration_min": 52.03333333333333, 
-    "route_id": "0", 
+    "total_trip_cost_real": 6.222429946666666, 
     "total_distance_km": 24.203, 
     "legs": [
       {
@@ -2928,7 +2954,7 @@
     "transit_distance_km": 20.104018411195955, 
     "total_transit_duration_min": 17.77511126623209, 
     "raw_trip_id": "121", 
-    "timestamp": "2015-09-04T23:51:16.173408+00:00", 
+    "timestamp": "2015-09-05T04:17:46.401064+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -2979,9 +3005,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "6", 
+    "transit_trip_cost_real": 0.06983158660426125, 
     "total_nominal_duration_min": 28.933333333333334, 
     "total_actual_duration_min": 57.8, 
-    "route_id": "6", 
+    "total_trip_cost_real": 4.238440693333333, 
     "total_distance_km": 16.486, 
     "legs": [
       {
@@ -3172,7 +3200,7 @@
     "transit_distance_km": 9.891065198234118, 
     "total_transit_duration_min": 13.451694774685043, 
     "raw_trip_id": "122", 
-    "timestamp": "2015-09-04T23:51:16.181007+00:00", 
+    "timestamp": "2015-09-05T04:17:46.409006+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3199,9 +3227,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 1.2084859313019964, 
     "total_nominal_duration_min": 20.883333333333333, 
     "total_actual_duration_min": 41.81666666666667, 
-    "route_id": "10", 
+    "total_trip_cost_real": 2.751412853333333, 
     "total_distance_km": 10.702, 
     "legs": [
       {
@@ -3379,7 +3409,7 @@
     "transit_distance_km": 15.442724039339476, 
     "total_transit_duration_min": 11.95939239048479, 
     "raw_trip_id": "123", 
-    "timestamp": "2015-09-04T23:51:16.187561+00:00", 
+    "timestamp": "2015-09-05T04:17:46.415479+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3418,9 +3448,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 0.05936644097941657, 
     "total_nominal_duration_min": 21.166666666666668, 
     "total_actual_duration_min": 43.8, 
-    "route_id": "10", 
+    "total_trip_cost_real": 3.0295878400000005, 
     "total_distance_km": 11.784, 
     "legs": [
       {
@@ -3572,7 +3604,7 @@
     "transit_distance_km": 10.369227080108967, 
     "total_transit_duration_min": 10.575063740230897, 
     "raw_trip_id": "124", 
-    "timestamp": "2015-09-04T23:51:16.193132+00:00", 
+    "timestamp": "2015-09-05T04:17:46.421051+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3611,9 +3643,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "8", 
+    "transit_trip_cost_real": 0.7189386058845186, 
     "total_nominal_duration_min": 15.85, 
     "total_actual_duration_min": 35.18333333333333, 
-    "route_id": "8", 
+    "total_trip_cost_real": 2.38479776, 
     "total_distance_km": 9.276, 
     "legs": [
       {
@@ -3739,7 +3773,7 @@
     "transit_distance_km": 13.946129885703838, 
     "total_transit_duration_min": 11.483614388993985, 
     "raw_trip_id": "125", 
-    "timestamp": "2015-09-04T23:51:16.200114+00:00", 
+    "timestamp": "2015-09-05T04:17:46.428308+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -3790,9 +3824,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 0.25233919391811466, 
     "total_nominal_duration_min": 19.933333333333334, 
     "total_actual_duration_min": 33.5, 
-    "route_id": "7", 
+    "total_trip_cost_real": 2.837796213333333, 
     "total_distance_km": 11.038, 
     "legs": [
       {
@@ -3996,7 +4032,7 @@
     "transit_distance_km": 10.151478665541152, 
     "total_transit_duration_min": 10.287910448906118, 
     "raw_trip_id": "126", 
-    "timestamp": "2015-09-04T23:51:16.206711+00:00", 
+    "timestamp": "2015-09-05T04:17:46.435140+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4035,9 +4071,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "20", 
+    "transit_trip_cost_real": 0.7556382716138068, 
     "total_nominal_duration_min": 18.333333333333332, 
     "total_actual_duration_min": 35.68333333333333, 
-    "route_id": "20", 
+    "total_trip_cost_real": 2.36551576, 
     "total_distance_km": 9.201, 
     "legs": [
       {
@@ -4189,7 +4227,7 @@
     "transit_distance_km": 13.946129885703838, 
     "total_transit_duration_min": 13.492556882728787, 
     "raw_trip_id": "127", 
-    "timestamp": "2015-09-04T23:51:16.214176+00:00", 
+    "timestamp": "2015-09-05T04:17:46.442979+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4240,9 +4278,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 0.5130318339181146, 
     "total_nominal_duration_min": 20.633333333333333, 
     "total_actual_duration_min": 46.35, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.098488853333333, 
     "total_distance_km": 12.052, 
     "legs": [
       {
@@ -4407,7 +4447,7 @@
     "transit_distance_km": 19.093547466230923, 
     "total_transit_duration_min": 18.86527423267976, 
     "raw_trip_id": "128", 
-    "timestamp": "2015-09-04T23:51:16.226861+00:00", 
+    "timestamp": "2015-09-05T04:17:46.455512+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4458,9 +4498,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "9", 
+    "transit_trip_cost_real": 0.3584113834151377, 
     "total_nominal_duration_min": 26.916666666666668, 
     "total_actual_duration_min": 58.0, 
-    "route_id": "9", 
+    "total_trip_cost_real": 4.267235146666666, 
     "total_distance_km": 16.598, 
     "legs": [
       {
@@ -4625,7 +4667,7 @@
     "transit_distance_km": 21.564081035773015, 
     "total_transit_duration_min": 22.58203784029003, 
     "raw_trip_id": "129", 
-    "timestamp": "2015-09-04T23:51:16.243678+00:00", 
+    "timestamp": "2015-09-05T04:17:46.473076+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -4700,9 +4742,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "8", 
+    "transit_trip_cost_real": 0.476022952909663, 
     "total_nominal_duration_min": 31.566666666666666, 
     "total_actual_duration_min": 68.05, 
-    "route_id": "8", 
+    "total_trip_cost_real": 5.020004426666667, 
     "total_distance_km": 19.526, 
     "legs": [
       {
@@ -4958,7 +5002,7 @@
     "transit_distance_km": 19.093547466230923, 
     "total_transit_duration_min": 23.124301215296803, 
     "raw_trip_id": "130", 
-    "timestamp": "2015-09-04T23:51:16.261363+00:00", 
+    "timestamp": "2015-09-05T04:17:46.491728+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5009,9 +5053,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "9", 
+    "transit_trip_cost_real": 1.0343097567484711, 
     "total_nominal_duration_min": 30.55, 
     "total_actual_duration_min": 63.63333333333333, 
-    "route_id": "9", 
+    "total_trip_cost_real": 4.94313352, 
     "total_distance_km": 19.227, 
     "legs": [
       {
@@ -5215,7 +5261,7 @@
     "transit_distance_km": 19.093547466230923, 
     "total_transit_duration_min": 21.34077416236546, 
     "raw_trip_id": "131", 
-    "timestamp": "2015-09-04T23:51:16.280380+00:00", 
+    "timestamp": "2015-09-05T04:17:46.511005+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5266,9 +5312,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "9", 
+    "transit_trip_cost_real": 0.7473935967484713, 
     "total_nominal_duration_min": 28.966666666666665, 
     "total_actual_duration_min": 61.25, 
-    "route_id": "9", 
+    "total_trip_cost_real": 4.65621736, 
     "total_distance_km": 18.111, 
     "legs": [
       {
@@ -5446,7 +5494,7 @@
     "transit_distance_km": 24.644016917972227, 
     "total_transit_duration_min": 17.248078419093872, 
     "raw_trip_id": "132", 
-    "timestamp": "2015-09-04T23:51:16.293978+00:00", 
+    "timestamp": "2015-09-05T04:17:46.524410+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5533,9 +5581,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": -0.9356600561645403, 
     "total_nominal_duration_min": 28.016666666666666, 
     "total_actual_duration_min": 49.75, 
-    "route_id": "7", 
+    "total_trip_cost_real": 4.400152399999999, 
     "total_distance_km": 17.115, 
     "legs": [
       {
@@ -5778,7 +5828,7 @@
     "transit_distance_km": 19.51591686029092, 
     "total_transit_duration_min": 17.024426596968787, 
     "raw_trip_id": "133", 
-    "timestamp": "2015-09-04T23:51:16.301735+00:00", 
+    "timestamp": "2015-09-05T04:17:46.532228+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5829,9 +5879,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 0.05803140133160689, 
     "total_nominal_duration_min": 27.666666666666668, 
     "total_actual_duration_min": 57.083333333333336, 
-    "route_id": "10", 
+    "total_trip_cost_real": 4.07544352, 
     "total_distance_km": 15.852, 
     "legs": [
       {
@@ -5970,7 +6022,7 @@
     "transit_distance_km": 15.386886435286087, 
     "total_transit_duration_min": 22.04528032601571, 
     "raw_trip_id": "134", 
-    "timestamp": "2015-09-04T23:51:16.306182+00:00", 
+    "timestamp": "2015-09-05T04:17:46.536552+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -5997,9 +6049,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "6", 
+    "transit_trip_cost_real": 1.5252708767308487, 
     "total_nominal_duration_min": 30.55, 
     "total_actual_duration_min": 62.416666666666664, 
-    "route_id": "6", 
+    "total_trip_cost_real": 4.4811368, 
     "total_distance_km": 17.43, 
     "legs": [
       {
@@ -6060,7 +6114,7 @@
     "transit_distance_km": 13.744263679217447, 
     "total_transit_duration_min": 15.282091531542395, 
     "raw_trip_id": "135", 
-    "timestamp": "2015-09-04T23:51:16.318184+00:00", 
+    "timestamp": "2015-09-05T04:17:46.548065+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6099,9 +6153,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "11", 
+    "transit_trip_cost_real": 0.8076263964977226, 
     "total_nominal_duration_min": 21.033333333333335, 
     "total_actual_duration_min": 34.9, 
-    "route_id": "11", 
+    "total_trip_cost_real": 3.3411849599999996, 
     "total_distance_km": 12.996, 
     "legs": [
       {
@@ -6344,7 +6400,7 @@
     "transit_distance_km": 13.21164530579703, 
     "total_transit_duration_min": 7.968612565772266, 
     "raw_trip_id": "136", 
-    "timestamp": "2015-09-04T23:51:16.325165+00:00", 
+    "timestamp": "2015-09-05T04:17:46.554334+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6383,9 +6439,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "12", 
+    "transit_trip_cost_real": -0.007457583818377689, 
     "total_nominal_duration_min": 18.7, 
     "total_actual_duration_min": 35.3, 
-    "route_id": "12", 
+    "total_trip_cost_real": 2.389168346666666, 
     "total_distance_km": 9.293, 
     "legs": [
       {
@@ -6563,7 +6621,7 @@
     "transit_distance_km": 17.097625862654976, 
     "total_transit_duration_min": 21.911302173042046, 
     "raw_trip_id": "137", 
-    "timestamp": "2015-09-04T23:51:16.344668+00:00", 
+    "timestamp": "2015-09-05T04:17:46.574529+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6614,9 +6672,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 1.2654165082171565, 
     "total_nominal_duration_min": 24.483333333333334, 
     "total_actual_duration_min": 48.05, 
-    "route_id": "13", 
+    "total_trip_cost_real": 4.6611021333333325, 
     "total_distance_km": 18.13, 
     "legs": [
       {
@@ -6846,7 +6906,7 @@
     "transit_distance_km": 12.920325087324594, 
     "total_transit_duration_min": 17.874423317703545, 
     "raw_trip_id": "138", 
-    "timestamp": "2015-09-04T23:51:16.355614+00:00", 
+    "timestamp": "2015-09-05T04:17:46.585470+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -6885,9 +6945,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 1.4547145288827623, 
     "total_nominal_duration_min": 19.683333333333334, 
     "total_actual_duration_min": 38.45, 
-    "route_id": "13", 
+    "total_trip_cost_real": 3.776443973333333, 
     "total_distance_km": 14.689, 
     "legs": [
       {
@@ -7078,7 +7140,7 @@
     "transit_distance_km": 15.301075700883942, 
     "total_transit_duration_min": 22.959038179775305, 
     "raw_trip_id": "139", 
-    "timestamp": "2015-09-04T23:51:16.376246+00:00", 
+    "timestamp": "2015-09-05T04:17:46.606124+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7129,9 +7191,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "14", 
+    "transit_trip_cost_real": 1.7620051778074113, 
     "total_nominal_duration_min": 28.333333333333332, 
     "total_actual_duration_min": 54.8, 
-    "route_id": "14", 
+    "total_trip_cost_real": 4.695809733333333, 
     "total_distance_km": 18.265, 
     "legs": [
       {
@@ -7374,7 +7438,7 @@
     "transit_distance_km": 8.31211779874791, 
     "total_transit_duration_min": 14.609416335438222, 
     "raw_trip_id": "140", 
-    "timestamp": "2015-09-04T23:51:16.387673+00:00", 
+    "timestamp": "2015-09-05T04:17:46.617728+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7401,9 +7465,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "14", 
+    "transit_trip_cost_real": 1.7799908880605708, 
     "total_nominal_duration_min": 17.333333333333332, 
     "total_actual_duration_min": 35.15, 
-    "route_id": "14", 
+    "total_trip_cost_real": 2.91698096, 
     "total_distance_km": 11.346, 
     "legs": [
       {
@@ -7581,7 +7647,7 @@
     "transit_distance_km": 8.31211779874791, 
     "total_transit_duration_min": 12.92729254810848, 
     "raw_trip_id": "141", 
-    "timestamp": "2015-09-04T23:51:16.400019+00:00", 
+    "timestamp": "2015-09-05T04:17:46.630685+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7608,9 +7674,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "14", 
+    "transit_trip_cost_real": 1.493074728060571, 
     "total_nominal_duration_min": 15.75, 
     "total_actual_duration_min": 32.56666666666667, 
-    "route_id": "14", 
+    "total_trip_cost_real": 2.6300648, 
     "total_distance_km": 10.23, 
     "legs": [
       {
@@ -7762,7 +7830,7 @@
     "transit_distance_km": 9.891065198234028, 
     "total_transit_duration_min": 15.204082567458318, 
     "raw_trip_id": "142", 
-    "timestamp": "2015-09-04T23:51:16.407091+00:00", 
+    "timestamp": "2015-09-05T04:17:46.637719+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7789,9 +7857,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 1.4596661179686865, 
     "total_nominal_duration_min": 21.783333333333335, 
     "total_actual_duration_min": 50.03333333333333, 
-    "route_id": "10", 
+    "total_trip_cost_real": 3.0025930400000003, 
     "total_distance_km": 11.679, 
     "legs": [
       {
@@ -7969,7 +8039,7 @@
     "transit_distance_km": 7.890426328138607, 
     "total_transit_duration_min": 14.969626614286025, 
     "raw_trip_id": "143", 
-    "timestamp": "2015-09-04T23:51:16.418028+00:00", 
+    "timestamp": "2015-09-05T04:17:46.649057+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -7996,9 +8066,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "17", 
+    "transit_trip_cost_real": 1.9552492205444185, 
     "total_nominal_duration_min": 17.183333333333334, 
     "total_actual_duration_min": 38.3, 
-    "route_id": "17", 
+    "total_trip_cost_real": 2.9838252266666663, 
     "total_distance_km": 11.606, 
     "legs": [
       {
@@ -8202,7 +8274,7 @@
     "transit_distance_km": 17.26188317508409, 
     "total_transit_duration_min": 9.931496849602464, 
     "raw_trip_id": "144", 
-    "timestamp": "2015-09-04T23:51:16.429710+00:00", 
+    "timestamp": "2015-09-05T04:17:46.660538+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8253,9 +8325,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "15", 
+    "transit_trip_cost_real": -0.31166015175961914, 
     "total_nominal_duration_min": 25.7, 
     "total_actual_duration_min": 53.5, 
-    "route_id": "15", 
+    "total_trip_cost_real": 3.126254933333333, 
     "total_distance_km": 12.16, 
     "legs": [
       {
@@ -8472,7 +8546,7 @@
     "transit_distance_km": 12.351424811477575, 
     "total_transit_duration_min": 12.298948461010344, 
     "raw_trip_id": "145", 
-    "timestamp": "2015-09-04T23:51:16.440317+00:00", 
+    "timestamp": "2015-09-05T04:17:46.671168+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8511,9 +8585,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": 0.6152791571345255, 
     "total_nominal_duration_min": 18.3, 
     "total_actual_duration_min": 39.416666666666664, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.7907481333333335, 
     "total_distance_km": 10.855, 
     "legs": [
       {
@@ -8652,7 +8728,7 @@
     "transit_distance_km": 12.351424811477575, 
     "total_transit_duration_min": 10.337570255834894, 
     "raw_trip_id": "146", 
-    "timestamp": "2015-09-04T23:51:16.450774+00:00", 
+    "timestamp": "2015-09-05T04:17:46.681893+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8691,9 +8767,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": 0.32836299713452555, 
     "total_nominal_duration_min": 16.716666666666665, 
     "total_actual_duration_min": 36.95, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.5038319733333334, 
     "total_distance_km": 9.739, 
     "legs": [
       {
@@ -8806,7 +8884,7 @@
     "transit_distance_km": 15.706132291263966, 
     "total_transit_duration_min": 7.414438326262484, 
     "raw_trip_id": "147", 
-    "timestamp": "2015-09-04T23:51:16.457896+00:00", 
+    "timestamp": "2015-09-05T04:17:46.688705+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8857,9 +8935,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": -0.5801296378686904, 
     "total_nominal_duration_min": 17.783333333333335, 
     "total_actual_duration_min": 35.06666666666667, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.4578122666666666, 
     "total_distance_km": 9.56, 
     "legs": [
       {
@@ -8972,7 +9052,7 @@
     "transit_distance_km": 9.637636472394263, 
     "total_transit_duration_min": 16.39447241487584, 
     "raw_trip_id": "148", 
-    "timestamp": "2015-09-04T23:51:16.467333+00:00", 
+    "timestamp": "2015-09-05T04:17:46.698509+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -8999,9 +9079,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "4", 
+    "transit_trip_cost_real": 1.9778194071905846, 
     "total_nominal_duration_min": 17.066666666666666, 
     "total_actual_duration_min": 29.133333333333333, 
-    "route_id": "4", 
+    "total_trip_cost_real": 3.4555914933333334, 
     "total_distance_km": 13.441, 
     "legs": [
       {
@@ -9205,7 +9287,7 @@
     "transit_distance_km": 14.759378738379125, 
     "total_transit_duration_min": 12.74601013667325, 
     "raw_trip_id": "149", 
-    "timestamp": "2015-09-04T23:51:16.475628+00:00", 
+    "timestamp": "2015-09-05T04:17:46.707125+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9244,9 +9326,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 0.2831264155543163, 
     "total_nominal_duration_min": 21.316666666666666, 
     "total_actual_duration_min": 49.0, 
-    "route_id": "10", 
+    "total_trip_cost_real": 3.077664293333333, 
     "total_distance_km": 11.971, 
     "legs": [
       {
@@ -9424,7 +9508,7 @@
     "transit_distance_km": 16.558275204337235, 
     "total_transit_duration_min": 13.322252722441409, 
     "raw_trip_id": "150", 
-    "timestamp": "2015-09-04T23:51:16.488249+00:00", 
+    "timestamp": "2015-09-05T04:17:46.719621+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9463,9 +9547,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "17", 
+    "transit_trip_cost_real": -0.19812568653374085, 
     "total_nominal_duration_min": 16.716666666666665, 
     "total_actual_duration_min": 36.86666666666667, 
-    "route_id": "17", 
+    "total_trip_cost_real": 3.05889648, 
     "total_distance_km": 11.898, 
     "legs": [
       {
@@ -9669,7 +9755,7 @@
     "transit_distance_km": 8.561281790497961, 
     "total_transit_duration_min": 16.95171559933174, 
     "raw_trip_id": "151", 
-    "timestamp": "2015-09-04T23:51:16.499462+00:00", 
+    "timestamp": "2015-09-05T04:17:46.730966+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9696,9 +9782,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "15", 
+    "transit_trip_cost_real": 1.836509260208244, 
     "total_nominal_duration_min": 24.25, 
     "total_actual_duration_min": 49.916666666666664, 
-    "route_id": "15", 
+    "total_trip_cost_real": 3.0375577333333332, 
     "total_distance_km": 11.815, 
     "legs": [
       {
@@ -9915,7 +10003,7 @@
     "transit_distance_km": 3.6508234268914466, 
     "total_transit_duration_min": 13.623752758353621, 
     "raw_trip_id": "152", 
-    "timestamp": "2015-09-04T23:51:16.509689+00:00", 
+    "timestamp": "2015-09-05T04:17:46.740863+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -9930,9 +10018,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": 2.4441386491023884, 
     "total_nominal_duration_min": 15.25, 
     "total_actual_duration_min": 32.583333333333336, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.3827410133333333, 
     "total_distance_km": 9.268, 
     "legs": [
       {
@@ -10071,7 +10161,7 @@
     "transit_distance_km": 8.767921578680166, 
     "total_transit_duration_min": 21.817464278831707, 
     "raw_trip_id": "153", 
-    "timestamp": "2015-09-04T23:51:16.514882+00:00", 
+    "timestamp": "2015-09-05T04:17:46.746068+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10098,9 +10188,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "11", 
+    "transit_trip_cost_real": 4.334006508265187, 
     "total_nominal_duration_min": 18.933333333333334, 
     "total_actual_duration_min": 41.31666666666667, 
-    "route_id": "11", 
+    "total_trip_cost_real": 5.588180693333333, 
     "total_distance_km": 21.736, 
     "legs": [
       {
@@ -10187,7 +10279,7 @@
     "transit_distance_km": 6.163911941993508, 
     "total_transit_duration_min": 16.645421515800663, 
     "raw_trip_id": "154", 
-    "timestamp": "2015-09-04T23:51:16.516440+00:00", 
+    "timestamp": "2015-09-05T04:17:46.747646+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10202,9 +10294,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "10", 
+    "transit_trip_cost_real": 2.2384412257930824, 
     "total_nominal_duration_min": 21.083333333333332, 
     "total_actual_duration_min": 43.38333333333333, 
-    "route_id": "10", 
+    "total_trip_cost_real": 2.823141893333333, 
     "total_distance_km": 10.981, 
     "legs": [
       {
@@ -10239,7 +10333,7 @@
     "transit_distance_km": 13.940106469202389, 
     "total_transit_duration_min": 9.589795148786894, 
     "raw_trip_id": "155", 
-    "timestamp": "2015-09-04T23:51:16.520552+00:00", 
+    "timestamp": "2015-09-05T04:17:46.751563+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10278,9 +10372,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "6", 
+    "transit_trip_cost_real": 0.1225130808111935, 
     "total_nominal_duration_min": 22.016666666666666, 
     "total_actual_duration_min": 43.18333333333333, 
-    "route_id": "6", 
+    "total_trip_cost_real": 2.7064215199999997, 
     "total_distance_km": 10.527, 
     "legs": [
       {
@@ -10419,7 +10515,7 @@
     "transit_distance_km": 8.445828470502331, 
     "total_transit_duration_min": 12.543731828281283, 
     "raw_trip_id": "156", 
-    "timestamp": "2015-09-04T23:51:16.530187+00:00", 
+    "timestamp": "2015-09-05T04:17:46.761342+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10446,9 +10542,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "15", 
+    "transit_trip_cost_real": 1.328095192423654, 
     "total_nominal_duration_min": 18.35, 
     "total_actual_duration_min": 42.016666666666666, 
-    "route_id": "15", 
+    "total_trip_cost_real": 2.499461386666667, 
     "total_distance_km": 9.722, 
     "legs": [
       {
@@ -10665,7 +10763,7 @@
     "transit_distance_km": 8.18511009417156, 
     "total_transit_duration_min": 15.406762192215448, 
     "raw_trip_id": "157", 
-    "timestamp": "2015-09-04T23:51:16.540833+00:00", 
+    "timestamp": "2015-09-05T04:17:46.772468+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10692,9 +10790,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.959444015522453, 
     "total_nominal_duration_min": 17.833333333333332, 
     "total_actual_duration_min": 36.55, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.063781253333333, 
     "total_distance_km": 11.917, 
     "legs": [
       {
@@ -10872,7 +10972,7 @@
     "transit_distance_km": 8.18511009417156, 
     "total_transit_duration_min": 13.34873935530343, 
     "raw_trip_id": "158", 
-    "timestamp": "2015-09-04T23:51:16.548858+00:00", 
+    "timestamp": "2015-09-05T04:17:46.780542+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -10899,9 +10999,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.6046552155224534, 
     "total_nominal_duration_min": 15.8, 
     "total_actual_duration_min": 33.71666666666667, 
-    "route_id": "7", 
+    "total_trip_cost_real": 2.7089924533333334, 
     "total_distance_km": 10.537, 
     "legs": [
       {
@@ -11079,7 +11181,7 @@
     "transit_distance_km": 14.27478983786326, 
     "total_transit_duration_min": 9.354415986758086, 
     "raw_trip_id": "159", 
-    "timestamp": "2015-09-04T23:51:16.555089+00:00", 
+    "timestamp": "2015-09-05T04:17:46.786621+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11130,9 +11232,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": -0.18360367538239175, 
     "total_nominal_duration_min": 16.333333333333332, 
     "total_actual_duration_min": 32.55, 
-    "route_id": "7", 
+    "total_trip_cost_real": 2.4863496266666663, 
     "total_distance_km": 9.671, 
     "legs": [
       {
@@ -11284,7 +11388,7 @@
     "transit_distance_km": 14.27478983786326, 
     "total_transit_duration_min": 9.088780550041847, 
     "raw_trip_id": "160", 
-    "timestamp": "2015-09-04T23:51:16.564248+00:00", 
+    "timestamp": "2015-09-05T04:17:46.795567+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11335,9 +11439,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": -0.1951728753823918, 
     "total_nominal_duration_min": 16.65, 
     "total_actual_duration_min": 32.78333333333333, 
-    "route_id": "7", 
+    "total_trip_cost_real": 2.4747804266666664, 
     "total_distance_km": 9.626, 
     "legs": [
       {
@@ -11502,7 +11608,7 @@
     "transit_distance_km": 12.202677098183269, 
     "total_transit_duration_min": 23.585504952890396, 
     "raw_trip_id": "161", 
-    "timestamp": "2015-09-04T23:51:16.569702+00:00", 
+    "timestamp": "2015-09-05T04:17:46.800965+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11529,9 +11635,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "2", 
+    "transit_trip_cost_real": 3.406476615904402, 
     "total_nominal_duration_min": 20.6, 
     "total_actual_duration_min": 41.46666666666667, 
-    "route_id": "2", 
+    "total_trip_cost_real": 5.543703546666666, 
     "total_distance_km": 21.563, 
     "legs": [
       {
@@ -11618,7 +11726,7 @@
     "transit_distance_km": 14.935435513810548, 
     "total_transit_duration_min": 12.342055879208814, 
     "raw_trip_id": "162", 
-    "timestamp": "2015-09-04T23:51:16.579420+00:00", 
+    "timestamp": "2015-09-05T04:17:46.810199+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11669,9 +11777,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 0.20726928563606706, 
     "total_nominal_duration_min": 21.45, 
     "total_actual_duration_min": 45.25, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.0470701866666667, 
     "total_distance_km": 11.852, 
     "legs": [
       {
@@ -11914,7 +12024,7 @@
     "transit_distance_km": 8.353650497447031, 
     "total_transit_duration_min": 14.522748613950982, 
     "raw_trip_id": "163", 
-    "timestamp": "2015-09-04T23:51:16.586261+00:00", 
+    "timestamp": "2015-09-05T04:17:46.817437+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -11941,9 +12051,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 1.7137809481096848, 
     "total_nominal_duration_min": 18.033333333333335, 
     "total_actual_duration_min": 37.81666666666667, 
-    "route_id": "13", 
+    "total_trip_cost_real": 2.8614488000000002, 
     "total_distance_km": 11.13, 
     "legs": [
       {
@@ -12134,7 +12246,7 @@
     "transit_distance_km": 4.608207288576689, 
     "total_transit_duration_min": 12.912357231732539, 
     "raw_trip_id": "164", 
-    "timestamp": "2015-09-04T23:51:16.594398+00:00", 
+    "timestamp": "2015-09-05T04:17:46.825546+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12149,9 +12261,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "19", 
+    "transit_trip_cost_real": 2.2735870808221903, 
     "total_nominal_duration_min": 14.25, 
     "total_actual_duration_min": 29.116666666666667, 
-    "route_id": "19", 
+    "total_trip_cost_real": 2.4583264533333327, 
     "total_distance_km": 9.562, 
     "legs": [
       {
@@ -12290,7 +12404,7 @@
     "transit_distance_km": 12.898442142190515, 
     "total_transit_duration_min": 25.942624757628316, 
     "raw_trip_id": "165", 
-    "timestamp": "2015-09-04T23:51:16.598363+00:00", 
+    "timestamp": "2015-09-05T04:17:46.829629+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12317,9 +12431,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "5", 
+    "transit_trip_cost_real": 3.8055458748570996, 
     "total_nominal_duration_min": 22.833333333333332, 
     "total_actual_duration_min": 46.81666666666667, 
-    "route_id": "5", 
+    "total_trip_cost_real": 6.121649359999999, 
     "total_distance_km": 23.811, 
     "legs": [
       {
@@ -12393,7 +12509,7 @@
     "transit_distance_km": 10.151478665541214, 
     "total_transit_duration_min": 14.660430098590185, 
     "raw_trip_id": "166", 
-    "timestamp": "2015-09-04T23:51:16.606351+00:00", 
+    "timestamp": "2015-09-05T04:17:46.837763+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12432,9 +12548,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "20", 
+    "transit_trip_cost_real": 1.3955435782804573, 
     "total_nominal_duration_min": 18.833333333333332, 
     "total_actual_duration_min": 37.983333333333334, 
-    "route_id": "20", 
+    "total_trip_cost_real": 3.0054210666666665, 
     "total_distance_km": 11.69, 
     "legs": [
       {
@@ -12638,7 +12756,7 @@
     "transit_distance_km": 17.09762586265486, 
     "total_transit_duration_min": 21.60455059864264, 
     "raw_trip_id": "167", 
-    "timestamp": "2015-09-04T23:51:16.623930+00:00", 
+    "timestamp": "2015-09-05T04:17:46.855302+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12689,9 +12807,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 1.2024286415505205, 
     "total_nominal_duration_min": 24.7, 
     "total_actual_duration_min": 46.55, 
-    "route_id": "13", 
+    "total_trip_cost_real": 4.598114266666667, 
     "total_distance_km": 17.885, 
     "legs": [
       {
@@ -12908,7 +13028,7 @@
     "transit_distance_km": 7.890426328138561, 
     "total_transit_duration_min": 15.195787297355674, 
     "raw_trip_id": "168", 
-    "timestamp": "2015-09-04T23:51:16.634564+00:00", 
+    "timestamp": "2015-09-05T04:17:46.865779+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -12935,9 +13055,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "17", 
+    "transit_trip_cost_real": 1.9025450872110967, 
     "total_nominal_duration_min": 18.6, 
     "total_actual_duration_min": 38.7, 
-    "route_id": "17", 
+    "total_trip_cost_real": 2.931121093333333, 
     "total_distance_km": 11.401, 
     "legs": [
       {
@@ -13141,7 +13263,7 @@
     "transit_distance_km": 9.136721200243617, 
     "total_transit_duration_min": 14.899534712340628, 
     "raw_trip_id": "169", 
-    "timestamp": "2015-09-04T23:51:16.645328+00:00", 
+    "timestamp": "2015-09-05T04:17:46.876459+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13168,9 +13290,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "17", 
+    "transit_trip_cost_real": 1.6016700775587012, 
     "total_nominal_duration_min": 19.3, 
     "total_actual_duration_min": 41.78333333333333, 
-    "route_id": "17", 
+    "total_trip_cost_real": 2.9506601866666666, 
     "total_distance_km": 11.477, 
     "legs": [
       {
@@ -13348,7 +13472,7 @@
     "transit_distance_km": 12.436331490798379, 
     "total_transit_duration_min": 10.615732981763227, 
     "raw_trip_id": "170", 
-    "timestamp": "2015-09-04T23:51:16.653698+00:00", 
+    "timestamp": "2015-09-05T04:17:46.884954+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13387,9 +13511,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 0.23866141592567547, 
     "total_nominal_duration_min": 13.783333333333333, 
     "total_actual_duration_min": 23.933333333333334, 
-    "route_id": "13", 
+    "total_trip_cost_real": 2.435959333333333, 
     "total_distance_km": 9.475, 
     "legs": [
       {
@@ -13528,7 +13654,7 @@
     "transit_distance_km": 8.785508063906972, 
     "total_transit_duration_min": 17.279499121368502, 
     "raw_trip_id": "171", 
-    "timestamp": "2015-09-04T23:51:16.669222+00:00", 
+    "timestamp": "2015-09-05T04:17:46.900530+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13555,9 +13681,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 2.19535338015661, 
     "total_nominal_duration_min": 19.466666666666665, 
     "total_actual_duration_min": 33.8, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.454048933333334, 
     "total_distance_km": 13.435, 
     "legs": [
       {
@@ -13748,7 +13876,7 @@
     "transit_distance_km": 8.785508063906972, 
     "total_transit_duration_min": 15.266263863356711, 
     "raw_trip_id": "172", 
-    "timestamp": "2015-09-04T23:51:16.681650+00:00", 
+    "timestamp": "2015-09-05T04:17:46.913038+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -13775,9 +13903,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 1.84056458015661, 
     "total_nominal_duration_min": 17.416666666666668, 
     "total_actual_duration_min": 30.85, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.0992601333333334, 
     "total_distance_km": 12.055, 
     "legs": [
       {
@@ -13968,7 +14098,7 @@
     "transit_distance_km": 12.140215543693364, 
     "total_transit_duration_min": 15.849647329553022, 
     "raw_trip_id": "173", 
-    "timestamp": "2015-09-04T23:51:16.694907+00:00", 
+    "timestamp": "2015-09-05T04:17:46.926282+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14007,9 +14137,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 1.2382701051533942, 
     "total_nominal_duration_min": 18.066666666666666, 
     "total_actual_duration_min": 32.833333333333336, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.3594385866666663, 
     "total_distance_km": 13.067, 
     "legs": [
       {
@@ -14187,7 +14319,7 @@
     "transit_distance_km": 12.140215543693364, 
     "total_transit_duration_min": 15.814214265705122, 
     "raw_trip_id": "174", 
-    "timestamp": "2015-09-04T23:51:16.712559+00:00", 
+    "timestamp": "2015-09-05T04:17:46.944355+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14226,9 +14358,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 1.2267009051533941, 
     "total_nominal_duration_min": 18.4, 
     "total_actual_duration_min": 33.06666666666667, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.3478693866666664, 
     "total_distance_km": 13.022, 
     "legs": [
       {
@@ -14432,7 +14566,7 @@
     "transit_distance_km": 18.000122733955234, 
     "total_transit_duration_min": 27.392581366821194, 
     "raw_trip_id": "175", 
-    "timestamp": "2015-09-04T23:51:16.730800+00:00", 
+    "timestamp": "2015-09-05T04:17:46.963796+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14483,9 +14617,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "19", 
+    "transit_trip_cost_real": 2.4522886859183357, 
     "total_nominal_duration_min": 24.25, 
     "total_actual_duration_min": 46.516666666666666, 
-    "route_id": "19", 
+    "total_trip_cost_real": 6.0800002399999995, 
     "total_distance_km": 23.649, 
     "legs": [
       {
@@ -14728,7 +14864,7 @@
     "transit_distance_km": 14.328779440871596, 
     "total_transit_duration_min": 22.478281220038426, 
     "raw_trip_id": "176", 
-    "timestamp": "2015-09-04T23:51:16.736141+00:00", 
+    "timestamp": "2015-09-05T04:17:46.969405+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14779,9 +14915,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "20", 
+    "transit_trip_cost_real": 1.9764971842815182, 
     "total_nominal_duration_min": 25.216666666666665, 
     "total_actual_duration_min": 51.416666666666664, 
-    "route_id": "20", 
+    "total_trip_cost_real": 4.660330853333333, 
     "total_distance_km": 18.127, 
     "legs": [
       {
@@ -14855,7 +14993,7 @@
     "transit_distance_km": 12.920325087324576, 
     "total_transit_duration_min": 18.225771084189294, 
     "raw_trip_id": "177", 
-    "timestamp": "2015-09-04T23:51:16.745819+00:00", 
+    "timestamp": "2015-09-05T04:17:46.979513+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -14894,9 +15032,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 1.5392982355494338, 
     "total_nominal_duration_min": 19.483333333333334, 
     "total_actual_duration_min": 40.416666666666664, 
-    "route_id": "13", 
+    "total_trip_cost_real": 3.8610276800000003, 
     "total_distance_km": 15.018, 
     "legs": [
       {
@@ -15074,7 +15214,7 @@
     "transit_distance_km": 14.110400786543597, 
     "total_transit_duration_min": 18.126155612321888, 
     "raw_trip_id": "178", 
-    "timestamp": "2015-09-04T23:51:16.764501+00:00", 
+    "timestamp": "2015-09-05T04:17:46.998030+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15113,9 +15253,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "4", 
+    "transit_trip_cost_real": 1.2346231737848847, 
     "total_nominal_duration_min": 19.65, 
     "total_actual_duration_min": 36.833333333333336, 
-    "route_id": "4", 
+    "total_trip_cost_real": 3.8623131466666663, 
     "total_distance_km": 15.023, 
     "legs": [
       {
@@ -15306,7 +15448,7 @@
     "transit_distance_km": 13.433170873178875, 
     "total_transit_duration_min": 21.352685199309114, 
     "raw_trip_id": "179", 
-    "timestamp": "2015-09-04T23:51:16.768759+00:00", 
+    "timestamp": "2015-09-05T04:17:47.002342+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15345,9 +15487,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.845793136311532, 
     "total_nominal_duration_min": 26.6, 
     "total_actual_duration_min": 52.416666666666664, 
-    "route_id": "7", 
+    "total_trip_cost_real": 4.299371813333333, 
     "total_distance_km": 16.723, 
     "legs": [
       {
@@ -15395,7 +15539,7 @@
     "transit_distance_km": 12.436331490798516, 
     "total_transit_duration_min": 12.048151591791232, 
     "raw_trip_id": "180", 
-    "timestamp": "2015-09-04T23:51:16.777193+00:00", 
+    "timestamp": "2015-09-05T04:17:47.010867+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15434,9 +15578,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "13", 
+    "transit_trip_cost_real": 0.4605329625923068, 
     "total_nominal_duration_min": 14.166666666666666, 
     "total_actual_duration_min": 28.083333333333332, 
-    "route_id": "13", 
+    "total_trip_cost_real": 2.6578308799999997, 
     "total_distance_km": 10.338, 
     "legs": [
       {
@@ -15575,7 +15721,7 @@
     "transit_distance_km": 20.380873347514402, 
     "total_transit_duration_min": 29.232959678779572, 
     "raw_trip_id": "181", 
-    "timestamp": "2015-09-04T23:51:16.782564+00:00", 
+    "timestamp": "2015-09-05T04:17:47.016428+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15638,9 +15784,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.9947266681763636, 
     "total_nominal_duration_min": 29.933333333333334, 
     "total_actual_duration_min": 52.25, 
-    "route_id": "21", 
+    "total_trip_cost_real": 6.234513333333333, 
     "total_distance_km": 24.25, 
     "legs": [
       {
@@ -15727,7 +15875,7 @@
     "transit_distance_km": 16.801390219401902, 
     "total_transit_duration_min": 26.30431348630464, 
     "raw_trip_id": "182", 
-    "timestamp": "2015-09-04T23:51:16.787956+00:00", 
+    "timestamp": "2015-09-05T04:17:47.021949+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15778,9 +15926,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "8", 
+    "transit_trip_cost_real": 2.080462957193234, 
     "total_nominal_duration_min": 30.7, 
     "total_actual_duration_min": 58.21666666666667, 
-    "route_id": "8", 
+    "total_trip_cost_real": 5.399988373333334, 
     "total_distance_km": 21.004, 
     "legs": [
       {
@@ -15854,7 +16004,7 @@
     "transit_distance_km": 15.301075700883745, 
     "total_transit_duration_min": 23.216602708323247, 
     "raw_trip_id": "183", 
-    "timestamp": "2015-09-04T23:51:16.804039+00:00", 
+    "timestamp": "2015-09-05T04:17:47.038314+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -15905,9 +16055,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "14", 
+    "transit_trip_cost_real": 1.8851528844741283, 
     "total_nominal_duration_min": 26.433333333333334, 
     "total_actual_duration_min": 50.86666666666667, 
-    "route_id": "14", 
+    "total_trip_cost_real": 4.81895744, 
     "total_distance_km": 18.744, 
     "legs": [
       {
@@ -16124,7 +16276,7 @@
     "transit_distance_km": 14.53141251531543, 
     "total_transit_duration_min": 23.73507039152545, 
     "raw_trip_id": "184", 
-    "timestamp": "2015-09-04T23:51:16.809028+00:00", 
+    "timestamp": "2015-09-05T04:17:47.043535+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16163,9 +16315,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "22", 
+    "transit_trip_cost_real": 2.1840658383958385, 
     "total_nominal_duration_min": 26.166666666666668, 
     "total_actual_duration_min": 50.833333333333336, 
-    "route_id": "22", 
+    "total_trip_cost_real": 4.91999512, 
     "total_distance_km": 19.137, 
     "legs": [
       {
@@ -16239,7 +16393,7 @@
     "transit_distance_km": 8.561281790497912, 
     "total_transit_duration_min": 16.190873402177363, 
     "raw_trip_id": "185", 
-    "timestamp": "2015-09-04T23:51:16.814863+00:00", 
+    "timestamp": "2015-09-05T04:17:47.049162+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16266,9 +16420,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "15", 
+    "transit_trip_cost_real": 1.7421560068749238, 
     "total_nominal_duration_min": 23.466666666666665, 
     "total_actual_duration_min": 44.916666666666664, 
-    "route_id": "15", 
+    "total_trip_cost_real": 2.94320448, 
     "total_distance_km": 11.448, 
     "legs": [
       {
@@ -16420,7 +16576,7 @@
     "transit_distance_km": 11.194853955663975, 
     "total_transit_duration_min": 17.246401729496952, 
     "raw_trip_id": "186", 
-    "timestamp": "2015-09-04T23:51:16.821885+00:00", 
+    "timestamp": "2015-09-05T04:17:47.056521+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16459,9 +16615,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "8", 
+    "transit_trip_cost_real": 1.7378954136918296, 
     "total_nominal_duration_min": 18.683333333333334, 
     "total_actual_duration_min": 37.03333333333333, 
-    "route_id": "8", 
+    "total_trip_cost_real": 3.616017733333333, 
     "total_distance_km": 14.065, 
     "legs": [
       {
@@ -16652,7 +16810,7 @@
     "transit_distance_km": 6.988957902135859, 
     "total_transit_duration_min": 13.879207177046675, 
     "raw_trip_id": "187", 
-    "timestamp": "2015-09-04T23:51:16.829860+00:00", 
+    "timestamp": "2015-09-05T04:17:47.064967+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16679,9 +16837,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.9407153297468847, 
     "total_nominal_duration_min": 15.983333333333333, 
     "total_actual_duration_min": 31.116666666666667, 
-    "route_id": "21", 
+    "total_trip_cost_real": 2.737529813333333, 
     "total_distance_km": 10.648, 
     "legs": [
       {
@@ -16833,7 +16993,7 @@
     "transit_distance_km": 10.34366538192225, 
     "total_transit_duration_min": 16.02577481619059, 
     "raw_trip_id": "188", 
-    "timestamp": "2015-09-04T23:51:16.842058+00:00", 
+    "timestamp": "2015-09-05T04:17:47.077507+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -16872,9 +17032,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.5770034680770022, 
     "total_nominal_duration_min": 20.266666666666666, 
     "total_actual_duration_min": 37.36666666666667, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.23629088, 
     "total_distance_km": 12.588, 
     "legs": [
       {
@@ -17078,7 +17240,7 @@
     "transit_distance_km": 10.34366538192225, 
     "total_transit_duration_min": 15.967894846073154, 
     "raw_trip_id": "189", 
-    "timestamp": "2015-09-04T23:51:16.855025+00:00", 
+    "timestamp": "2015-09-05T04:17:47.091064+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17117,9 +17279,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.5862588280770025, 
     "total_nominal_duration_min": 19.683333333333334, 
     "total_actual_duration_min": 37.416666666666664, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.24554624, 
     "total_distance_km": 12.624, 
     "legs": [
       {
@@ -17336,7 +17500,7 @@
     "transit_distance_km": 13.391915445378544, 
     "total_transit_duration_min": 20.050002570889227, 
     "raw_trip_id": "190", 
-    "timestamp": "2015-09-04T23:51:16.865309+00:00", 
+    "timestamp": "2015-09-05T04:17:47.101405+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17375,9 +17539,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.8697684850961451, 
     "total_nominal_duration_min": 19.733333333333334, 
     "total_actual_duration_min": 32.95, 
-    "route_id": "21", 
+    "total_trip_cost_real": 4.312740666666666, 
     "total_distance_km": 16.775, 
     "legs": [
       {
@@ -17529,7 +17695,7 @@
     "transit_distance_km": 14.349022036165058, 
     "total_transit_duration_min": 27.88146262046324, 
     "raw_trip_id": "191", 
-    "timestamp": "2015-09-04T23:51:16.870049+00:00", 
+    "timestamp": "2015-09-05T04:17:47.106089+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17568,9 +17734,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 2.8040182546488714, 
     "total_nominal_duration_min": 32.46666666666667, 
     "total_actual_duration_min": 60.516666666666666, 
-    "route_id": "7", 
+    "total_trip_cost_real": 5.493056159999999, 
     "total_distance_km": 21.366, 
     "legs": [
       {
@@ -17631,7 +17799,7 @@
     "transit_distance_km": 8.312117798747886, 
     "total_transit_duration_min": 14.15027147483594, 
     "raw_trip_id": "192", 
-    "timestamp": "2015-09-04T23:51:16.877966+00:00", 
+    "timestamp": "2015-09-05T04:17:47.114171+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17658,9 +17826,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "14", 
+    "transit_trip_cost_real": 1.75788086139391, 
     "total_nominal_duration_min": 15.95, 
     "total_actual_duration_min": 31.266666666666666, 
-    "route_id": "14", 
+    "total_trip_cost_real": 2.894870933333333, 
     "total_distance_km": 11.26, 
     "legs": [
       {
@@ -17786,7 +17956,7 @@
     "transit_distance_km": 12.351424811477653, 
     "total_transit_duration_min": 14.6034635259442, 
     "raw_trip_id": "193", 
-    "timestamp": "2015-09-04T23:51:16.890796+00:00", 
+    "timestamp": "2015-09-05T04:17:47.126733+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17825,9 +17995,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": 0.9664686504678387, 
     "total_nominal_duration_min": 20.45, 
     "total_actual_duration_min": 37.7, 
-    "route_id": "16", 
+    "total_trip_cost_real": 3.141937626666666, 
     "total_distance_km": 12.221, 
     "legs": [
       {
@@ -17979,7 +18151,7 @@
     "transit_distance_km": 3.6508234268914066, 
     "total_transit_duration_min": 14.666530069809571, 
     "raw_trip_id": "194", 
-    "timestamp": "2015-09-04T23:51:16.900665+00:00", 
+    "timestamp": "2015-09-05T04:17:47.136433+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -17994,9 +18166,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": 2.6747513691023985, 
     "total_nominal_duration_min": 16.05, 
     "total_actual_duration_min": 29.75, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.613353733333333, 
     "total_distance_km": 10.165, 
     "legs": [
       {
@@ -18135,7 +18309,7 @@
     "transit_distance_km": 8.18511009417155, 
     "total_transit_duration_min": 17.358996427905414, 
     "raw_trip_id": "195", 
-    "timestamp": "2015-09-04T23:51:16.912786+00:00", 
+    "timestamp": "2015-09-05T04:17:47.148604+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18162,9 +18336,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 2.361795082189122, 
     "total_nominal_duration_min": 19.183333333333334, 
     "total_actual_duration_min": 33.416666666666664, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.46613232, 
     "total_distance_km": 13.482, 
     "legs": [
       {
@@ -18381,7 +18557,7 @@
     "transit_distance_km": 4.6082072885766845, 
     "total_transit_duration_min": 14.124032598761922, 
     "raw_trip_id": "196", 
-    "timestamp": "2015-09-04T23:51:16.921953+00:00", 
+    "timestamp": "2015-09-05T04:17:47.158114+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18396,9 +18572,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "19", 
+    "transit_trip_cost_real": 2.5731008141555245, 
     "total_nominal_duration_min": 15.066666666666666, 
     "total_actual_duration_min": 23.566666666666666, 
-    "route_id": "19", 
+    "total_trip_cost_real": 2.7578401866666664, 
     "total_distance_km": 10.727, 
     "legs": [
       {
@@ -18576,7 +18754,7 @@
     "transit_distance_km": 8.785508063907066, 
     "total_transit_duration_min": 18.827527580682098, 
     "raw_trip_id": "197", 
-    "timestamp": "2015-09-04T23:51:16.938439+00:00", 
+    "timestamp": "2015-09-05T04:17:47.175139+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18603,9 +18781,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 2.5928196734899194, 
     "total_nominal_duration_min": 20.033333333333335, 
     "total_actual_duration_min": 36.13333333333333, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.851515226666666, 
     "total_distance_km": 14.981, 
     "legs": [
       {
@@ -18822,7 +19002,7 @@
     "transit_distance_km": 13.391915445378544, 
     "total_transit_duration_min": 16.646688298538386, 
     "raw_trip_id": "198", 
-    "timestamp": "2015-09-04T23:51:16.944399+00:00", 
+    "timestamp": "2015-09-05T04:17:47.181443+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -18861,9 +19041,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.1316535250961455, 
     "total_nominal_duration_min": 15.65, 
     "total_actual_duration_min": 25.7, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.5746257066666667, 
     "total_distance_km": 13.904, 
     "legs": [
       {
@@ -18989,7 +19171,7 @@
     "transit_distance_km": 25.066386312031746, 
     "total_transit_duration_min": 23.659729568528192, 
     "raw_trip_id": "199", 
-    "timestamp": "2015-09-04T23:51:16.961396+00:00", 
+    "timestamp": "2015-09-05T04:17:47.198807+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19076,9 +19258,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": -0.1847853982479486, 
     "total_nominal_duration_min": 28.5, 
     "total_actual_duration_min": 55.166666666666664, 
-    "route_id": "7", 
+    "total_trip_cost_real": 5.259615413333333, 
     "total_distance_km": 20.458, 
     "legs": [
       {
@@ -19360,7 +19544,7 @@
     "transit_distance_km": 12.089194672594049, 
     "total_transit_duration_min": 5.587912275815029, 
     "raw_trip_id": "200", 
-    "timestamp": "2015-09-04T23:51:16.966052+00:00", 
+    "timestamp": "2015-09-05T04:17:47.203154+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19399,9 +19583,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "4", 
+    "transit_trip_cost_real": -0.18962090235944595, 
     "total_nominal_duration_min": 14.383333333333333, 
     "total_actual_duration_min": 27.733333333333334, 
-    "route_id": "4", 
+    "total_trip_cost_real": 1.9184304533333332, 
     "total_distance_km": 7.462, 
     "legs": [
       {
@@ -19501,7 +19687,7 @@
     "transit_distance_km": 16.128501685323815, 
     "total_transit_duration_min": 7.94088091092774, 
     "raw_trip_id": "201", 
-    "timestamp": "2015-09-04T23:51:16.973738+00:00", 
+    "timestamp": "2015-09-05T04:17:47.210704+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19552,9 +19738,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": -0.5375471132855174, 
     "total_nominal_duration_min": 19.366666666666667, 
     "total_actual_duration_min": 33.483333333333334, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.6089831466666666, 
     "total_distance_km": 10.148, 
     "legs": [
       {
@@ -19680,7 +19868,7 @@
     "transit_distance_km": 13.938630606225168, 
     "total_transit_duration_min": 14.101311319314783, 
     "raw_trip_id": "202", 
-    "timestamp": "2015-09-04T23:51:16.981882+00:00", 
+    "timestamp": "2015-09-05T04:17:47.218623+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19719,9 +19907,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 0.5352702220102177, 
     "total_nominal_duration_min": 17.616666666666667, 
     "total_actual_duration_min": 30.416666666666668, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.1187992266666664, 
     "total_distance_km": 12.131, 
     "legs": [
       {
@@ -19899,7 +20089,7 @@
     "transit_distance_km": 14.539028575960685, 
     "total_transit_duration_min": 16.21523284561059, 
     "raw_trip_id": "203", 
-    "timestamp": "2015-09-04T23:51:16.993923+00:00", 
+    "timestamp": "2015-09-05T04:17:47.230242+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -19938,9 +20128,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 0.7662948133110143, 
     "total_nominal_duration_min": 18.466666666666665, 
     "total_actual_duration_min": 33.38333333333333, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.504182133333333, 
     "total_distance_km": 13.63, 
     "legs": [
       {
@@ -20118,7 +20310,7 @@
     "transit_distance_km": 13.471559352240046, 
     "total_transit_duration_min": 13.009725680931858, 
     "raw_trip_id": "204", 
-    "timestamp": "2015-09-04T23:51:17.000747+00:00", 
+    "timestamp": "2015-09-05T04:17:47.236829+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20157,9 +20349,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 0.4293660876014327, 
     "total_nominal_duration_min": 16.0, 
     "total_actual_duration_min": 33.05, 
-    "route_id": "21", 
+    "total_trip_cost_real": 2.8928141866666666, 
     "total_distance_km": 11.252, 
     "legs": [
       {
@@ -20337,7 +20531,7 @@
     "transit_distance_km": 10.037207965592152, 
     "total_transit_duration_min": 15.735182189076511, 
     "raw_trip_id": "205", 
-    "timestamp": "2015-09-04T23:51:17.010007+00:00", 
+    "timestamp": "2015-09-05T04:17:47.246039+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20364,9 +20558,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.778939333432695, 
     "total_nominal_duration_min": 15.916666666666666, 
     "total_actual_duration_min": 30.583333333333332, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.3594385866666663, 
     "total_distance_km": 13.067, 
     "legs": [
       {
@@ -20492,7 +20688,7 @@
     "transit_distance_km": 19.406399468689035, 
     "total_transit_duration_min": 24.109793482318967, 
     "raw_trip_id": "206", 
-    "timestamp": "2015-09-04T23:51:17.013790+00:00", 
+    "timestamp": "2015-09-05T04:17:47.250143+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20543,9 +20739,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.1556958592631739, 
     "total_nominal_duration_min": 27.166666666666668, 
     "total_actual_duration_min": 53.5, 
-    "route_id": "7", 
+    "total_trip_cost_real": 5.144951786666666, 
     "total_distance_km": 20.012, 
     "legs": [
       {
@@ -20606,7 +20804,7 @@
     "transit_distance_km": 15.706132291264076, 
     "total_transit_duration_min": 7.697652491603634, 
     "raw_trip_id": "207", 
-    "timestamp": "2015-09-04T23:51:17.020185+00:00", 
+    "timestamp": "2015-09-05T04:17:47.256999+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20657,9 +20855,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "16", 
+    "transit_trip_cost_real": -0.5436223845353856, 
     "total_nominal_duration_min": 18.016666666666666, 
     "total_actual_duration_min": 30.683333333333334, 
-    "route_id": "16", 
+    "total_trip_cost_real": 2.4943195200000003, 
     "total_distance_km": 9.702, 
     "legs": [
       {
@@ -20772,7 +20972,7 @@
     "transit_distance_km": 11.539817573957972, 
     "total_transit_duration_min": 14.04988927277042, 
     "raw_trip_id": "208", 
-    "timestamp": "2015-09-04T23:51:17.026725+00:00", 
+    "timestamp": "2015-09-05T04:17:47.264084+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -20811,9 +21011,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.0373254338525653, 
     "total_nominal_duration_min": 16.266666666666666, 
     "total_actual_duration_min": 28.583333333333332, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.0041356, 
     "total_distance_km": 11.685, 
     "legs": [
       {
@@ -20978,7 +21180,7 @@
     "transit_distance_km": 12.14021554369349, 
     "total_transit_duration_min": 15.923394469365322, 
     "raw_trip_id": "209", 
-    "timestamp": "2015-09-04T23:51:17.037121+00:00", 
+    "timestamp": "2015-09-05T04:17:47.274649+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21017,9 +21219,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 1.2683500251533615, 
     "total_nominal_duration_min": 17.116666666666667, 
     "total_actual_duration_min": 27.683333333333334, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.3895185066666667, 
     "total_distance_km": 13.184, 
     "legs": [
       {
@@ -21184,7 +21388,7 @@
     "transit_distance_km": 10.343665381922456, 
     "total_transit_duration_min": 15.732568718983474, 
     "raw_trip_id": "210", 
-    "timestamp": "2015-09-04T23:51:17.047576+00:00", 
+    "timestamp": "2015-09-05T04:17:47.285229+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21223,9 +21427,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.5716045080769494, 
     "total_nominal_duration_min": 18.766666666666666, 
     "total_actual_duration_min": 31.833333333333332, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.23089192, 
     "total_distance_km": 12.567, 
     "legs": [
       {
@@ -21429,7 +21635,7 @@
     "transit_distance_km": 10.037207965592152, 
     "total_transit_duration_min": 17.173519579765774, 
     "raw_trip_id": "211", 
-    "timestamp": "2015-09-04T23:51:17.056521+00:00", 
+    "timestamp": "2015-09-05T04:17:47.294011+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21456,9 +21662,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 2.127557893432695, 
     "total_nominal_duration_min": 16.866666666666667, 
     "total_actual_duration_min": 23.7, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.708057146666666, 
     "total_distance_km": 14.423, 
     "legs": [
       {
@@ -21597,7 +21805,7 @@
     "transit_distance_km": 21.350311279945277, 
     "total_transit_duration_min": 24.3251280276712, 
     "raw_trip_id": "212", 
-    "timestamp": "2015-09-04T23:51:17.061824+00:00", 
+    "timestamp": "2015-09-05T04:17:47.299110+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21660,9 +21868,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 0.7662221320012685, 
     "total_nominal_duration_min": 29.116666666666667, 
     "total_actual_duration_min": 53.666666666666664, 
-    "route_id": "7", 
+    "total_trip_cost_real": 5.255244826666667, 
     "total_distance_km": 20.441, 
     "legs": [
       {
@@ -21736,7 +21946,7 @@
     "transit_distance_km": 11.539817573957972, 
     "total_transit_duration_min": 14.711219247992231, 
     "raw_trip_id": "213", 
-    "timestamp": "2015-09-04T23:51:17.071375+00:00", 
+    "timestamp": "2015-09-05T04:17:47.308746+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -21775,9 +21985,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "7", 
+    "transit_trip_cost_real": 1.1476184738525652, 
     "total_nominal_duration_min": 18.216666666666665, 
     "total_actual_duration_min": 32.06666666666667, 
-    "route_id": "7", 
+    "total_trip_cost_real": 3.1144286400000003, 
     "total_distance_km": 12.114, 
     "legs": [
       {
@@ -21968,7 +22180,7 @@
     "transit_distance_km": 12.14021554369349, 
     "total_transit_duration_min": 16.631072896187725, 
     "raw_trip_id": "214", 
-    "timestamp": "2015-09-04T23:51:17.084893+00:00", 
+    "timestamp": "2015-09-05T04:17:47.322899+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22007,9 +22219,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "18", 
+    "transit_trip_cost_real": 1.3786430651533617, 
     "total_nominal_duration_min": 19.066666666666666, 
     "total_actual_duration_min": 34.233333333333334, 
-    "route_id": "18", 
+    "total_trip_cost_real": 3.4998115466666664, 
     "total_distance_km": 13.613, 
     "legs": [
       {
@@ -22200,7 +22414,7 @@
     "transit_distance_km": 10.343665381922456, 
     "total_transit_duration_min": 16.75433906262435, 
     "raw_trip_id": "215", 
-    "timestamp": "2015-09-04T23:51:17.099609+00:00", 
+    "timestamp": "2015-09-05T04:17:47.337462+00:00", 
     "transit_legs": [
       {
         "start": [
@@ -22239,9 +22453,11 @@
         "nominal_kmph": 50.0
       }
     ], 
+    "route_id": "21", 
+    "transit_trip_cost_real": 1.700151174743616, 
     "total_nominal_duration_min": 20.833333333333332, 
     "total_actual_duration_min": 39.45, 
-    "route_id": "21", 
+    "total_trip_cost_real": 3.3594385866666663, 
     "total_distance_km": 13.067, 
     "legs": [
       {

@@ -186,24 +186,75 @@ def calc_transit_points(route_points, threshold_meters):
 
 TRANSIT_POINTS = calc_transit_points(route_points, 3000)
 
-TRANSIT_POINTS = [(-23.5166, -46.726709),
-(-23.586487, -46.690038),
-(-23.630889, -46.644328),
-(-23.526561, -46.630182),
-(-23.607838, -46.614008),
-(-23.630277, -46.734868),
-(-23.559982, -46.712408),
-(-23.61435, -46.70089),
-(-23.619757, -46.671321),
-(-23.57953, -46.599857),
-(-23.604007, -46.74741),
-(-23.51433, -46.677979),
-(-23.552289, -46.658608),
-(-23.556001, -46.623031),
-(-23.585318, -46.654971)]
+TRANSIT_POINT_INFO = [
+    { 'point': (-23.5166, -46.726709),
+      'name': 'Name 1',
+      'area': 'Area 1'
+        },
+    { 'point': (-23.586487, -46.690038),
+      'name': 'Name 2',
+      'area': 'Area 2'
+        },
+    { 'point': (-23.630889, -46.644328),
+      'name': 'Name 3',
+      'area': 'Area 3'
+        },
+    { 'point': (-23.526561, -46.630182),
+      'name': 'Name 4',
+      'area': 'Area 4'
+        },
+    { 'point': (-23.607838, -46.614008),
+      'name': 'Name 5',
+      'area': 'Area 5'
+        },
+    { 'point': (-23.630277, -46.734868),
+      'name': 'Name 6',
+      'area': 'Area 6'
+        },
+    { 'point': (-23.559982, -46.712408),
+      'name': 'Name 7',
+      'area': 'Area 7'
+        },
+    { 'point': (-23.61435, -46.70089),
+      'name': 'Name 8',
+      'area': 'Area 8'
+        },
+    { 'point': (-23.619757, -46.671321),
+      'name': 'Name 9',
+      'area': 'Area 9'
+        },
+    { 'point': (-23.57953, -46.599857),
+      'name': 'Name 10',
+      'area': 'Area 10'
+        },
+    { 'point': (-23.604007, -46.74741),
+      'name': 'Name 11',
+      'area': 'Area 11'
+        },
+    { 'point': (-23.51433, -46.677979),
+      'name': 'Name 12',
+      'area': 'Area 12'
+        },
+    { 'point': (-23.552289, -46.658608),
+      'name': 'Name 13',
+      'area': 'Area 13'
+        },
+    { 'point': (-23.556001, -46.623031),
+      'name': 'Name 14',
+      'area': 'Area 14'
+        },
+    { 'point': (-23.585318, -46.654971),
+      'name': 'Name 15',
+      'area': 'Area 15'
+        },
+    ]
+TRANSIT_POINT_INFO = dict([ (p['point'],p) for p in TRANSIT_POINT_INFO ])
+
+TRANSIT_POINTS = list(TRANSIT_POINT_INFO.keys())
 
 raw_trip_id = 0
 
+all_trips = []
 routes = []
 
 TRANSIT_KMPH = 50.0
@@ -228,9 +279,13 @@ for trip_filename in trip_files.keys():
             avg_kmph = trip['total_distance_km'] * 60.0 / trip['total_nominal_duration_min']
             remaining_km = trip['total_distance_km'] - transit_km
             trip['total_transit_duration_min'] = (transit_km / TRANSIT_KMPH)*60.0 + (remaining_km / avg_kmph)*60.0
+            trip['total_trip_cost_real'] = trip['total_distance_km'] * 0.62 / 30.0 * 4 * 3.11
+            trip['transit_trip_cost_real'] = remaining_km * 0.62 / 30.0 * 4 * 3.11 + 1
+            
             trip['raw_trip_id'] = str(raw_trip_id)
-            raw_trip_id = raw_trip_id + 1            
-            print "saved", (trip['total_actual_duration_min'] - trip['total_transit_duration_min']) * 100.0 / trip['total_actual_duration_min']
+            raw_trip_id = raw_trip_id + 1
+            print "saved", (trip['total_actual_duration_min'] - trip['total_transit_duration_min']) * 100.0 / trip['total_actual_duration_min'], "minutes"
+            print "saved", (trip['total_trip_cost_real'] - trip['transit_trip_cost_real']), " R$"
 
             matching_route = None
             for route in routes:
@@ -250,7 +305,27 @@ for trip_filename in trip_files.keys():
             
     trips = [r for r in trips if r.get('transit_legs')]
     jdump(trips, trip_filename)
+    all_trips = all_trips + trips
 
+for route in routes:
+    route['target_amount'] = 1000.0 * len(route['legs'])
+    start_info = TRANSIT_POINT_INFO[route['legs'][0]['start']]
+    end_info = TRANSIT_POINT_INFO[route['legs'][-1]['end']]
+    route['driving_duration_min'] = 0
+    route['transit_distance_km'] = 0
+    route['transit_duration_min'] = 0
+    route['transit_stop_count'] = len(route['legs'])
+    
+    for trip in all_trips:
+        if trip['route_id'] != route['route_id']:
+            continue
+        route['driving_duration_min'] = max(route['driving_duration_min'], trip['total_actual_duration_min'])
+        route['transit_distance_km'] = max(route['transit_distance_km'], trip['transit_distance_km'])
+        route['transit_duration_min'] = max(route['transit_duration_min'], trip['total_transit_duration_min'])
+    route['name'] = start_info['name'] + ' to ' + end_info['name']
+    route['description'] = 'This route goes from '+start_info['area'] + ' to ' + end_info['area'] \
+                           + ' and features '+str(len(route['legs']))+' stops.'
+    
 route_filename = os.path.join(os.path.dirname(__file__), 'routes.json')
 jdump(routes, route_filename)
 

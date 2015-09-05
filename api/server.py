@@ -12,6 +12,8 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from urlparse import urlparse
 from copy import deepcopy
+import dateutil.parser
+import pytz
 
 from flask import Flask, request, send_from_directory, safe_join, Response
 from flask.ext.cors import CORS
@@ -127,23 +129,37 @@ RAW_TRIPS_DB = dict([(str(t['raw_trip_id']), t) for t in RAW_TRIPS_DB if t['rout
 
 @app.route("/api/users/<user_id>/feed", methods=['GET'])
 def feed(user_id):
-    feed_items = []
 
     trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB]
     if len(trips) == 0:
         for raw_trip in random.sample(RAW_TRIPS_DB.values(), 10):
             trip = deepcopy(raw_trip)
             trip['user_id'] = user_id
+            trip['name'] = "Commute / errands"
+            trip['local_timestamp'] = dateutil.parser.parse(trip['timestamp']).astimezone(pytz.timezone('Brazil/East')).isoformat()
             trips.append(trip)
         MONGO_DB.trips.insert_many(trips)
         trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB]
+
+    trip_feed_items = []
     for trip in trips:
         trip['trip_id'] = str(trip['_id'])
         del trip['_id']
-        feed_items.append({'item_type': 'my_trip',
+        trip_feed_items.append({'item_type': 'my_trip',
                            'item_id': trip['trip_id'],
                            'item_details': trip,
+                           'item_local_timestamp': trip['local_timestamp'],
                            })
+    today_items = trip_feed_items[:2]
+    this_week_items = trip_feed_items[2:]
+    
+    feed_items = []
+    feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'Today', 'item_count': len(today_items)}})
+    feed_items = feed_items + today_items
+    feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'This Week', 'item_count': len(this_week_items)}})
+    feed_items = feed_items + this_week_items
+    
+    
     return Response(json.dumps(feed_items), mimetype='application/json')
 
 
@@ -215,7 +231,6 @@ def popular_routes():
 def user_pledges(user_id):
     if request.method in ['POST']:
         req = json.loads(request.get_data())
-        print req
     else:
         req = {}  
     route_ids = req.get('route_ids') or [p['route_id'] for p in MONGO_DB.pledges.find({'user_id': user_id})]

@@ -7,17 +7,19 @@
     <div id="profileHeader"></div>
 
     <div class="list">
-      <div class="item item-divider date">
-        Today
-        <span class="right feed-item-count">{{feedItems.length}}<span>
-      </div>
-      <div class="card" ng-repeat="feedItem in feedItems">
-        <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)">
+      <div ng-repeat="feedItem in feedItems">
+
+        <div ng-if="feedItem.item_type == 'feed_divider'" class="item item-divider date">
+          {{ feedItem.item_details.name }}
+          <span class="right feed-item-count">{{feedItem.item_details.item_count}}<span>
+        </div>
+
+        <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)" class="card">
           <div class="item item-body video-item">
             <div class="list header">
               <div class="item item-avatar header">
                 <img class="profile-img" src="assets/img/profile_pic1.png">
-                <div>{{ feedItem.item_details.local_timestamp }}</div>
+                <div>{{ feedItem.item_local_timestamp | date : "h:mm a" }}</div>
                 <div>Going to the Office</div>
                 <div>
                   <span class="summary-stats">{{ feedItem.item_details.total_distance_km | number: 1}} km</span>
@@ -29,28 +31,10 @@
             <!--<trip-map trip="feedItem.item_details"></trip-map>-->
           </div>
         </div>
+
       </div>
 
-      <div class="item item-divider date">
-        This Week
-      </div>
-      <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
-        <div class="item item-body video-item">
-          <div class="list header">
-            <div class="item item-avatar header">
-              <img class="profile-img" src="assets/img/profile_pic.png">
-              <div>8:30am</div>
-              <div>Going to the Office</div>
-              <div>
-                <span class="summary-stats">50km</span>
-                <span class="summary-stats">2h41m</span>
-              </div>
-            </div>
-
-          </div>
-          <img class="trip-map-summary" src="assets/img/map1.png" >
-        </div>
-      </div>
+  
     </div>
     <br>
   </ion-content>

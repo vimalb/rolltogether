@@ -30,17 +30,38 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       $scope.trips = [];
+      $scope.pledges = {};
+      $scope.totalDrivingMin = 0;
+      $scope.totalDrivingCost = 0;
+      $scope.totalTransitMin = 0;
+      $scope.totalTransitCost = 0;
+
       $scope.refreshTrips = function(route) {
-        tripSearchService.getRouteTrips(route).then(function(trips) {
-          $scope.trips = trips;
-        });
       }
 
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;
+          tripSearchService.getRouteTrips(route).then(function(trips) {
+            $scope.trips = trips;
+            $scope.totalDrivingMin = _.sum(trips, function(trip) {
+              return trip.total_actual_duration_min;
+            });
+            $scope.totalDrivingCost = _.sum(trips, function(trip) {
+              return trip.total_trip_cost_real;
+            });
+            $scope.totalTransitMin = _.sum(trips, function(trip) {
+              return trip.total_transit_duration_min;
+            });
+            $scope.totalTransitCost = _.sum(trips, function(trip) {
+              return trip.transit_trip_cost_real;
+            });
+          });
+          tripSearchService.getPledges([route.route_id]).then(function(pledges) {
+            _.assign($scope.pledges, pledges);
+            console.log($scope.pledges);
+          });
         });
-        $scope.refreshTrips($scope.route);
       });
 
       $scope.goRoutePledge = function(route) {

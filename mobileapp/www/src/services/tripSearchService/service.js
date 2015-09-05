@@ -103,10 +103,10 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
-        getRouteTrips: function(routeId) {
-          console.log("Fetching trips for route", routeId);
+        getRouteTrips: function(route) {
+          console.log("Fetching trips for route", route.route_id);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/trips_for_route/'+routeId.toString();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/trips_for_route/'+route.route_id.toString();
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });

@@ -3,33 +3,35 @@
   <ion-content class="padding route-detail">
     <!-- route title, should this be constructed? -->
     <div class="name">
-      <h3>Parque Villa Lobos to La Olympia</h3>
+      <h3>{{ route.name }}</h3>
     </div>
     <!-- route summary -->
-    <img class="trip-map-summary" src="assets/img/route_sample1.png" >
-    <p>This routes goes through the center of Sao Paulo and features 5 stops at...</p>
+    <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
+    <p>{{ route.description }}</p>
     <div class="stats">
-      <span><span class="stats-bold">$10,234,111</span> raised of $20,000,000</span>
-      <progress class="progress-bar" max="100" value="50"> </progress>
+      <span><span class="stats-bold">R${{ pledges[route.route_id].total_amount }}</span> raised of R${{ route.target_amount }}</span>
+      <progress class="progress-bar" max="100" value="{{ 100 * pledges[route.route_id].total_amount / route.target_amount }}"> </progress>
     </div>
     <div class="details">
       <ul class="detailed-stats">
         <li>
-          <div class="stats-value">50%</div>
+          <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount }}%</div>
           <span class="stats-label">funded</span>
         </li>
         <li>
-          <div class="stats-value">$243,245</div>
+          <div class="stats-value">R${{ pledges[route.route_id].total_amount }}</div>
           <span class="stats-label">raised</span>
         </li>
         <li>
-          <div class="stats-value">3,253</div>
+          <div class="stats-value">{{ pledges[route.route_id].total_count }}</div>
           <span class="stats-label">pledges</span>
         </li>
+        <!--
         <li>
           <div class="stats-value">19</div>
           <span class="stats-label">days left</span>
         </li>
+        -->
       </ul>
     </div>
 
@@ -39,20 +41,20 @@
       <h4>This Week</h4>
       <div>
         <span>Total driving time:</span>
-        <span class="right">20 hours 32 minutes</span>
+        <span class="right">{{ totalDrivingMin | number:0 }} min</span>
       </div>
       <div>
         <span>Total time on new Metro:</span>
-        <span class="right">4 hours</span>
+        <span class="right">{{ totalTransitMin | number:0 }} min</span>
       </div>
       <br>
       <div class="stats-bold">
         <span>Time savings:</span>
-        <span class="right">16 hours</span>
+        <span class="right">{{ (totalDrivingMin - totalTransitMin) | number:0 }} min</span>
       </div>
       <div class="stats-bold">
         <span>Cost savings:</span>
-        <span class="right">$520</span>
+        <span class="right">R${{ (totalDrivingCost - totalTransitCost) | number:0 }}</span>
       </div>
     </div>
 
@@ -73,16 +75,16 @@
         <div class="list header">
           <div class="item item-avatar header">
             <img class="profile-img" src="assets/img/profile_pic.png">
-            <div>8:30am</div>
-            <div>Going to the Office</div>
+            <div>{{ trip.local_timestamp | date : "h:mm a" }}</div>
+            <div>{{ trip.name }}</div>
             <div>
-              <span class="summary-stats left">50km</span>
-              <span class="summary-stats right">2h41m Driven</span>
+              <span class="summary-stats left">{{ trip.total_distance_km | number: 1 }} km</span>
+              <span class="summary-stats right">{{ trip.total_actual_duration_min | number: 0 }} min Driven</span>
             </div>
           </div>
 
         </div>
-        <img class="trip-map-summary" src="assets/img/map1.png" >
+        <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/trips/'+trip.trip_id.toString()+'/map' }}"></img>
       </div>
     </div>
 
