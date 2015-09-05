@@ -85,10 +85,10 @@ progress[value]::-webkit-progress-value {
 
 /* header details for the card */
 .trip-feed .card .item.item-avatar.header {
-  position: absolute;
-  width: 100%;
+  /*position: absolute;
+  width: 100%;*/
   top: 0;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 1);
   color: black;
 }
 
@@ -130,8 +130,8 @@ progress[value]::-webkit-progress-value {
 }
 
 .routes .list .card .item.header {
-  position: absolute;
-  top: 0;
+  /*position: absolute;
+  top: 0;*/
   width: 100%;
   padding: 20px 15px;
   line-height: 1.5em;
@@ -165,7 +165,6 @@ progress[value]::-webkit-progress-value {
 
 .routes .list .card .item.item-image .route-image {
   z-index: -1;
-  padding-top: 40px;
 }
 
 .routes .list .card .item.item-image .map-heart {
