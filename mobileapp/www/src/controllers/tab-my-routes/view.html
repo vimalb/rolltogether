@@ -49,10 +49,10 @@
       <div class="item item-divider section">
         Popular Routes
       </div><!-- /item item-divider section -->
-      <div class="card" ng-repeat="route in popularRoutes" ng-click="goRouteDetail(route)">
+      <div class="card" ng-repeat="route in popularRoutes" ng-click="goRouteDetail(route.route_id)">
         <div class="item item-divider header">
           <div class="route-title">
-            <span>Grupo Ultra to Skye Bar</span>
+            <span>{{ route.name }}</span>
             <span class="right">Driven {{ routeTripCounts[route.route_id] || 0 }}x</span>
           </div>
           <div class="details">

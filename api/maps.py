@@ -392,6 +392,33 @@ with open('locations_map.png','wb') as w:
     resp = requests.get(map_url, map_params)
     w.write(resp.content)
 
-
+"""
+// Client seeding script
+_.each(_.range(107), function(i) {
+    var user_id = 'demo'+i.toString();
+    $.getJSON(document.CLIENT_SETTINGS.SERVER_URL+'/api/users/'+user_id+'/feed').then(function(data) {
+        $.getJSON(document.CLIENT_SETTINGS.SERVER_URL+'/api/users/'+user_id+'/routes').then(function(routes) {
+            _.each(routes, function(route) {
+                route_id = route.route_id;
+                amount = _.sample([5, 20,100]);
+                if(Math.random() < 0.9) {
+                    $.putJSON(document.CLIENT_SETTINGS.SERVER_URL+'/api/users/'+user_id+'/pledges/'+route_id, {'amount': amount});
+                    console.log("User", user_id, "pledged", amount, "to recommended route", route_id);
+                }
+            });
+        });
+        $.getJSON(document.CLIENT_SETTINGS.SERVER_URL+'/api/routes/popular').then(function(routes) {
+            _.each(routes, function(route) {
+                route_id = route.route_id;
+                amount = _.sample([5, 20,100]);
+                if(Math.random() < 0.9) {
+                    $.putJSON(document.CLIENT_SETTINGS.SERVER_URL+'/api/users/'+user_id+'/pledges/'+route_id, {'amount': amount});
+                    console.log("User", user_id, "pledged", amount, "to popular route", route_id);
+                }
+            });
+        });
+    });
+});
+"""
     
 
