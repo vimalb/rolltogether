@@ -304,8 +304,40 @@ for trip_filename in trip_files.keys():
             trip['route_id'] = matching_route['route_id']
             
     trips = [r for r in trips if r.get('transit_legs')]
+    for trip in trips:
+        same_start = []
+        same_end = []
+        continue_from_end = []
+        return_to_start = []
+        alternative_path = []
+        for other_trip in trips:
+            if other_trip == trip:
+                continue
+            trip_start = trip['legs'][0]['start']
+            trip_end = trip['legs'][-1]['end']
+            other_trip_start = other_trip['legs'][0]['start']
+            other_trip_end = other_trip['legs'][-1]['end']
+            start_to_other_start = dist(trip_start, other_trip_start) < 100
+            end_to_other_end = dist(trip_end, other_trip_end) < 100
+            start_to_other_end = dist(trip_start, other_trip_end) < 100
+            end_to_other_start = dist(trip_end, other_trip_start) < 100
+            if start_to_other_end and end_to_other_start:
+                return_to_start.append(other_trip['raw_trip_id'])
+            elif start_to_other_start and end_to_other_end:
+                alternative_path.append(other_trip['raw_trip_id'])
+            elif end_to_other_start:
+                continue_from_end.append(other_trip['raw_trip_id'])
+            elif start_to_other_start:
+                same_start.append(other_trip['raw_trip_id'])
+            elif end_to_other_end:
+                same_end.append(other_trip['raw_trip_id'])
+        trip['trips_same_start'] = same_start
+        trip['trips_same_end'] = same_end
+        trip['trips_continue_from_end'] = continue_from_end
+        trip['trips_return_to_start'] = return_to_start
+        trip['trips_alternative_path'] = alternative_path
+    
     jdump(trips, trip_filename)
-    all_trips = all_trips + trips
 
 for route in routes:
     route['target_amount'] = 1000.0 * len(route['legs'])

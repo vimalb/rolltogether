@@ -12,7 +12,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from urlparse import urlparse
 from copy import deepcopy
-import dateutil.parser
+from datetime import datetime, timedelta
 import pytz
 
 from flask import Flask, request, send_from_directory, safe_join, Response
@@ -125,41 +125,100 @@ RAW_TRIPS_DB = jload(os.path.join(os.path.dirname(__file__), 'trips_2015-08-31_2
 #    get_trip_map(trip)
 RAW_TRIPS_DB = dict([(str(t['raw_trip_id']), t) for t in RAW_TRIPS_DB if t['route_id'] in ROUTES_DB])
 
+def utcnow():
+    return datetime.utcnow().replace(tzinfo=pytz.UTC)
+
+def localnow():
+    return datetime.utcnow().replace(tzinfo=pytz.UTC).astimezone(pytz.timezone('Brazil/East'))
+
+def between(x,a,b):
+    return x >= a and x < b
+
+def fuzzify(raw_trip_id, target_time, trip_name):
+    trip = deepcopy(RAW_TRIPS_DB[raw_trip_id])
+    trip['name'] = trip_name
+    trip['local_timestamp'] = target_time.astimezone(pytz.timezone('Brazil/East')).isoformat()
+    return trip
+
+def reverse_trip_id(raw_trip_id):
+    return random.choice(RAW_TRIPS_DB[raw_trip_id]['trips_return_to_start'])
+
+def seed_trip_history(user_id, trips):
+    now = localnow()
+    trip_seed = MONGO_DB.trip_seeds.find_one({'user_id': user_id})
+    if not trip_seed:
+        trip_seed = { 'user_id': user_id,
+                      'commute_raw_trip_id': random.choice(RAW_TRIPS_DB.keys()),
+                    }
+        MONGO_DB.trip_seeds.insert_one(trip_seed)
+        print "Created seed for user_id", user_id
+    print "Using seed", trip_seed
+
+    MONGO_DB.trips.delete_many({'user_id': user_id})
+
+    commute_trip = RAW_TRIPS_DB[trip_seed['commute_raw_trip_id']]
+    add_trips = []
+
+    # Today trips
+    add_trips.append(fuzzify(random.choice(commute_trip['trips_same_start']), now-timedelta(hours=2), 'Go shopping'))
+
+    # Past month daily trips
+    yesterday = (now-timedelta(days=1)).replace(hour=0,minute=0,second=0,microsecond=0)
+    for i in range(30):
+        ref_day = yesterday - timedelta(days=i)
+        if ref_day.isoweekday() in [1, 2, 4, 5]:
+            add_trips.append(fuzzify(commute_trip['raw_trip_id'], ref_day+timedelta(hours=7), 'Drive to work'))
+            add_trips.append(fuzzify(reverse_trip_id(commute_trip['raw_trip_id']), ref_day+timedelta(hours=17), 'Return home from work'))
+            if random.random() < 0.33:
+                errand_trip_id = random.choice(commute_trip['trips_same_start'])
+                add_trips.append(fuzzify(errand_trip_id, ref_day+timedelta(hours=19), 'Run errands'))
+                #add_trips.append(fuzzify(reverse_trip_id(errand_trip_id), ref_day+timedelta(hours=20), 'Return home'))
+            elif random.random() < 0.33:
+                friend_name = random.choice(['Rodrigo', 'Miguel', 'Lucas', 'Maria', 'Carolina', 'Laura'])
+                friend_trip_id = random.choice(commute_trip['trips_same_start'])
+                add_trips.append(fuzzify(friend_trip_id, ref_day+timedelta(hours=19), 'Visit '+ friend_name))
+                #add_trips.append(fuzzify(reverse_trip_id(friend_trip_id), ref_day+timedelta(hours=22), 'Return home'))
+                
+    for trip in add_trips:
+        trip['user_id'] = user_id
+    MONGO_DB.trips.insert_many(add_trips)
+    
+    
 
 
 @app.route("/api/users/<user_id>/feed", methods=['GET'])
 def feed(user_id):
+    trips = list(MONGO_DB.trips.find({'user_id': user_id}))
+    now = localnow()
+    today_start = now.replace(hour=0,minute=0,second=0,microsecond=0)
+    
+    today_trips = [t for t in trips if dateutil.parser.parse(t['local_timestamp']) >= today_start]
+    if len(today_trips) == 0:
+        seed_trip_history(user_id, trips)
+        trips = list(MONGO_DB.trips.find({'user_id': user_id}))
 
-    trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB]
-    if len(trips) == 0:
-        for raw_trip in random.sample(RAW_TRIPS_DB.values(), 10):
-            trip = deepcopy(raw_trip)
-            trip['user_id'] = user_id
-            trip['name'] = "Commute / errands"
-            trip['local_timestamp'] = dateutil.parser.parse(trip['timestamp']).astimezone(pytz.timezone('Brazil/East')).isoformat()
-            trips.append(trip)
-        MONGO_DB.trips.insert_many(trips)
-        trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB]
-
-    trip_feed_items = []
+    feed_items = []
     for trip in trips:
         trip['trip_id'] = str(trip['_id'])
         del trip['_id']
-        trip_feed_items.append({'item_type': 'my_trip',
+        feed_items.append({'item_type': 'my_trip',
                            'item_id': trip['trip_id'],
                            'item_details': trip,
                            'item_local_timestamp': trip['local_timestamp'],
                            })
-    today_items = trip_feed_items[:2]
-    this_week_items = trip_feed_items[2:]
+
+    feed_items.sort(key=lambda f: dateutil.parser.parse(f['item_local_timestamp']))
+    feed_items.reverse()
+
+    today_items = [f for f in feed_items if dateutil.parser.parse(f['item_local_timestamp']) >= today_start]
+    this_week_items = [f for f in feed_items if between(dateutil.parser.parse(f['item_local_timestamp']), today_start-timedelta(days=7), today_start)]
     
     feed_items = []
     feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'Today', 'item_count': len(today_items)}})
     feed_items = feed_items + today_items
     feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'This Week', 'item_count': len(this_week_items)}})
     feed_items = feed_items + this_week_items
-    
-    
+        
     return Response(json.dumps(feed_items), mimetype='application/json')
 
 
@@ -202,10 +261,10 @@ def trip_map(trip_id):
 @app.route("/api/users/<user_id>/routes", methods=['GET'])
 def user_routes(user_id):
     route_ids = Counter([trip['route_id'] for trip in MONGO_DB.trips.find({'user_id': user_id}) if trip['route_id'] in ROUTES_DB])
-    routes = [deepcopy(ROUTES_DB[route_id]) for route_id in route_ids.keys()]
+    routes = [deepcopy(ROUTES_DB[route_id]) for route_id in route_ids.keys() if route_ids[route_id] > 1]
     routes.sort(key=lambda route: route_ids[route['route_id']])
     routes.reverse()
-    routes = routes[:5]
+    routes = routes[:3]
     return Response(json.dumps(routes), mimetype='application/json')
     
 
@@ -219,10 +278,10 @@ def route_map(route_id):
 
 @app.route("/api/routes/popular", methods=['GET'])
 def popular_routes():
-    route_counts = list(MONGO_DB.trips.aggregate([ {"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}} ]))
+    route_counts = [c for c in MONGO_DB.trips.aggregate([ {"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}} ]) if c['count'] > 1]
     route_counts.sort(key=lambda x: x['count'])
     route_counts.reverse()
-    route_counts = route_counts[:5]
+    route_counts = route_counts[:3]
     routes = [ROUTES_DB[x['_id']] for x in route_counts]
     return Response(json.dumps(routes), mimetype='application/json')
 
@@ -271,15 +330,11 @@ def route_pledges(user_id, route_id):
 
     return Response(json.dumps(current_pledge), mimetype='application/json')
         
-        
-    
-    
 
-    
-    
 
 @app.route("/api/reset", methods=['GET'])
 def reset():
+    MONGO_DB.trip_seeds.drop()
     MONGO_DB.trips.drop()
     MONGO_DB.pledges.drop()
     return Response(json.dumps({'status': 'reset_complete'}), mimetype='application/json')
