@@ -335,8 +335,16 @@ def route_pledges(user_id, route_id):
 @app.route("/api/reset", methods=['GET'])
 def reset():
     MONGO_DB.trip_seeds.drop()
+    MONGO_DB.trip_seeds.create_index('user_id')
+
     MONGO_DB.trips.drop()
+    MONGO_DB.trips.create_index('user_id')
+    MONGO_DB.trips.create_index('route_id')
+
     MONGO_DB.pledges.drop()
+    MONGO_DB.pledges.create_index('user_id')
+    MONGO_DB.pledges.create_index('route_id')
+
     return Response(json.dumps({'status': 'reset_complete'}), mimetype='application/json')
     
     

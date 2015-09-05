@@ -188,64 +188,79 @@ TRANSIT_POINTS = calc_transit_points(route_points, 3000)
 
 TRANSIT_POINT_INFO = [
     { 'point': (-23.5166, -46.726709),
+      'id': '1',
       'name': 'Name 1',
-      'area': 'Area 1'
+      'area': 'Northwest'
         },
     { 'point': (-23.586487, -46.690038),
+      'id': '2',
       'name': 'Name 2',
-      'area': 'Area 2'
+      'area': 'South center'
         },
     { 'point': (-23.630889, -46.644328),
+      'id': '3',
       'name': 'Name 3',
-      'area': 'Area 3'
+      'area': 'South'
         },
     { 'point': (-23.526561, -46.630182),
+      'id': '4',
       'name': 'Name 4',
-      'area': 'Area 4'
+      'area': 'Northeast'
         },
     { 'point': (-23.607838, -46.614008),
+      'id': '5',
       'name': 'Name 5',
-      'area': 'Area 5'
+      'area': 'Southeast'
         },
     { 'point': (-23.630277, -46.734868),
+      'id': '6',
       'name': 'Name 6',
-      'area': 'Area 6'
+      'area': 'Southwest'
         },
     { 'point': (-23.559982, -46.712408),
+      'id': '7',
       'name': 'Name 7',
-      'area': 'Area 7'
+      'area': 'West'
         },
     { 'point': (-23.61435, -46.70089),
+      'id': '8',
       'name': 'Name 8',
-      'area': 'Area 8'
+      'area': 'Southwest'
         },
     { 'point': (-23.619757, -46.671321),
+      'id': '9',
       'name': 'Name 9',
-      'area': 'Area 9'
+      'area': 'South'
         },
     { 'point': (-23.57953, -46.599857),
-      'name': 'Name 10',
-      'area': 'Area 10'
+      'id': 'A',
+      'name': 'Name A',
+      'area': 'East'
         },
     { 'point': (-23.604007, -46.74741),
-      'name': 'Name 11',
-      'area': 'Area 11'
+      'id': 'B',
+      'name': 'Name B',
+      'area': 'Southwest'
         },
     { 'point': (-23.51433, -46.677979),
-      'name': 'Name 12',
-      'area': 'Area 12'
+      'id': 'C',
+      'name': 'Name C',
+      'area': 'North'
         },
     { 'point': (-23.552289, -46.658608),
-      'name': 'Name 13',
-      'area': 'Area 13'
+      'id': 'D',
+      'name': 'Name D',
+      'area': 'Center'
         },
     { 'point': (-23.556001, -46.623031),
-      'name': 'Name 14',
-      'area': 'Area 14'
+      'id': 'E',
+      'name': 'Name E',
+      'area': 'East'
         },
     { 'point': (-23.585318, -46.654971),
-      'name': 'Name 15',
-      'area': 'Area 15'
+      'id': 'F',
+      'name': 'Name F',
+      'area': 'South center'
         },
     ]
 TRANSIT_POINT_INFO = dict([ (p['point'],p) for p in TRANSIT_POINT_INFO ])
@@ -346,7 +361,7 @@ for route in routes:
     route['driving_duration_min'] = 0
     route['transit_distance_km'] = 0
     route['transit_duration_min'] = 0
-    route['transit_stop_count'] = len(route['legs'])
+    route['transit_stop_count'] = len(route['legs'])+1
     
     for trip in all_trips:
         if trip['route_id'] != route['route_id']:
@@ -362,10 +377,6 @@ route_filename = os.path.join(os.path.dirname(__file__), 'routes.json')
 jdump(routes, route_filename)
 
 
-
-
-
-"""
 def coord_to_str(coord):
     if type(coord) == list or type(coord) == tuple:
         return str(coord[0])+','+str(coord[1])
@@ -374,12 +385,13 @@ def coord_to_str(coord):
 
 map_url = 'https://maps.googleapis.com/maps/api/staticmap'
 map_params = {'size': '330x350',
-              'markers': [ 'color:red|'+coord_to_str(tp) for tp in transit_points],
+              'markers': [ 'color:red|label:'+tp['id']+'|'+coord_to_str(tp['point']) for tp in TRANSIT_POINT_INFO.values()],
               'key': GOOGLE_API_KEY,
               }
-with open('foo.png','wb') as w:
+with open('locations_map.png','wb') as w:
     resp = requests.get(map_url, map_params)
     w.write(resp.content)
-"""
+
+
     
 
