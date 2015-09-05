@@ -26,8 +26,11 @@
         <span class="right">{{ pledgeTotal | currency }}</span>
       </h4>
     </div>
-    <button class="button button-full button-balanced">
-      Save
+    <button ng-show="currentPledge != pledgeTotal" class="button button-full button-balanced" ng-click="makePledge()">
+      Pledge Now!
+    </button>
+    <button ng-show="currentPledge == pledgeTotal" class="button button-full button-balanced" ng-click="goToRoutes()">
+      Thank You!
     </button>
   </ion-content>
 </ion-view>

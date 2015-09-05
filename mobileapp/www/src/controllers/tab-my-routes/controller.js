@@ -31,13 +31,26 @@ angular.module(MODULE_NAME, ['ionic'])
     $scope.myRoutes = [];
     $scope.popularRoutes = [];
     $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
+    $scope.pledges = {};
+    $scope.routeTripCounts = {};
 
     $scope.refreshRoutes = function() {
+      tripSearchService.getRouteTripCounts().then(function(routeTripCounts) {
+        $scope.routeTripCounts = routeTripCounts;
+      });
       tripSearchService.getMyRoutes().then(function(routes) {
         $scope.myRoutes = routes;
+        var routeIds = _.map(routes, function(route) { return route.route_id; });
+        tripSearchService.getPledges(routeIds).then(function(pledges) {
+          _.assign($scope.pledges, pledges);
+        });
       });
       tripSearchService.getPopularRoutes().then(function(routes) {
         $scope.popularRoutes = routes;
+        var routeIds = _.map(routes, function(route) { return route.route_id; });
+        tripSearchService.getPledges(routeIds).then(function(pledges) {
+          _.assign($scope.pledges, pledges);
+        });
       });
     }
 

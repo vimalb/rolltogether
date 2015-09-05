@@ -47,6 +47,36 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
+        getPledges: function(routeIds) {
+          console.log("Fetching pledges for route_ids", routeIds);
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges';
+          $http.post(url, JSON.stringify({route_ids: routeIds})).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
+
+        makePledge: function(route, amount) {
+          console.log("Pledging", amount, " to route ", route.route_id);
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges/'+route.route_id.toString();
+          $http.put(url, JSON.stringify({amount: amount})).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
+
+        getPledge: function(route) {
+          console.log("Fetching pledge for route ", route.route_id);
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges/'+route.route_id.toString();
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
+
         getAllRoutes: function() {
           console.log("Fetching all routes");
           var deferred = $q.defer();
@@ -73,15 +103,20 @@ angular.module(MODULE_NAME, [])
           return deferred.promise;
         },
 
-        // Returns all the trips for a particular route
         getRouteTrips: function(routeId) {
-          console.log("Fetching my feed");
+          console.log("Fetching trips for route", routeId);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/route/' + routeId.toString() + '/trips';
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/trips_for_route/'+routeId.toString();
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
+          return deferred.promise;
+        },
 
-          /* temp fake code */
-          var tripId = 0;
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/trips/' + tripId.toString();
+        getRouteTripCounts: function() {
+          console.log("Fetching route trip counts");
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/route_trip_counts';
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -91,38 +126,13 @@ angular.module(MODULE_NAME, [])
         getRoute: function(routeId) {
           console.log("Fetching route", routeId);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/routes/' + routeId.toString();
-          /*
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/routes/all/' + routeId.toString();
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
-          */
-          deferred.resolve(
-            { routeId: routeId }
-          );
           return deferred.promise;
         },
 
-        /* XXX likely this should be in user service instead? */
-        getPledge: function(pledgeId) {
-          console.log("Fetching pledge", pledgeId);
-          var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/pledges/' + pledgeId.toString();
-          /*
-          $http.get(url).then(function(resp) {
-            deferred.resolve(resp.data);
-          });
-          */
-          deferred.resolve(
-            {
-              pledgeId: 0,
-              routeId: 200,
-              amount: 5.00,
-              description: "Be one of the pioneers of Sao Paulo's new subway! Guarantee your spot by buying a ticket on YOUR ROUTE now"
-            }
-          );
-          return deferred.promise;
-        },
 
       };
 

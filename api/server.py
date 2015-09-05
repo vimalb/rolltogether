@@ -145,6 +145,18 @@ def feed(user_id):
                            'item_details': trip,
                            })
     return Response(json.dumps(feed_items), mimetype='application/json')
+
+
+@app.route("/api/users/<user_id>/trips_for_route/<route_id>", methods=['GET'])
+def trips_for_route(user_id, route_id):
+    trips = [trip for trip in MONGO_DB.trips.find({'user_id': user_id, 'route_id': route_id})]
+    for trip in trips:
+        trip['trip_id'] = str(trip['_id'])
+        del trip['_id']
+    return Response(json.dumps(trips), mimetype='application/json')
+    
+    
+
     
 @app.route("/api/trips/<trip_id>", methods=['GET'])
 def trips(trip_id):
@@ -154,10 +166,22 @@ def trips(trip_id):
     return Response(json.dumps(trip), mimetype='application/json')
 
 
+
+@app.route("/api/users/<user_id>/route_trip_counts", methods=['GET'])
+def route_trip_counts(user_id):
+    route_counts = MONGO_DB.trips.aggregate([
+        {"$match" : { 'user_id' : user_id } },
+        {"$group" : {'_id':"$route_id", 'count':{ '$sum':1}}}
+        ])
+    route_counts = dict([(x['_id'], x['count']) for x in route_counts])
+    return Response(json.dumps(route_counts), mimetype='application/json')
+ 
+
 @app.route("/api/trips/<trip_id>/map", methods=['GET'])
 def trip_map(trip_id):
     trip = MONGO_DB.trips.find_one({'_id': ObjectId(trip_id)})
     return Response(get_trip_map(RAW_TRIPS_DB[trip['raw_trip_id']]), mimetype='image/png')
+
 
 @app.route("/api/users/<user_id>/routes", methods=['GET'])
 def user_routes(user_id):
@@ -191,6 +215,7 @@ def popular_routes():
 def user_pledges(user_id):
     if request.method in ['POST']:
         req = json.loads(request.get_data())
+        print req
     else:
         req = {}  
     route_ids = req.get('route_ids') or [p['route_id'] for p in MONGO_DB.pledges.find({'user_id': user_id})]

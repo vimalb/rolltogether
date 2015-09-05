@@ -9,7 +9,7 @@
         <div class="item item-divider header">
           <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
-            <span class="right">30x</span>
+            <span class="right">{{ routeTripCounts[route.route_id] || 0 }}x</span>
           </div>
           <div class="details">
             <span class="summary-stats">50 miles</span>
@@ -21,7 +21,8 @@
           <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
           <i class="map-heart ion-heart"></i>
           <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
-            PLEDGE
+            <span ng-if="!pledges[route.route_id].mine">PLEDGE</span>
+            <span ng-if="pledges[route.route_id].mine">${{ pledges[route.route_id].mine_amount }}</span>
           </button>
         </div><!-- /item item-image -->
 
@@ -41,7 +42,7 @@
         <div class="item item-divider header">
           <div class="route-title">
             <span>Grupo Ultra to Skye Bar</span>
-            <span class="right">30x</span>
+            <span class="right">{{ routeTripCounts[route.route_id] || 0 }}x</span>
           </div>
           <div class="details">
             <span class="summary-stats">50 miles</span>
@@ -53,7 +54,8 @@
           <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
           <i class="map-heart ion-heart"></i>
           <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
-            PLEDGE
+            <span ng-if="!pledges[route.route_id].mine">PLEDGE</span>
+            <span ng-if="pledges[route.route_id].mine">${{ pledges[route.route_id].mine_amount }}</span>
           </button>
         </div><!-- /item item-image -->
       </div><!-- /card -->

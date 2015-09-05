@@ -25,8 +25,9 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, tripSearchService, userService, CLIENT_SETTINGS) {
       $scope.route = {};
+      $scope.currentPledge = 0;
       $scope.pledgeTotal = 20;
       $scope.selectedIndex = 1;
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
@@ -56,6 +57,16 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;
+          tripSearchService.getPledge(route).then(function(pledge) {
+            console.log('pledge', pledge);
+            $scope.currentPledge = pledge.amount;
+            _.each($scope.pledgeLevels, function(level) {
+              console.log(level.price, pledge.amount);
+              if(level.price == pledge.amount) {
+                $scope.selectedIndex = level.index;
+              }
+            });
+          });
         });
       });
 
@@ -68,6 +79,18 @@ angular.module(MODULE_NAME, ['ionic'])
         $scope.pledgeTotal = pledge.price;
         $scope.selectedIndex = pledge.index;
       }
+
+      $scope.makePledge = function() {
+        tripSearchService.makePledge($scope.route, $scope.pledgeTotal).then(function() {
+          $scope.currentPledge = $scope.pledgeTotal;
+
+        });
+      }
+
+      $scope.goToRoutes = function() {
+        $state.go('tab.my-routes');
+      }
+
   })
 
 })();
