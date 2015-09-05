@@ -143,7 +143,7 @@ def fuzzify(raw_trip_id, target_time, trip_name):
 def reverse_trip_id(raw_trip_id):
     return random.choice(RAW_TRIPS_DB[raw_trip_id]['trips_return_to_start'])
 
-def seed_trip_history(user_id, trips):
+def seed_trip_history(user_id):
     now = localnow()
     trip_seed = MONGO_DB.trip_seeds.find_one({'user_id': user_id})
     if not trip_seed:
@@ -194,7 +194,7 @@ def feed(user_id):
     
     today_trips = [t for t in trips if dateutil.parser.parse(t['local_timestamp']) >= today_start]
     if len(today_trips) == 0:
-        seed_trip_history(user_id, trips)
+        seed_trip_history(user_id)
         trips = list(MONGO_DB.trips.find({'user_id': user_id}))
 
     feed_items = []
@@ -234,7 +234,7 @@ def trips_for_route(user_id, route_id):
 
     
 @app.route("/api/trips/<trip_id>", methods=['GET'])
-def trips(trip_id):
+def rips(trip_id):
     trip = MONGO_DB.trips.find_one({'_id': ObjectId(trip_id)})
     trip['trip_id'] = str(trip['_id'])
     del trip['_id']
@@ -345,6 +345,7 @@ def route_pledges(user_id, route_id):
         for k in ['_id', 'user_id', 'route_id']:
             if k in req:
                 del req[k]
+        req['local_timestamp'] = localnow().isoformat()
         MONGO_DB.pledges.update_one({'route_id': route_id, 'user_id': user_id}, {'$set': req}, upsert=True)
     elif request.method in ['DELETE']:
         MONGO_DB.pledges.delete_many({'route_id': route_id, 'user_id': user_id})
@@ -358,6 +359,9 @@ def route_pledges(user_id, route_id):
 
 @app.route("/api/reset", methods=['GET'])
 def reset():
+    if request.args.get('key') != 'kwyjibo':
+        return Response(json.dumps({'status': 'reset ignored'}), mimetype='application/json')
+    
     MONGO_DB.trip_seeds.drop()
     MONGO_DB.trip_seeds.create_index('user_id')
 
@@ -369,7 +373,39 @@ def reset():
     MONGO_DB.pledges.create_index('user_id')
     MONGO_DB.pledges.create_index('route_id')
 
-    return Response(json.dumps({'status': 'reset_complete'}), mimetype='application/json')
+    now = localnow()
+    user_ids = ['demo'+str(i) for i in range(100)]
+    pledges = []
+    for user_id in user_ids:
+        seed_trip_history(user_id)
+        my_routes = json.loads(user_routes(user_id).data)
+        for route in my_routes:
+            route_id = route['route_id']
+            if random.random() < 0.9:
+                pledges.append({'user_id': user_id,
+                          'route_id': route_id,
+                          'amount': random.choice([5.0, 20.0, 100.0]),
+                          'local_timestamp': (now - timedelta(seconds=random.randint(3600*24*2, 3600*24*27))).isoformat(),
+                          })
+    for route in json.loads(popular_routes().data):
+        route_id = route['route_id']
+        for user_id in user_ids:
+            if random.random() < 0.9:
+                pledges.append({'user_id': user_id,
+                          'route_id': route_id,
+                          'amount': random.choice([5.0, 20.0, 100.0]),
+                          'local_timestamp': (now - timedelta(seconds=random.randint(3600*24*2, 3600*24*27))).isoformat(),
+                          })
+    MONGO_DB.pledges.insert_many(pledges)
+            
+        
+        
+
+    return Response(json.dumps({'status': 'reset_complete',
+                                'timestamp': utcnow().isoformat(),
+                                'user_count': len(user_ids),
+                                'pledge_count': len(pledges)
+                                }), mimetype='application/json')
     
     
 
