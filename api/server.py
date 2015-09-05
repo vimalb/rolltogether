@@ -216,7 +216,7 @@ def feed(user_id):
     feed_items = []
     feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'Today', 'item_count': len(today_items)}})
     feed_items = feed_items + today_items
-    feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'This Week', 'item_count': len(this_week_items)}})
+    feed_items.append({'item_type': 'feed_divider', 'item_details': {'name': 'Past Week', 'item_count': len(this_week_items)}})
     feed_items = feed_items + this_week_items
         
     return Response(json.dumps(feed_items), mimetype='application/json')

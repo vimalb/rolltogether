@@ -181,7 +181,7 @@
   }, 
   {
     "transit_distance_km": 12.931194650577751, 
-    "driving_duration_min": 38.3, 
+    "driving_duration_min": 34.516666666666666, 
     "transit_stop_count": 4, 
     "transit_duration_min": 20.072721463466962, 
     "description": "This route goes from Northwest to South and features 3 stops.", 
@@ -985,7 +985,7 @@
   }, 
   {
     "transit_distance_km": 16.128501685323815, 
-    "driving_duration_min": 37.7, 
+    "driving_duration_min": 39.416666666666664, 
     "transit_stop_count": 5, 
     "transit_duration_min": 14.666530069809571, 
     "description": "This route goes from Northeast to West and features 4 stops.", 

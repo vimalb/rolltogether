@@ -161,9 +161,21 @@ for raw_trip in trip_cache:
 for trip_filename, trips in trip_files.iteritems():
     jdump(trips, trip_filename)
 
+
+all_endpoints = []
 route_points = []
 for trips in trip_files.values():
     for trip in trips:
+        trip_start = trip['legs'][0]['start']
+        trip_end = trip['legs'][-1]['end']
+        if not all_endpoints:
+            all_endpoints.append(trip_start)
+        point, distance = closest(trip_start, all_endpoints)
+        if distance > 50:
+            all_endpoints.append(trip_start)
+        point, distance = closest(trip_end, all_endpoints)
+        if distance > 50:
+            all_endpoints.append(trip_end)
         for leg in trip['legs']:
             start = tuple(leg['start'])
             end = tuple(leg['end'])
@@ -173,6 +185,28 @@ for trips in trip_files.values():
                 route_points.append(end)
 
 random.shuffle(route_points)
+
+random.shuffle(all_endpoints)
+all_endpoints = [(-23.581994, -46.666843),
+                 (-23.586606, -46.658219),
+                 (-23.558539, -46.60935),
+                 (-23.523054, -46.688111),
+                 (-23.623077, -46.670637),
+                 (-23.609465, -46.614064),
+                 (-23.561661, -46.642833),
+                 (-23.534871, -46.640031),
+                 (-23.590839, -46.682174),
+                 (-23.51628, -46.731041),
+                 (-23.544087, -46.626947),
+                 (-23.534406, -46.633525),
+                 (-23.556348, -46.680562),
+                 (-23.555736, -46.691718),
+                 (-23.616005, -46.739113)]
+home_endpoints = all_endpoints[:3]
+work_endpoints = all_endpoints[3:7]
+friend_endpoints = all_endpoints[7:11]
+errand_endpoints = all_endpoints[11:]
+
 
 def calc_transit_points(route_points, threshold_meters):
     transit_points = {route_points[0]: []}
@@ -186,7 +220,7 @@ def calc_transit_points(route_points, threshold_meters):
 
 TRANSIT_POINTS = calc_transit_points(route_points, 3000)
 
-TRANSIT_POINT_INFO = [
+TRANSIT_POINT_INFO_RAW = [
     { 'point': (-23.5166, -46.726709),
       'id': '1',
       'name': 'Name 1',
@@ -199,7 +233,7 @@ TRANSIT_POINT_INFO = [
         },
     { 'point': (-23.630889, -46.644328),
       'id': '3',
-      'name': 'Name 3',
+      'ame': 'Name 3',
       'area': 'South'
         },
     { 'point': (-23.526561, -46.630182),
@@ -263,9 +297,9 @@ TRANSIT_POINT_INFO = [
       'area': 'South center'
         },
     ]
-TRANSIT_POINT_INFO = dict([ (p['point'],p) for p in TRANSIT_POINT_INFO ])
+TRANSIT_POINT_INFO = dict([ (p['point'],p) for p in TRANSIT_POINT_INFO_RAW ])
 
-TRANSIT_POINTS = list(TRANSIT_POINT_INFO.keys())
+TRANSIT_POINTS = [p['point'] for p in TRANSIT_POINT_INFO_RAW]
 
 raw_trip_id = 0
 
@@ -273,7 +307,9 @@ all_trips = []
 routes = []
 
 TRANSIT_KMPH = 50.0
-for trip_filename in trip_files.keys():
+trip_filenames = list(trip_files.keys())
+trip_filenames.sort()
+for trip_filename in trip_filenames:
     trips = jload(trip_filename)
     for trip in trips:
         leg_points = [l['start'] for l in trip['legs']] + [trip['legs'][-1]['end']]
@@ -355,6 +391,9 @@ for trip_filename in trip_files.keys():
     all_trips = all_trips + trips
     jdump(trips, trip_filename)
 
+
+
+    
 for route in routes:
     route['target_amount'] = 1000.0 * len(route['legs'])
     start_info = TRANSIT_POINT_INFO[route['legs'][0]['start']]
