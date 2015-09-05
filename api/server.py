@@ -368,7 +368,7 @@ def reset():
     MONGO_DB.pledges.create_index('route_id')
 
     now = localnow()
-    user_ids = ['demo'+str(i) for i in range(1)]
+    user_ids = ['demo'+str(i) for i in range(100)]
     pledges = []
     for user_id in user_ids:
         seed_trip_history(user_id)
