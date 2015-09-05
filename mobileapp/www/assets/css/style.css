@@ -10,6 +10,17 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
   height: 300px; /* this needs to be in px because google maps? */
 }
 
+.nav-bar-block .bar {
+  background-color: #03A9F4 !important;
+}
+
+.bar.bar-stable .title {
+  color: white !important;
+}
+
+.bar-stable .back-button .icon.ion-ios-arrow-back {
+  color: white !important;
+}
 /* temporarily here because we still have some images */
 img.trip-map-summary {
   width: 100%;
@@ -37,6 +48,7 @@ img.trip-map-summary {
 .login.button {
   margin: 10px auto;
 }
+
 
 
 /*
@@ -130,19 +142,24 @@ progress[value]::-webkit-progress-value {
 
 .routes .list .card .item.header .details {
   color: #AAAAAA;
+  margin-top: 10px;
 }
 
-.routes .list .card .item.header .details .detailed-stats li {
+.routes .list .card .item.header .details .stats {
   display: inline-block;
   padding-right: 40px
 }
 
-.routes .list .card .item.header .details .detailed-stats li .stats-value {
+.routes .list .card .item.header .details .stats-value {
   font-weight: bold;
   font-size: 1.1em;
 }
 
-.routes .list .card .item.header .details .detailed-stats li .stats-label {
+.routes .list .card .item.header .details .stats-value:first-child {
+  margin-right: 25px;
+}
+
+.routes .list .card .item.header .details .stats-label {
   color: darkgray;
 }
 
@@ -209,18 +226,25 @@ progress[value]::-webkit-progress-value {
 .route-detail .details .detailed-stats {
   font-size: 1em;
 }
+
 .route-detail .details .detailed-stats li {
   display: inline-block;
-  padding-right: 40px
+  padding-right: 40px;
 }
 
 .route-detail .details .detailed-stats li .stats-value {
   font-weight: bold;
   font-size: 1.1em;
+  margin-right: 10px;
 }
 
 .route-detail .details .detailed-stats li .stats-label {
   color: darkgray;
+}
+
+.pledges-detail .card img.route-image {
+  width: 100%;
+  height: 300px;
 }
 
 .route-detail .hr-divider {

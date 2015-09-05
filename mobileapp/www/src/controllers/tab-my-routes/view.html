@@ -12,19 +12,16 @@
             <span class="right">Driven {{ routeTripCounts[route.route_id].mine }}x</span>
           </div>
           <div class="details">
-            <ul class="detailed-stats">
-              <li>
-                <div class="stats-label">Driving</div>
-                <span class="stats-value">{{ route.transit_distance_km | number:0 }} km</span>
-                <span class="stats-value">{{ route.driving_duration_min | number:0 }}  min</span>
-              </li>
-              <li>
-                <div class="stats-label">Metro</div>
-                <!--span class="stats-label">Metro</span-->
-                <span class="stats-value">{{ route.transit_stop_count | number:0 }} stops</span>
-                <span class="stats-value">{{ route.transit_duration_min | number:0 }} min</span>
-              </li>
-            </ul>
+            <div class="stats left">
+              <div class="stats-label">Driving</div>
+              <span class="stats-value">{{ route.transit_distance_km | number:0 }} km</span>
+              <span class="stats-value">{{ route.driving_duration_min | number:0 }}  min</span>
+            </div>
+            <div class="stats right">
+              <div class="stats-label">Metro</div>
+              <span class="stats-value">{{ route.transit_stop_count | number:0 }} stops</span>
+              <span class="stats-value">{{ route.transit_duration_min | number:0 }} min</span>
+            </div>
           </div><!-- /details -->
         </div><!-- item item-divider header -->
 
@@ -56,19 +53,16 @@
             <span class="right">Driven {{ routeTripCounts[route.route_id].total }}x</span>
           </div>
           <div class="details">
-            <ul class="detailed-stats">
-              <li>
-                <div class="stats-label">Driving</div>
-                <span class="stats-value">{{ route.transit_distance_km | number:0 }} km</span>
-                <span class="stats-value">{{ route.driving_duration_min | number:0 }}  min</span>
-              </li>
-              <li>
-                <div class="stats-label">Metro</div>
-                <!--span class="stats-label">Metro</span-->
-                <span class="stats-value">{{ route.transit_stop_count | number:0 }} stops</span>
-                <span class="stats-value">{{ route.transit_duration_min | number:0 }} min</span>
-              </li>
-            </ul>
+            <div class="stats left">
+              <div class="stats-label">Driving</div>
+              <span class="stats-value">{{ route.transit_distance_km | number:0 }} km</span>
+              <span class="stats-value">{{ route.driving_duration_min | number:0 }}  min</span>
+            </div>
+            <div class="stats right">
+              <div class="stats-label">Metro</div>
+              <span class="stats-value">{{ route.transit_stop_count | number:0 }} stops</span>
+              <span class="stats-value">{{ route.transit_duration_min | number:0 }} min</span>
+            </div>
           </div><!-- /details -->
         </div><!-- item item-divider header -->
 

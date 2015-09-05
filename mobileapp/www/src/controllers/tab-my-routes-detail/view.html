@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-nav-title>My Route {{ route.routeId }}</ion-nav-title>
+  <ion-nav-title>Suggested Route {{ route.route_id}} </ion-nav-title>
   <ion-content class="padding route-detail">
     <!-- route title, should this be constructed? -->
     <div class="name">
@@ -8,6 +8,7 @@
     <!-- route summary -->
     <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
     <p>{{ route.description }}</p>
+
     <div class="stats">
       <span><span class="stats-bold">R${{ pledges[route.route_id].total_amount }}</span> raised of R${{ route.target_amount }}</span>
       <progress class="progress-bar" max="100" value="{{ 100 * pledges[route.route_id].total_amount / route.target_amount }}"> </progress>
@@ -15,7 +16,7 @@
     <div class="details">
       <ul class="detailed-stats">
         <li>
-          <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount }}%</div>
+          <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount | number:2}}%</div>
           <span class="stats-label">funded</span>
         </li>
         <li>
@@ -26,12 +27,6 @@
           <div class="stats-value">{{ pledges[route.route_id].total_count }}</div>
           <span class="stats-label">pledges</span>
         </li>
-        <!--
-        <li>
-          <div class="stats-value">19</div>
-          <span class="stats-label">days left</span>
-        </li>
-        -->
       </ul>
     </div>
 
@@ -67,7 +62,7 @@
     <br>
 
     <div class="item item-divider section">
-      Trips Related to This Route
+      Trips Related to This Metro Route
     </div>
     <!--- trips making up the route -->
     <div class="card" ng-repeat="trip in trips" ng-click="goTripDetail(trip)">
