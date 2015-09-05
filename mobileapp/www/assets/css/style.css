@@ -18,11 +18,7 @@ img.trip-map-summary {
 
 /* list dividers */
 .item.item-divider.section {
-  /*background-color: #03A9F4;
-  color: white;*/
-  /*background-color: rgba(173, 216, 230, 0.2);*/
   border: none;
-  /*text-transform: uppercase;*/
   font-weight: 500;
 }
 
@@ -33,6 +29,15 @@ img.trip-map-summary {
 .right {
   float: right;
 }
+
+.hide {
+  display: none;
+}
+
+.login.button {
+  margin: 10px auto;
+}
+
 
 /*
 progress[value]::-webkit-progress-bar {
@@ -60,6 +65,10 @@ progress[value]::-webkit-progress-value {
 
 .trip-feed .card {
   margin: 10px;
+}
+
+.trip-feed .card.avatar {
+  height: 75px;
 }
 
 /* header details for the card */
