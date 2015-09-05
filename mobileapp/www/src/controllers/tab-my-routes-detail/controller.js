@@ -25,8 +25,9 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, CLIENT_SETTINGS) {
       $scope.route = {};
+      $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       $scope.trips = [];
       $scope.refreshTrips = function(route) {

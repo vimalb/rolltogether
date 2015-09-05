@@ -30,16 +30,20 @@ angular.module(MODULE_NAME, [])
         getMyRoutes: function() {
           console.log("Fetching my routes");
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/my-routes';
-          /*
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/routes';
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
-          */
-          deferred.resolve([
-            { routeId: 200 },
-            { routeId: 201 },
-            ])
+          return deferred.promise;
+        },
+
+        getPopularRoutes: function() {
+          console.log("Fetching popular routes");
+          var deferred = $q.defer();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/routes/popular';
+          $http.get(url).then(function(resp) {
+            deferred.resolve(resp.data);
+          });
           return deferred.promise;
         },
 

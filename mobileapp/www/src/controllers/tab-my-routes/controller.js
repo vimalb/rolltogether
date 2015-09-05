@@ -25,14 +25,19 @@ angular.module(MODULE_NAME, ['ionic'])
         }
       });
   })
-  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state) {
+  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
-    $scope.routes = [];
+    $scope.myRoutes = [];
+    $scope.popularRoutes = [];
+    $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
     $scope.refreshRoutes = function() {
       tripSearchService.getMyRoutes().then(function(routes) {
-        $scope.routes = routes;
+        $scope.myRoutes = routes;
+      });
+      tripSearchService.getPopularRoutes().then(function(routes) {
+        $scope.popularRoutes = routes;
       });
     }
 
@@ -40,8 +45,12 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.refreshRoutes();
     });
 
-    $scope.goRouteDetail = function(route) {
-      $state.go('tab.my-routes-detail', {routeId: route.routeId});
+    $scope.goRouteDetail = function(routeId) {
+      $state.go('tab.my-routes-detail', {routeId: routeId});
+    }
+
+    $scope.goRoutePledgeDetail = function(routeId) {
+      $state.go('tab.my-routes-pledge', {routeId: routeId});
     }
 
 
