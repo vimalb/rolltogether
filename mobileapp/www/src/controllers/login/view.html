@@ -1,0 +1,25 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+<ion-view title="Login with Facebook">
+  <ion-content class="padding login">
+    <div class="sign-in-text">
+      <p>Sign in with Facebook to see the last of your trips, suggested routes and your pledges!</p>
+      <button ng-click="facebookLogin()" class="button button-block button-balanced">Login with Facebook</button>
+      <p>
+          Clicking the above button will initiate an official browser sign in flow with Facebook.  You
+          will be redirected to the Facebook website to enter your credentials.
+      </p>
+    </div>
+  
+    <div class="success hide">
+      <h4>Success! You have logged in </h4>
+      <button class="button button-block button-calm" ng-click="goToFeed()">
+        Back to feed
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
