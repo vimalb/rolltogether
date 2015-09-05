@@ -186,12 +186,59 @@ def popular_routes():
     routes = [ROUTES_DB[x['_id']] for x in route_counts]
     return Response(json.dumps(routes), mimetype='application/json')
 
+
+@app.route("/api/users/<user_id>/pledges", methods=['GET', 'POST'])
+def user_pledges(user_id):
+    if request.method in ['POST']:
+        req = json.loads(request.get_data())
+    else:
+        req = {}  
+    route_ids = req.get('route_ids') or [p['route_id'] for p in MONGO_DB.pledges.find({'user_id': user_id})]
+    
+    pledge_map = {}
+    for route_id in route_ids:
+        pledge_map[route_id] = {'total_count': 0, 'total_amount': 0.0, 'pledges': [], 'mine': False, 'mine_amount': 0.0 }
+
+    for pledge in MONGO_DB.pledges.find({'route_id': { '$in': route_ids }}):
+        del pledge['_id']
+        route_id = pledge['route_id']
+        pledge_map[route_id]['total_count'] = pledge_map[route_id]['total_count'] + 1
+        pledge_map[route_id]['total_amount'] = pledge_map[route_id]['total_amount'] + pledge['amount']
+        pledge_map[route_id]['pledges'].append(pledge)
+        if pledge['user_id'] == user_id:
+            pledge_map[route_id]['mine'] = True
+            pledge_map[route_id]['mine_amount'] = pledge['amount']
+
+    return Response(json.dumps(pledge_map), mimetype='application/json')
+        
+        
+@app.route("/api/users/<user_id>/pledges/<route_id>", methods=['PUT', 'DELETE', 'GET'])
+def route_pledges(user_id, route_id):
+    if request.method in ['PUT']:
+        req = json.loads(request.get_data())
+        for k in ['_id', 'user_id', 'route_id']:
+            if k in req:
+                del req[k]
+        MONGO_DB.pledges.update_one({'route_id': route_id, 'user_id': user_id}, {'$set': req}, upsert=True)
+    elif request.method in ['DELETE']:
+        MONGO_DB.pledges.delete_many({'route_id': route_id, 'user_id': user_id})
+    
+    current_pledge = MONGO_DB.pledges.find_one({'route_id': route_id, 'user_id': user_id}) or {'_id': -1, 'route_id': route_id, 'user_id': user_id, 'amount': 0}
+    del current_pledge['_id']
+
+    return Response(json.dumps(current_pledge), mimetype='application/json')
+        
+        
+    
+    
+
     
     
 
 @app.route("/api/reset", methods=['GET'])
 def reset():
     MONGO_DB.trips.drop()
+    MONGO_DB.pledges.drop()
     return Response(json.dumps({'status': 'reset_complete'}), mimetype='application/json')
     
     

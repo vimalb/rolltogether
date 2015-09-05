@@ -34,6 +34,27 @@
             processData: false
           });
         },
+        putJSON: function(url, data, callback) {
+          return jQuery.ajax({
+            type: "PUT",
+            url: url,
+            data: JSON.stringify(data),
+            success: callback,
+            dataType: "json",
+            contentType: "application/json",
+            processData: false
+          });
+        },
+        deleteJSON: function(url, callback) {
+          return jQuery.ajax({
+            type: "DELETE",
+            url: url,
+            success: callback,
+            dataType: "json",
+            contentType: "application/json",
+            processData: false
+          });
+        },
         delete: function(url, callback) {
           return jQuery.ajax({
             type: "DELETE",
