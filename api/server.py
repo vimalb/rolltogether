@@ -142,9 +142,10 @@ def get_route_map(route):
     if not os.path.exists(map_filename):
         route_points = [leg['start'] for leg in route['legs']] + [route['legs'][-1]['end']]
         map_url = 'https://maps.googleapis.com/maps/api/staticmap'
+        icon_url = 'http://goo.gl/Fo49ij'
         map_params = {'size': '330x350',
-                      'markers': [ 'color:0x00F900|label:T|'+coord_to_str(p) for p in route_points ] ,
-                      'path': ['color:0x00F900|weight:10|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
+                      'markers': [ 'icon:'+icon_url+'|'+coord_to_str(p) for p in route_points ] ,
+                      'path': ['color:0x2F528FFF|weight:10|'+coord_to_str(leg['start'])+'|'+coord_to_str(leg['end']) for leg in route['legs']],
                       'key': GOOGLE_API_KEY,
                       }
         resp = requests.get(map_url, map_params)
