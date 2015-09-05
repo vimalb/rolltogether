@@ -123,13 +123,27 @@ progress[value]::-webkit-progress-value {
   width: 100%;
   padding: 20px 15px;
   line-height: 1.5em;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 1);
   color: black;
   z-index: 1000;
 }
 
 .routes .list .card .item.header .details {
   color: #AAAAAA;
+}
+
+.routes .list .card .item.header .details .detailed-stats li {
+  display: inline-block;
+  padding-right: 40px
+}
+
+.routes .list .card .item.header .details .detailed-stats li .stats-value {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.routes .list .card .item.header .details .detailed-stats li .stats-label {
+  color: darkgray;
 }
 
 .routes .list .card .item.item-image .route-image {
