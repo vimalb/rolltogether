@@ -1,0 +1,27 @@
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="description" content="">
+	    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	    <meta property="og:title" content="Support: {{ route.name }}" />
+	    <meta property="og:site_name" content="Roll Together"/>
+	    <meta property="og:description" content="Pledge support for a new Metro line! {{ route.description }}" />
+	    <meta property="og:image" content="{{ SERVER_URL }}/api/routes/all/{{ route.route_id }}/map" />
+	    <link rel='stylesheet' href='/lib/jquery-ui/jquery-ui.css'>
+	    <link rel='stylesheet' href='/lib/nouislider/jquery.nouislider.css'>
+	    <link rel='stylesheet' href='/lib/font-awesome/css/font-awesome.css'>
+	    <link rel="stylesheet" href="/lib/angular-material/angular-material.css"/>
+	    <link rel="stylesheet" href="/lib/angular-carousel/angular-carousel.css"/>
+	    <link rel='stylesheet' href='/assets/fonts/fonts.css'>
+	    <link rel="stylesheet" href="/assets/app.css"/>
+	</head>
+	<body>
+		<!--
+		<div>
+		</div>
+		-->
+		 
+		<img src="{{ SERVER_URL }}/api/routes/all/{{ route.route_id }}/map"></img>
+	</body>
+</html>

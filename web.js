@@ -1,4 +1,5 @@
 var API_URL = process.env.API_URL || "http://localhost:3000";
+var SERVER_URL = process.env.WWW_SERVER_URL;
 
 var _ = require('lodash-node');
 var q = require('q');
@@ -12,6 +13,7 @@ var parse = require('csv-parse');
 var proxy = require('express-http-proxy');
 var handlebars = require("node-handlebars");
 var ws = require('ws');
+var request = require('request-promise');
 var jcopy = function(x){return JSON.parse(JSON.stringify(x));}
 var wait = function(duration_ms){
   var deferred = q.defer();
@@ -74,6 +76,25 @@ app.get('/settings/server', function(req, res){
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.json(SERVER_SETTINGS);
+});
+
+
+var SHARE_ROUTE_TEMPLATE_FILE = "" + __dirname + "/www/share.html.template";
+app.get('/share/:route_id', function(req, res){
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+  request.get(API_URL+'/api/routes/all/'+req.params.route_id).then(function(data) {
+    route = JSON.parse(data);
+    handlebars.create().engine(SHARE_ROUTE_TEMPLATE_FILE, { route: route,
+                                                            SERVER_URL: SERVER_URL,
+                                                          }, function(err, output) {
+      res.write(output);
+      res.end();
+    }); 
+  })
+
 });
 
 
