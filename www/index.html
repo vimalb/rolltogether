@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-    <title>Skeletor App</title>
+    <title>Roll Together</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta property="og:title" content="Skeletor App" />
-    <meta property="og:site_name" content="Skeletor App"/>
-    <meta property="og:url" content="http://demo.skeletor.local" />
-    <meta property="og:description" content="Try out Skeletor" />
-    <meta property="og:image" content="http://demo.skeletor.local/assets/icons/app-fb-logo.jpg" />
+    <meta property="og:title" content="Roll Together" />
+    <meta property="og:site_name" content="Roll Together"/>
+    <meta property="og:description" content="Roll Together Dashboard" />
     <link rel='stylesheet' href='/lib/jquery-ui/jquery-ui.css'>
     <link rel='stylesheet' href='/lib/nouislider/jquery.nouislider.css'>
     <link rel='stylesheet' href='/lib/font-awesome/css/font-awesome.css'>
     <link rel="stylesheet" href="/lib/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="/lib/angular-carousel/angular-carousel.css"/>
+    <link rel="stylesheet" href="/lib/angular-chart/angular-chart.css"/>
     <link rel='stylesheet' href='/assets/fonts/fonts.css'>
     <link rel="stylesheet" href="/assets/app.css"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/app-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/app-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/app-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/app-icon-144x144.png" />
   </head>
 
   <body>
@@ -36,6 +31,27 @@
             type: "POST",
             url: url,
             data: JSON.stringify(data),
+            success: callback,
+            dataType: "json",
+            contentType: "application/json",
+            processData: false
+          });
+        },
+        putJSON: function(url, data, callback) {
+          return jQuery.ajax({
+            type: "PUT",
+            url: url,
+            data: JSON.stringify(data),
+            success: callback,
+            dataType: "json",
+            contentType: "application/json",
+            processData: false
+          });
+        },
+        deleteJSON: function(url, callback) {
+          return jQuery.ajax({
+            type: "DELETE",
+            url: url,
             success: callback,
             dataType: "json",
             contentType: "application/json",
@@ -67,6 +83,8 @@
     <script src="/lib/angular-carousel/angular-carousel.js"></script>
     <script src="/lib/nouislider/jquery.nouislider.js"></script>
     <script src="/lib/nouislider/nouislider.js"></script>
+    <script src="/lib/chart-js/Chart.min.js"></script>
+    <script src="/lib/angular-chart/angular-chart.min.js"></script>
     
     <script src="/client.settings.js"></script>
     <script src="/src/controllers/landing/controller.js"></script>

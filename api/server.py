@@ -195,6 +195,7 @@ def seed_trip_history(user_id):
     if not trip_seed:
         trip_seed = { 'user_id': user_id,
                       'commute_raw_trip_id': random.choice([t['raw_trip_id'] for t in RAW_TRIPS_DB.values() if t['start_point_info']['type'] == 'home' and t['end_point_info']['type'] == 'work']),
+                      'blacklist_day': random.choice([1,2,3,4,5]),
                     }
         MONGO_DB.trip_seeds.insert_one(trip_seed)
         print "Created seed for user_id", user_id
@@ -212,13 +213,18 @@ def seed_trip_history(user_id):
     yesterday = (now-timedelta(days=1)).replace(hour=0,minute=0,second=0,microsecond=0)
     for i in range(30):
         ref_day = yesterday - timedelta(days=i)
-        if ref_day.isoweekday() in [1, 2, 4, 5]:
+        if ref_day.isoweekday() in [1, 2, 3, 4, 5] and ref_day.isoweekday() != trip_seed['blacklist_day']:
             add_trips.append(fuzzify(commute_trip['raw_trip_id'], ref_day+timedelta(hours=7)))
             add_trips.append(fuzzify(reverse_trip_id(commute_trip['raw_trip_id']), ref_day+timedelta(hours=17)))
             if random.random() < 0.5:
                 fun_trip_id = random.choice(commute_trip['trips_same_start_fun'])
                 add_trips.append(fuzzify(fun_trip_id, ref_day+timedelta(hours=19)))
                 #add_trips.append(fuzzify(reverse_trip_id(fun_trip_id), ref_day+timedelta(hours=20)))
+        elif ref_day.isoweekday() in [6,7]:
+            if random.random() < 0.9:
+                fun_trip_id = random.choice(commute_trip['trips_same_start_fun'])
+                add_trips.append(fuzzify(fun_trip_id, ref_day+timedelta(hours=19)))
+            
                 
     for trip in add_trips:
         trip['user_id'] = user_id
@@ -490,6 +496,148 @@ def route_pledges(user_id, route_id):
     return Response(json.dumps(current_pledge), mimetype='application/json')
         
 
+@app.route("/api/dashboard/routes", methods=['GET'])
+def dashboard_routes():
+    route_trips = {}
+    for trip in MONGO_DB.trips.aggregate([ {"$group" : {'_id':"$route_id",
+                                                        'count':{ '$sum':1},
+                                                        'total_driving_time_min':{ '$sum': '$total_actual_duration_min' },
+                                                        'total_transit_time_min':{ '$sum': '$total_transit_duration_min' },
+                                                        'total_driving_cost_real':{ '$sum': '$total_trip_cost_real' },
+                                                        'total_transit_cost_real':{ '$sum': '$transit_trip_cost_real' },
+                                                       }} ]):
+        route_id = trip['_id']
+        del trip['_id']
+        route_trips[route_id] = trip
+        
+    route_pledges = {}
+    for pledge in MONGO_DB.pledges.aggregate([ {"$group" : {  '_id': "$route_id",
+                                                            'count': {'$sum': 1},
+                                                            'amount': {'$sum': '$amount'}
+                                                         }
+                                             }
+                                           ]):
+        route_id = pledge['_id']
+        del pledge['_id']
+        route_pledges[route_id] = pledge
+        
+    routes = [deepcopy(route) for route in ROUTES_DB.values()]
+    for route in routes:
+        route_id = route['route_id']
+        route['trip_info'] = route_trips.get(route_id) or {'count': 0}
+        route['pledge_info'] = route_pledges.get(route_id) or {'count': 0, 'amount': 0.0 }
+
+    routes = [route for route in routes if route['trip_info']['count'] > 0]
+    routes.sort(key=lambda x: x['trip_info']['count'])
+    routes.reverse()
+
+    print routes[0]['trip_info']
+    
+    return Response(json.dumps(routes), mimetype='application/json')
+
+@app.route("/api/dashboard/summary", methods=['GET'])
+def dashboard_summary():
+    summary = {}
+
+    for trip in MONGO_DB.trips.aggregate([ {"$group" : {'_id': 1,
+                                                        'count':{ '$sum':1},
+                                                        'total_driving_time_min':{ '$sum': '$total_actual_duration_min' },
+                                                        'total_transit_time_min':{ '$sum': '$total_transit_duration_min' },
+                                                        'total_driving_cost_real':{ '$sum': '$total_trip_cost_real' },
+                                                        'total_transit_cost_real':{ '$sum': '$transit_trip_cost_real' },
+                                                       }} ]):
+        summary['trip_count'] = trip['count']
+        summary['trip_total_driving_time_min'] = trip['total_driving_time_min']
+        summary['trip_total_transit_time_min'] = trip['total_transit_time_min']
+        summary['trip_total_driving_cost_real'] = trip['total_driving_cost_real']
+        summary['trip_total_transit_cost_real'] = trip['total_transit_cost_real']
+        
+    
+    for pledge in MONGO_DB.pledges.aggregate([ {"$group" : {  '_id': 1,
+                                                              'count': {'$sum': 1},
+                                                              'amount': {'$sum': '$amount'}
+                                                         }
+                                             }
+                                           ]):
+        summary['pledge_count'] = pledge['count']
+        summary['pledge_total_amount'] = pledge['amount']
+
+    for user in MONGO_DB.users.aggregate([ {"$group" : {  '_id': 1,
+                                                          'count': {'$sum': 1},
+                                                         }
+                                             }
+                                           ]):
+        summary['backer_count'] = user['count']
+    
+    return Response(json.dumps(summary), mimetype='application/json')
+
+
+def get_trip_chart(route_id=None):
+    today = localnow().date()
+    trip_chart = { 'series': ['trip_count'],
+                   'labels': [],
+                   'data': [[]],
+                   }
+
+    trip_date_counts = Counter([ trip['local_timestamp'][:10] for trip in MONGO_DB.trips.find({'route_id': route_id} if route_id is not None else {}, {'local_timestamp': 1}) ])
+    for day_offset in range(-28,1,1):
+        ref_day = today + timedelta(days=day_offset)
+        trip_chart['labels'].append(ref_day.strftime('%b %d'))
+        trip_chart['data'][0].append(trip_date_counts.get(ref_day.isoformat()[:10]) or 0)
+
+    for i in range(len(trip_chart['labels'])):
+        if i%4 != 0:
+            trip_chart['labels'][i] = ""
+
+    return trip_chart
+    
+    
+@app.route("/api/dashboard/trip_chart", methods=['GET'])
+def dashboard_trip_chart():
+    return Response(json.dumps(get_trip_chart()), mimetype='application/json')
+
+@app.route("/api/dashboard/trip_chart/<route_id>", methods=['GET'])
+def route_trip_chart(route_id):
+    return Response(json.dumps(get_trip_chart(route_id)), mimetype='application/json')
+
+def get_pledge_chart(route_id=None):
+    today = localnow().date()
+    pledge_chart = { 'series': ['pledge_count'],
+                   'labels': [],
+                   'data': [[]],
+                   }
+
+    pledge_date_counts = Counter([ pledge['local_timestamp'][:10] for pledge in MONGO_DB.pledges.find({'route_id': route_id} if route_id is not None else {}, {'local_timestamp': 1}) ])
+    for day_offset in range(-28,1,1):
+        ref_day = today + timedelta(days=day_offset)
+        ref_day_str = ref_day.isoformat()[:10]
+        if ref_day_str in pledge_date_counts:
+            pledge_chart['data'][0].append(pledge_date_counts[ref_day_str])
+            del pledge_date_counts[ref_day_str]
+        else:
+            pledge_chart['data'][0].append(0)
+        pledge_chart['labels'].append(ref_day.strftime('%b %d'))
+
+    pledge_total = sum(pledge_date_counts.values())
+    for i in range(len(pledge_chart['data'][0])):
+        pledge_chart['data'][0][i] = pledge_chart['data'][0][i] + pledge_total
+        pledge_total = pledge_chart['data'][0][i]
+    
+    for i in range(len(pledge_chart['labels'])):
+        if i%4 != 0:
+            pledge_chart['labels'][i] = ""
+
+    return pledge_chart
+    
+
+@app.route("/api/dashboard/pledge_chart", methods=['GET'])
+def dashboard_pledge_chart():    
+    return Response(json.dumps(get_pledge_chart()), mimetype='application/json')
+
+@app.route("/api/dashboard/pledge_chart/<route_id>", methods=['GET'])
+def route_pledge_chart(route_id):    
+    return Response(json.dumps(get_pledge_chart(route_id)), mimetype='application/json')
+
 
 @app.route("/api/reset", methods=['GET'])
 def reset():
@@ -544,12 +692,12 @@ def reset():
                    'Gabriela',
                    'Rafaela']
     user_profiles = []
-    for i in range(50):
+    for i in range(53):
         user_profiles.append({'user_id': 'demo'+str(len(user_profiles) + 1),
                               'name': random.choice(men_names),
                               'photo_url': WWW_SERVER_URL+'/profiles/man'+str(i%50)+'.jpg'
                               })
-    for i in range(50):
+    for i in range(54):
         user_profiles.append({'user_id': 'demo'+str(len(user_profiles) + 1),
                               'name': random.choice(women_names),
                               'photo_url': WWW_SERVER_URL+'/profiles/woman'+str(i%50)+'.jpg'

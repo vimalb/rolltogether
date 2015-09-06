@@ -6,7 +6,9 @@ ALL_MODULES = [ 'ngRoute',
             'ngMaterial',
             'ngTouch',
             'angular-carousel',
-            'nouislider' ].concat(document.APP_MODULES);
+            'nouislider',
+            'chart.js',
+             ].concat(document.APP_MODULES);
 
 angular
   .module('mainApp',

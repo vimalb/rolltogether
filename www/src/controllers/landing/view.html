@@ -1,6 +1,168 @@
-<p>{{ test }}</p>
-<p>{{ test }}</p>
-<p>{{ test | lolcat }}</p>
-<p>{{ test | lolcat }}</p>
-<p pirate>Hello World</p>
-<p pirate>Hello World</p>
+<md-toolbar class="app-header">
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Roll Together Admin Dashboard</h2>
+  </div>
+</md-toolbar>
+
+<div layout="row" flex="100">
+  <div layout="column" flex="33">
+
+    <div>
+        <h3>Proposed Metro Routes</h3>
+    </div>
+
+    <div>
+      <md-content>
+        <md-list>
+          <md-list-item  ng-repeat="route in routes">
+            <md-card ng-click="setSelectedRoute(route)">
+              <md-card-content>
+                <h2 class="md-title">{{ route.name }}</h2>
+                <p ng-if="route.route_id == selected_route.route_id">Selected</p>
+                <p>{{ route.trip_info.count }} trips</p>
+                <p>{{ route.pledge_info.count }} backers</p>
+                <p>R$ {{ route.pledge_info.amount | number: 0 }} pledged</p>
+                <p>R$ {{ (route.pledge_info.amount * 100.0 / route.target_amount) | number: 0 }}% funded</p>
+              </md-card-content>
+            </md-card>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </div>
+
+  </div>
+
+  <div layout="column" flex="66">
+
+    <div>
+        <h3>Summary Statistics</h3>
+        <p>{{ summary.trip_count }} trips</p>
+        <p>{{ ((summary.trip_total_driving_time_min - summary.trip_total_transit_time_min) / 60.0) | number : 0 }} hours wasted</p>
+        <p>R$ {{ (summary.trip_total_driving_cost_real - summary.trip_total_transit_cost_real) | number : 0 }} wasted</p>
+
+        <p>{{ summary.backer_count }} backers</p>
+        <p>{{ summary.pledge_count }} pledges</p>
+        <p>R$ {{ summary.pledge_total_amount }} pledged</p>
+
+    </div>
+
+    <div layout="row">
+      <div flex="50">
+        <h2>Total trips per day</h2>
+        <canvas id="trip_per_day" class="chart chart-bar" 
+          chart-data="trip_chart.data"
+          chart-labels="trip_chart.labels" 
+          chart-legend="false" 
+          chart-series="trip_chart.series"
+          >
+        </canvas> 
+      </div>
+      <div flex="50">
+        <h2>Total pledges</h2>
+        <canvas id="total_pledges" class="chart chart-line" 
+          chart-data="pledge_chart.data"
+          chart-labels="pledge_chart.labels" 
+          chart-legend="false" 
+          chart-series="pledge_chart.series"
+          >
+        </canvas> 
+      </div>
+    </div>
+
+
+    <div layout="column">
+      <p>{{ selected_route.trip_info.count }} trips</p>
+      <p>{{ selected_route.pledge_info.count }} backers</p>
+      <p>{{ ((selected_route.trip_info.total_driving_time_min - selected_route.trip_info.total_transit_time_min) / 60.0) | number : 0 }} hour savings</p>
+      <p>R$ {{ (selected_route.trip_info.total_driving_cost_real - selected_route.trip_info.total_transit_cost_real) | number : 0 }} savings</p>
+      <p>R$ {{ selected_route.pledge_info.amount | number: 0 }} pledged</p>
+      <p>R$ {{ selected_route.target_amount | number: 0 }} target</p>
+      <p>R$ {{ (selected_route.pledge_info.amount * 100.0 / selected_route.target_amount) | number: 0 }}% funded</p>
+      <div layout="row">
+        <div flex="50">
+          <h2>Trips per day</h2>
+          <canvas id="route_trip_per_day" class="chart chart-bar" 
+            chart-data="route_trip_chart.data"
+            chart-labels="route_trip_chart.labels" 
+            chart-legend="false" 
+            chart-series="route_trip_chart.series"
+            >
+          </canvas> 
+        </div>
+        <div flex="50">
+          <h2>Pledges</h2>
+          <canvas id="route_total_pledges" class="chart chart-line" 
+            chart-data="route_pledge_chart.data"
+            chart-labels="route_pledge_chart.labels" 
+            chart-legend="false" 
+            chart-series="route_pledge_chart.series"
+            >
+          </canvas> 
+        </div>
+      </div>
+      <img ng-src="{{ SERVER_URL }}/api/routes/all/{{ selected_route.route_id }}/map"></img>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!--
+
+  <md-grid-tile class="gray"
+      md-rowspan="2" md-colspan="4" md-colspan-md="2" md-colspan-sm="1">
+
+      <md-grid-tile-header>
+        <h3>Summary Statistics</h3>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer>
+        <h3>Bottom</h3>
+      </md-grid-tile-footer>
+
+  </md-grid-tile>
+
+  <md-grid-tile class="gray"
+      md-rowspan="4" md-colspan="2" md-colspan-sm="1">
+
+      <md-grid-tile-header>
+        <h3>Google Map</h3>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer>
+        <h3>Bottom</h3>
+      </md-grid-tile-footer>
+
+  </md-grid-tile>
+
+
+  <md-grid-tile class="gray"
+      md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+
+      <md-grid-tile-header>
+        <h3>Driving Trips Per Day</h3>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer>
+        <h3>Bottom</h3>
+      </md-grid-tile-footer>
+
+  </md-grid-tile>
+
+  <md-grid-tile class="gray"
+      md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+
+      <md-grid-tile-header>
+        <h3>Cumulative Pledges Per Day</h3>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer>
+        <h3>Bottom</h3>
+      </md-grid-tile-footer>
+
+  </md-grid-tile>
+
+-->
+

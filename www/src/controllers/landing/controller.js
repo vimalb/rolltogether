@@ -18,11 +18,50 @@ angular.module(MODULE_NAME, ['ngRoute'])
       controller: CONTROLLER_NAME
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, CLIENT_SETTINGS, $http) {
     console.log("Loading controller", CONTROLLER_NAME);
+    var SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
+
+    $scope.SERVER_URL = SERVER_URL;
+    $scope.routes = [];
+    $scope.selected_route = {}
+    $scope.summary = {};
+    $scope.trip_chart = {};
+    $scope.pledge_chart = {};
+    $scope.route_trip_chart = {};
+    $scope.route_pledge_chart = {};
+
+    $scope.setSelectedRoute = function(route) {
+      $scope.selected_route = route;
+
+      $http.get(SERVER_URL+'/api/dashboard/trip_chart/'+route.route_id).then(function(resp){
+        $scope.route_trip_chart = resp.data;
+      });
+
+      $http.get(SERVER_URL+'/api/dashboard/pledge_chart/'+route.route_id).then(function(resp){
+        $scope.route_pledge_chart = resp.data;
+      });
+
+    }
+
+    $http.get(SERVER_URL+'/api/dashboard/routes').then(function(resp){
+      $scope.routes = resp.data;
+      $scope.setSelectedRoute($scope.routes[0]);
+    });
+
+    $http.get(SERVER_URL+'/api/dashboard/summary').then(function(resp){
+      $scope.summary = resp.data;
+    });
+
+    $http.get(SERVER_URL+'/api/dashboard/trip_chart').then(function(resp){
+      $scope.trip_chart = resp.data;
+    });
+
+    $http.get(SERVER_URL+'/api/dashboard/pledge_chart').then(function(resp){
+      $scope.pledge_chart = resp.data;
+    });
     
-    console.log("Client Settings", CLIENT_SETTINGS);
-    $scope.test = 'hello world';
+
     
   });
   
