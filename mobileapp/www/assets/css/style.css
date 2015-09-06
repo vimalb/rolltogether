@@ -79,15 +79,16 @@ progress[value]::-webkit-progress-value {
   margin: 10px;
 }
 
+.trip-feed .card.my-pledge {
+  background-color: #C1FFC1;
+}
+
 .trip-feed .card.avatar {
   height: 75px;
 }
 
 /* header details for the card */
 .trip-feed .card .item.item-avatar.header {
-  /*position: absolute;
-  width: 100%;*/
-  top: 0;
   background-color: rgba(255, 255, 255, 1);
   color: black;
 }
@@ -97,6 +98,12 @@ progress[value]::-webkit-progress-value {
   padding-right: 30px;
 }
 
+
+.trip-feed .card .item.item-avatar.header img.backer {
+  padding-right: 10px;
+  padding-top: 10px;
+  width: 75px;
+}
 
 /*
  * Trip Detail

@@ -59,6 +59,16 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
       $state.go('tab.my-trips-detail', {tripId: tripId});
     }
 
+    $scope.goRouteDetail = function(feedItem) {
+      var routeId = feedItem.item_details.route.route_id;
+      $state.go('tab.my-routes-detail', {routeId: routeId});
+    }
+
+    $scope.goPledgeDetail = function(feedItem) {
+      var pledgeId = feedItem.item_details.pledge.pledge_id;
+      $state.go('tab.my-pledges-detail', {pledgeId: pledgeId});
+    }
+
     $scope.goLogin = function() {
       $state.go('tab.login');
     }
