@@ -26,6 +26,7 @@ function displayData($http, access_token)
 
         document.getElementsByClassName("sign-in-text")[0].className = "sign-in-text hide";
         document.getElementsByClassName("success")[0].className -= "hide";
+        
     }, function(error) {
         alert("Error: " + error);
     });
@@ -47,11 +48,13 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
     console.log("Instantiating controller", CONTROLLER_NAME);
     window.cordovaOauth = $cordovaOauth;
     window.http = $http;
+    $scope.loggedIn = false;
     $scope.facebookLogin = function() {
       console.log('Logging in with Facebook');
       $cordovaOauth.facebook("1466619133643813", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result) {
         $localStorage.accessToken = result.access_token;
         displayData($http, result.access_token);
+        $scope.loggedIn = true;
         $state.go("tab.my-trips");
         //$state.go($stateParams.from); <-- this crashes the app`
       }, function(error) {
@@ -61,6 +64,9 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
     }
 
     $scope.$on('$ionicView.beforeEnter', function(){
+      if ($scope.loggedIn)  {
+        $state.go('tab.my-pledges');
+      }
     });
 
     $scope.goToFeed = function () {
