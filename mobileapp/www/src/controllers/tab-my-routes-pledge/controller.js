@@ -59,8 +59,10 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
           $scope.route = route;
           tripSearchService.getPledge(route).then(function(pledge) {
             console.log('pledge', pledge);
-            $scope.currentPledge = pledge.amount;
-            $scope.pledgeTotal = pledge.amount;
+            if (pledge.amount) {
+              $scope.currentPledge = pledge.amount;
+              $scope.pledgeTotal = pledge.amount;
+            }
             _.each($scope.pledgeLevels, function(level) {
               console.log(level.amount, pledge.amount);
               if(level.amount == pledge.amount) {

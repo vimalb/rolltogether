@@ -27,7 +27,7 @@
 
         <div class="item item-image">
           <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
-          <i class="map-heart ion-heart"></i>
+          <!--i class="map-heart ion-heart"></i-->
           <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
             <span ng-if="!pledges[route.route_id].mine">PLEDGE</span>
             <span ng-if="pledges[route.route_id].mine">R${{ pledges[route.route_id].mine_amount }}</span>
@@ -68,7 +68,7 @@
 
         <div class="item item-image">
           <img class="route-image" ng-src="{{ SERVER_URL+'/api/routes/all/'+route.route_id.toString()+'/map' }}" >
-          <i class="map-heart ion-heart"></i>
+          <!--i class="map-heart ion-heart"></i-->
           <button class="button button-balanced contribute-button" ng-click="goRoutePledgeDetail(route.route_id);$event.stopPropagation()">
             <span ng-if="!pledges[route.route_id].mine">PLEDGE</span>
             <span ng-if="pledges[route.route_id].mine">${{ pledges[route.route_id].mine_amount }}</span>
