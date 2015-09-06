@@ -23,26 +23,28 @@ angular.module(MODULE_NAME, [])
       }
 
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser') || JSON.stringify({
-        'username': undefined,
         'name': '',
-        'profilePic': '',
-        'isFacebookEnabled': false,
-        'isTwitterEnabled': false,
-        'isInstagramEnabled': false,
+        'photo_url': '',
       }));
-      if(!$rootScope.currentUser.userId) {
-        $rootScope.currentUser.userId = rand4()+rand4()+rand4()+rand4();
+      if(!$rootScope.currentUser.user_id) {
+        $rootScope.currentUser.user_id = rand4()+rand4()+rand4()+rand4();
       }
+
+      document.currentUser = $rootScope.currentUser;
 
       $rootScope.$watch('currentUser', _.debounce(function() {
         console.log('currentUser changed to', $rootScope.currentUser);
         localStorage.setItem('currentUser', JSON.stringify($rootScope.currentUser));
+        if($rootScope.currentUser.user_id) {
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + $rootScope.currentUser.user_id;
+          $http.post(url, JSON.stringify($rootScope.currentUser));
+        }
       }, 1000), true);
 
       return {
         getCurrentUser: function() {
           return $rootScope.currentUser;
-        },
+        }
       };
 
     });

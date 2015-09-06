@@ -20,7 +20,7 @@ angular.module(MODULE_NAME, [])
         getMyFeed: function() {
           console.log("Fetching my feed");
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/feed';
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/feed';
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -30,7 +30,7 @@ angular.module(MODULE_NAME, [])
         getMyRoutes: function() {
           console.log("Fetching my routes");
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/routes';
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/routes';
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -50,7 +50,7 @@ angular.module(MODULE_NAME, [])
         getPledges: function(routeIds) {
           console.log("Fetching pledges for route_ids", routeIds);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges';
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/pledges';
           $http.post(url, JSON.stringify({route_ids: routeIds})).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -60,7 +60,7 @@ angular.module(MODULE_NAME, [])
         makePledge: function(route, amount) {
           console.log("Pledging", amount, " to route ", route.route_id);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges/'+route.route_id.toString();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/pledges/'+route.route_id.toString();
           $http.put(url, JSON.stringify({amount: amount})).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -70,7 +70,7 @@ angular.module(MODULE_NAME, [])
         getPledge: function(route) {
           console.log("Fetching pledge for route ", route.route_id);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/pledges/'+route.route_id.toString();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/pledges/'+route.route_id.toString();
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -91,7 +91,7 @@ angular.module(MODULE_NAME, [])
         getRouteTrips: function(route) {
           console.log("Fetching trips for route", route.route_id);
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/trips_for_route/'+route.route_id.toString();
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/trips_for_route/'+route.route_id.toString();
           $http.get(url).then(function(resp) {
             deferred.resolve(resp.data);
           });
@@ -101,7 +101,7 @@ angular.module(MODULE_NAME, [])
         getRouteTripCounts: function(routeIds) {
           console.log("Fetching route trip counts");
           var deferred = $q.defer();
-          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().userId + '/route_trip_counts';
+          var url = CLIENT_SETTINGS.SERVER_URL + '/api/users/' + userService.getCurrentUser().user_id + '/route_trip_counts';
           $http.post(url, JSON.stringify({route_ids: routeIds})).then(function(resp) {
             deferred.resolve(resp.data);
           });
