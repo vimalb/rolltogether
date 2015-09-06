@@ -1,6 +1,15 @@
 /* Empty. Add your own CSS if you like */
 
 /*global*/
+
+img.header-logo-left {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 6px;
+  float: left;
+}
+
 ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
     color: lightblue;
 }
@@ -21,6 +30,11 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 .bar-stable .back-button .icon.ion-ios-arrow-back {
   color: white !important;
 }
+
+.bar-stable .back-button .icon.ion-android-arrow-back {
+  color: white !important;
+}
+
 /* temporarily here because we still have some images */
 img.trip-map-summary {
   width: 100%;
