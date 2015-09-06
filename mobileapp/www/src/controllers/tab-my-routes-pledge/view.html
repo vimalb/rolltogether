@@ -23,21 +23,18 @@
     <div class="total">
       <h4>
         <span>Total: </span>
-        <span class="right">{{ currentPledge | currency }}</span>
+        <span class="right">{{ selectedPledge | currency }}</span>
       </h4>
     </div>
-    <button ng-show="currentPledge != pledgeTotal" class="button button-full button-balanced" ng-click="makePledge()">
+    <button ng-show="selectedPledge != savedPledge" class="button button-full button-balanced" ng-click="makePledge()">
       Pledge Now!
     </button>
-    <div ng-show="currentPledge == pledgeTotal">
+    <div ng-show="selectedPledge == savedPledge">
       <div class="thanks">Thank you for your pledge!</div>
-      <button ng-show="currentPledge == pledgeTotal" class="button button-full button-balanced" ng-click="shareOnFacebook()">
+      <button class="button button-full button-balanced" ng-click="shareOnFacebook()">
         Share on Facebook
       </button>
-      <div class="hide success">
-        Your post has been shared on Facebook!
-      </div>
-      <button ng-show="currentPledge == pledgeTotal" class="button button-full button-calm" ng-click="finishPledge()">
+      <button class="button button-full button-calm" ng-click="finishPledge()">
         See all pledges
       </button>
     </div>

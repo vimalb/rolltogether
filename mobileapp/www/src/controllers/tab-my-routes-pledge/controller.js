@@ -27,9 +27,10 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
   })
   .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, tripSearchService, userService, $cordovaSocialSharing, CLIENT_SETTINGS) {
       $scope.route = {};
-      $scope.currentPledge = 20;
+      $scope.selectedPledge = 20;
       $scope.selectedIndex = 1;
-      $scope.pledgeTotal = 0;
+
+      $scope.savedPledge = 0;
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       // XXX should probably be moved elsewhere
@@ -59,15 +60,12 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
           $scope.route = route;
           tripSearchService.getPledge(route).then(function(pledge) {
             console.log('pledge', pledge);
-            if (pledge.amount) {
-              $scope.currentPledge = pledge.amount;
-              $scope.pledgeTotal = pledge.amount;
-            }
+            $scope.savedPledge = pledge.amount;
             _.each($scope.pledgeLevels, function(level) {
               console.log(level.amount, pledge.amount);
               if(level.amount == pledge.amount) {
                 $scope.selectedIndex = level.index;
-                //$scope.pledgeTotal = level.amount;
+                $scope.selectedPledge = level.amount;
               }
             });
           });
@@ -80,14 +78,13 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
       });
 
       $scope.selectPledge = function(pledge) {
-        $scope.currentPledge = pledge.amount;
+        $scope.selectedPledge = pledge.amount;
         $scope.selectedIndex = pledge.index;
       }
 
       $scope.makePledge = function() {
-        tripSearchService.makePledge($scope.route, $scope.currentPledge).then(function() {
-          $scope.pledgeTotal = $scope.currentPledge; 
-          //$scope.currentPledge = $scope.pledgeTotal;
+        tripSearchService.makePledge($scope.route, $scope.selectedPledge).then(function() {
+          $scope.savedPledge = $scope.selectedPledge; 
         });
       }
 
