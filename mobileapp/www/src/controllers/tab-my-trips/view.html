@@ -17,7 +17,7 @@
         <div ng-if="feedItem.item_type == 'my_trip'" ng-click="goTripDetail(feedItem.item_id)" class="card">
           <div class="item item-avatar header">
             <img class="profile-img" ng-src="{{ feedItem.user_profile.photo_url }}">
-            <h2>{{ feedItem.item_details.name }}</h2>
+            <h2>Your Trip: {{ feedItem.item_details.name }}</h2>
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>
               <span class="summary-stats">{{ feedItem.item_details.total_distance_km | number: 1}} km</span>
@@ -29,30 +29,36 @@
           </div>
         </div>
 
-        <div ng-if="feedItem.item_type == 'friend_pledge'" ng-click="goRouteDetail(feedItem)" class="card">
+        <div ng-if="feedItem.item_type == 'friend_pledge'" ng-click="goRouteDetail(feedItem)" class="card friend-pledge pledge">
           <div class="item item-avatar header">
             <img class="profile-img" ng-src="{{ feedItem.user_profile.photo_url }}">
-            <h2>R$ {{ feedItem.item_details.pledge.amount | number: 2 }} from {{ feedItem.user_profile.name }}</h2>
+            <h2>{{ feedItem.user_profile.name }} pledged <span class="amount">R$ {{ feedItem.item_details.pledge.amount | number: 2 }}</span></h2>
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>{{ feedItem.item_details.route.name }}</p>
+            <!--button class="button button-outline button-positive">
+              See Route
+            </button-->
           </div><!-- /item item-avatar header -->
-          <div class="item item-image">
+          <!--div class="item item-image">
             <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+feedItem.item_id.toString()+'/map' }}"></img>
-          </div>
+          </div-->
         </div>
 
-        <div ng-if="feedItem.item_type == 'my_pledge'" ng-click="goPledgeDetail(feedItem)" class="card my-pledge">
+        <div ng-if="feedItem.item_type == 'my_pledge'" ng-click="goPledgeDetail(feedItem)" class="card my-pledge pledge">
           <div class="item item-avatar header">
             <img class="profile-img" ng-src="{{ feedItem.user_profile.photo_url }}">
-            <h2>R$ {{ feedItem.item_details.pledge.amount | number: 2 }} pledged</h2>
+            <h2>You pledged <span class="amount">R$ {{ feedItem.item_details.pledge.amount | number: 2 }}</span></h2>
             <img class="backer" src="assets/img/backer-badge.png" />
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>{{ feedItem.item_details.route.name }}</p>
+            <!--button class="button button-balanced">
+              See Pledge
+            </button-->
           </div><!-- /item item-avatar header -->
-          <div class="item item-image">
+          <!--div class="item item-image">
             <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+feedItem.item_id.toString()+'/map' }}"></img>
           </div>
-        </div><!-- /card -->
+        </div--><!-- /card -->
       </div>
     </div>
     <br>

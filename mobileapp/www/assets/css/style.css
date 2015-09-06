@@ -108,6 +108,16 @@ progress[value]::-webkit-progress-value {
   /*background-color: #FFAB40;*/
 }
 
+.trip-feed .card.pledge .item.item-avatar.header .amount {
+  font-style: bold;
+  font-weight: 700;
+}
+
+.trip-feed .card.friend-pledge .item.item-avatar.header {
+  background-color: #E1F5FE;
+  /*background-color: #FFAB40;*/
+}
+
 /* stats for trip cards */
 .trip-feed .card .item.item-avatar.header .summary-stats {
   padding-right: 30px;
