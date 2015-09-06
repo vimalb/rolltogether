@@ -24,6 +24,12 @@ html, body {
   float: right;
 }
 
+.logo {
+  width: 45px;
+  margin-right: 10px;
+}
+  
+
 /* colors */
 .light-blue {
   background-color: #80D8FF;
