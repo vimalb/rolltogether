@@ -169,7 +169,7 @@ progress[value]::-webkit-progress-value {
 
 .routes .list .card .item.item-image .map-heart {
   position: absolute;
-  top: 90px;
+  top: 15px;
   right: 10px;
   color: gray;
   font-size: 2.5em;

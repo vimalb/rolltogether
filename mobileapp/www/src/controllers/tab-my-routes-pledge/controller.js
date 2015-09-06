@@ -27,9 +27,9 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
   })
   .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, tripSearchService, userService, $cordovaSocialSharing, CLIENT_SETTINGS) {
       $scope.route = {};
-      $scope.currentPledge = 0;
-      $scope.pledgeTotal = 20;
+      $scope.currentPledge = 20;
       $scope.selectedIndex = 1;
+      $scope.pledgeTotal = 0;
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
       // XXX should probably be moved elsewhere
@@ -37,19 +37,19 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
         {
           index: 0,
           name: "One Trip",
-          price: 5.00,
+          amount: 5.00,
           description: "Be one of the pioneers of Sao Paulo's new subway! Guarantee your spot by buying a ticket on YOUR ROUTE now"
         },
         {
           index: 1,
           name: "Five Pack",
-          price: 20.00,
+          amount: 20.00,
           description: "Good things come in bulk. Give more support to Sao Paulo's subway system and save! Buy four train tickets and get one free!"
         },
         {
           index: 2,
           name: "Supporter of the Cause",
-          price: 100.00,
+          amount: 100.00,
           description: "Be the good samaritan your mom always told you to be. Do your best to make this happen and be rewarded with your first monthly pass!"
         }
       ];
@@ -60,11 +60,12 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
           tripSearchService.getPledge(route).then(function(pledge) {
             console.log('pledge', pledge);
             $scope.currentPledge = pledge.amount;
+            $scope.pledgeTotal = pledge.amount;
             _.each($scope.pledgeLevels, function(level) {
-              console.log(level.price, pledge.amount);
-              if(level.price == pledge.amount) {
+              console.log(level.amount, pledge.amount);
+              if(level.amount == pledge.amount) {
                 $scope.selectedIndex = level.index;
-                $scope.pledgeTotal = level.price;
+                //$scope.pledgeTotal = level.amount;
               }
             });
           });
@@ -77,34 +78,35 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
       });
 
       $scope.selectPledge = function(pledge) {
-        $scope.pledgeTotal = pledge.price;
+        $scope.currentPledge = pledge.amount;
         $scope.selectedIndex = pledge.index;
       }
 
       $scope.makePledge = function() {
-        tripSearchService.makePledge($scope.route, $scope.pledgeTotal).then(function() {
-          $scope.currentPledge = $scope.pledgeTotal;
-
+        tripSearchService.makePledge($scope.route, $scope.currentPledge).then(function() {
+          $scope.pledgeTotal = $scope.currentPledge; 
+          //$scope.currentPledge = $scope.pledgeTotal;
         });
       }
 
       $scope.finishPledge = function() {
         $state.go('tab.my-pledges');
-        //$state.go('tab.my-routes');
       }
 
       $scope.shareOnFacebook = function () {
-        var message = "I just pledged $" + $scope.pledgeTotal + " to improve the Sao Paulo Metro!";
-        var image = $scope.SERVER_URL+'/api/routes/all/'+$scope.route.route_id.toString()+"/map";
-        var link = "http://www.google.com";
+        var message = null;
+        var image = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Puppy_on_Halong_Bay.jpg"
+        image = null; //setting to null because you only get the nice link preview with just a link
+        var link = "http://www.buzzfeed.com/elainawahl/the-most-wtf-animal-face-swaps#.esv2a0oJM";
+        
         $cordovaSocialSharing
           .shareViaFacebook(message, image, link)
           .then(function(result) {
             console.log('shared via facebook!');
           }, function(err) {
             // An error occurred. Show a message to the user
-             console.log('share failed');
-             console.dir(err);
+             console.log('Facebook share failed');
+             console.dir(err.toString());
           });
       }
 
