@@ -48,6 +48,8 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
     $scope.refreshFeedItems = function() {
       tripSearchService.getMyFeed().then(function(feedItems) {
         $scope.feedItems = feedItems;
+      }).finally(function() {
+        $scope.$broadcast('scroll.refreshComplete');
       });
     }
 

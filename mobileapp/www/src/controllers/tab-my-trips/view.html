@@ -1,6 +1,10 @@
 <ion-view>
   <ion-nav-title>Roll Together</ion-nav-title>
   <ion-content class="padding trip-feed">
+    <ion-refresher
+      pulling-text="Pull to refresh"
+      on-refresh="refreshFeedItems()">
+    </ion-refresher>
 
     <button id="login-button" class="login button button-full button-calm" ng-click="goLogin()">Sign in</button>
 
