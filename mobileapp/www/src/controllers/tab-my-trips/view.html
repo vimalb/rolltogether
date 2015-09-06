@@ -2,7 +2,7 @@
   <ion-nav-title>RollTogether</ion-nav-title>
   <ion-content class="padding trip-feed">
 
-    <button id="login-button" class="login button button-full button-balanced" ng-click="goLogin()">Sign in</button>
+    <button id="login-button" class="login button button-full button-calm" ng-click="goLogin()">Sign in</button>
 
     <div id="profileHeader"></div>
 
@@ -45,9 +45,7 @@
           <div class="item item-avatar header">
             <img class="profile-img" ng-src="{{ feedItem.user_profile.photo_url }}">
             <h2>R$ {{ feedItem.item_details.pledge.amount | number: 2 }} pledged</h2>
-            <div class="right">
-              <img class="backer" src="assets/img/backer-badge.png" />
-            </div>
+            <img class="backer" src="assets/img/backer-badge.png" />
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>{{ feedItem.item_details.route.name }}</p>
           </div><!-- /item item-avatar header -->

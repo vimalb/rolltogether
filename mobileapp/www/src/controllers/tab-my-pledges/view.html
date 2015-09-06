@@ -21,13 +21,21 @@
         </div><!-- /item item-body -->
       </div><!-- /card -->
 
-      <div class="card" ng-show="my_pledges.length == 0" ng-click="goMyRoutes()">
-        <h2>
-          You have no pledges!
-        </h2>
-        <h2>
-          Check out your routes and pledge now!
-        </h2>
+      <div class="card no-pledges" ng-show="my_pledges.length == 0" ng-click="goMyRoutes()" >
+        <div class="item item-body">
+          <h2> No pledges</h2>
+          <p>
+            You have not contributed to any Sao Paulo Metro lines yet.
+            To be heard in the next generation of transit in Sao Paulo,
+            go to your suggested routes and pledge your support for your
+            favorite routes. Your pledge will not only make it more
+            likely for that Metro line to be built but will give you
+            credit towards your future rides on that line!
+          </p>
+          <button class="button button-full button-balanced">
+            See suggested metro routes 
+          </button>
+        </div>
       </div><!-- /card -->
 
 
