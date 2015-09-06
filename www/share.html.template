@@ -17,11 +17,20 @@
 	    <link rel="stylesheet" href="/assets/app.css"/>
 	</head>
 	<body>
-		<!--
-		<div>
-		</div>
-		-->
-		 
-		<img src="{{ SERVER_URL }}/api/routes/all/{{ route.route_id }}/map"></img>
+		<md-content class="md-padding">
+		 	<md-toolbar class="app-header">
+		    	<div class="md-toolbar-tools">
+		      		<h2 class="md-flex">Roll Together</h2>
+		    	</div>
+		  	</md-toolbar>
+			<md-card>
+				<md-card-content>
+					<h2 class="md-title">{{ route.name }}</h2>
+					<p>{{ route.description }}</p>
+				</md-card-content>
+				<img src="{{ SERVER_URL }}/api/routes/all/{{ route.route_id }}/map" class="md-card-image"></img>
+			</md-card>
+			<br/>
+		</md-content>
 	</body>
 </html>

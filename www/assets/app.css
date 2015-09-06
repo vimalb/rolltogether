@@ -6,3 +6,8 @@ html, body {
   padding: 0px;
 }
 
+.app-header {
+	background-color: #03A9F4;
+	color: white;
+}
+
