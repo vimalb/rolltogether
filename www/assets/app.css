@@ -11,3 +11,180 @@ html, body {
 	color: white;
 }
 
+.container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/* colors */
+.light-blue {
+  background-color: #80D8FF;
+  color: black;
+}
+
+.blue {
+  background-color: #03A9F4;
+  color: white;
+}
+
+.purple {
+  background-color: #673AB7;
+  color: white;
+}
+
+.red {
+  background-color: #F44336;
+  color: white;
+}
+
+.teal {
+  background-color: #009688;
+  color: white;
+}
+
+.yellow {
+  background-color: #FFEB3B;
+  color: black;
+}
+
+.indigo {
+  background-color: #3F51B5;
+  color: white;
+}
+/* end colors */
+
+.bold {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.heading {
+  text-align: center;
+  background-color: #E1F5FE;
+  color: black;
+  margin: 20px auto;
+  padding: 10px;
+} 
+
+.heading h2 {
+  margin: 0 auto;
+}
+
+.select-routes {
+  height: 640px;
+  overflow: scroll;
+}
+
+.route-details {
+  padding-left: 20px;
+}
+
+.image-stats .route-image {
+  margin-top: 18.76px;
+}
+
+.image-stats .route-image img{
+  height: 320px;
+}
+
+.image-stats .description {
+  padding: 0px 10px 10px 0px;
+  font-size: 1em;
+}
+
+.image-stats .description p{
+  margin-top: 0px;
+}
+
+.image-stats .stats-cards md-card{
+  padding: 15px 10px;  
+}
+
+.image-stats .stats-cards md-card div{
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 5px 0px;
+}  
+
+.image-stats .stats-cards md-card .value{
+  font-weight: 700;
+}  
+
+.parent {
+  position: relative;
+}
+
+/* 
+ * Progress bar area
+ */
+
+progress[value] {
+  margin: 5px auto;
+  -moz-appearance: none;
+  -webkit-appearance: none;  
+  appearance: none;
+
+  width: 100%;
+  height: 2em;
+}
+
+/* IE10 */
+progress {
+  color: #00E676;
+}
+
+/* Firefox */
+progress::-moz-progress-bar { 
+  background: #00E676;  
+}
+
+/* Chrome */
+progress::-webkit-progress-value {
+  background: #00E676;
+}
+
+.progress-bar-summary {
+  padding-top: 10px;
+}
+
+.progress-bar-summary .progress-bar-stats {
+  font-size: 1.3em;
+}
+
+.progress-bar-summary .progress-bar-stats .stats-bold{
+  font-weight: 700;
+}
+
+.detailed-stats {
+  padding-left: 0px;
+}
+
+.detailed-stats li {
+  display: inline-block;
+  padding-right: 60px;
+  font-size: 1.2em;
+}
+
+.detailed-stats li .stats-value {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.detailed-stats li .stats-label {
+  color: darkgray;
+}
+
+.graph-container {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
