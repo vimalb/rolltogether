@@ -195,7 +195,6 @@ progress[value]::-webkit-progress-value {
 
 .routes .list .card .item.header .details .stats {
   display: inline-block;
-  padding-right: 40px
 }
 
 .routes .list .card .item.header .details .stats-value {
