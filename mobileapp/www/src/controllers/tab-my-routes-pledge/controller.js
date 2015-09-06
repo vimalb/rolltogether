@@ -94,17 +94,16 @@ angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
 
       $scope.shareOnFacebook = function () {
         var message = null;
-        var image = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Puppy_on_Halong_Bay.jpg"
-        image = null; //setting to null because you only get the nice link preview with just a link
-        var link = "http://www.buzzfeed.com/elainawahl/the-most-wtf-animal-face-swaps#.esv2a0oJM";
+        var image = null;
+        var link = $scope.SERVER_URL+'/share/'+$scope.route.route_id;
         
         $cordovaSocialSharing
           .shareViaFacebook(message, image, link)
           .then(function(result) {
-            console.log('shared via facebook!');
+            console.log(link, 'shared via facebook!');
           }, function(err) {
             // An error occurred. Show a message to the user
-             console.log('Facebook share failed');
+             console.log(link, 'Facebook share failed');
              console.dir(err.toString());
           });
       }
