@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
         }
       });
   })
-  .controller(CONTROLLER_NAME, function($scope, tripSearchService, $state, $localStorage, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, tripSearchService, openXCService, $state, $localStorage, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
     $scope.feedItems = [];
@@ -50,6 +50,12 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
         $scope.feedItems = feedItems;
       }).finally(function() {
         $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
+
+    $scope.goRefresh = function() {
+      openXCService.checkForNewTrips().then(function(newTrip) {
+        $scope.refreshFeedItems();
       });
     }
 

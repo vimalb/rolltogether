@@ -15,6 +15,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta
 import pytz
 import urllib
+from geopy.distance import great_circle
 
 from flask import Flask, request, send_from_directory, safe_join, Response
 from flask.ext.cors import CORS
@@ -53,6 +54,8 @@ def jload(filename):
     with open(filename, 'r') as r:
         return json.load(r)        
 
+def dist(a,b):
+    return great_circle(a,b).meters
 
 
 @app.route("/api/test")
@@ -388,7 +391,54 @@ def route_trip_counts(user_id):
         route_counts[route_id]['total'] = result['count']
 
     return Response(json.dumps(route_counts), mimetype='application/json')
- 
+
+@app.route("/api/users/<user_id>/latest_trip_info", methods=['POST', 'GET'])
+def user_latest_trip_info(user_id):
+    trip_infos = list(MONGO_DB.trips.find({'user_id': user_id}, {'local_timestamp': 1}))
+    if not trip_infos:
+        trip_infos = [{'_id': -1, 'local_timestamp': (localnow()-timedelta(days=720)).isoformat()}]
+    for trip in trip_infos:
+        trip['trip_id'] = str(trip['_id'])
+        del trip['_id']
+    trip_infos.sort(key=lambda x: x['local_timestamp'])
+    return Response(json.dumps(trip_infos[-1]), mimetype='application/json') 
+    
+
+
+# OpenXC integration for adding new trips
+@app.route("/api/users/<user_id>/open_xc", methods=['POST', 'GET'])
+def user_openxc_integration(user_id):
+    if request.method in ['POST']:
+        req = json.loads(request.get_data())
+    else:
+        req = {}
+    trip_infos = list(MONGO_DB.trips.find({'user_id': user_id}, {'local_timestamp': 1, 'name': 1}))
+    trip_infos.sort(key=lambda x: x['local_timestamp'])
+    bl_name = trip_infos[-1]['name'] if trip_infos else ''
+    
+    eligible_trips = [t for t in RAW_TRIPS_DB.values() if t['end_point_info']['type'] in ['friend','errand'] and t['name'] != bl_name]
+    matching_trip = random.choice(eligible_trips)
+    target_start = req.get('start_point', matching_trip['legs'][0]['start'])
+    target_end = req.get('end_point', matching_trip['legs'][-1]['end'])
+    def trip_dist(trip):
+        start_distance = dist(target_start, trip['legs'][0]['start'])
+        end_distance = dist(target_end, trip['legs'][-1]['end'])
+        total_dist = pow(pow(start_distance, 2)+pow(end_distance, 2), 0.5)
+        return total_dist
+    trips = list(RAW_TRIPS_DB.values())
+    trips.sort(key=lambda x: trip_dist(x))
+    matching_trip = trips[0]
+
+    trip = deepcopy(matching_trip)
+    trip['user_id'] = user_id
+    trip['local_timestamp'] = localnow().isoformat()
+    MONGO_DB.trips.insert_one(trip)
+    if '_id' in trip:
+        del trip['_id']
+    
+    return Response(json.dumps(trip), mimetype='application/json')
+
+
 
 @app.route("/api/trips/<trip_id>/map", methods=['GET'])
 def trip_map(trip_id):
