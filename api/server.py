@@ -730,9 +730,7 @@ def reset():
                           })
     MONGO_DB.pledges.insert_many(pledges)
             
-        
-        
-
+    
     return Response(json.dumps({'status': 'reset_complete',
                                 'timestamp': utcnow().isoformat(),
                                 'user_count': len(user_profiles),

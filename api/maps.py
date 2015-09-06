@@ -450,7 +450,18 @@ for route in routes:
         route['driving_duration_min'] = max(route['driving_duration_min'], trip['total_actual_duration_min'])
         route['transit_distance_km'] = max(route['transit_distance_km'], trip['transit_distance_km'])
         route['transit_duration_min'] = max(route['transit_duration_min'], trip['total_transit_duration_min'])
+
     route['name'] = start_info['name'] + ' to ' + end_info['name']
+    horizontal_distance = dist((start_info['point'][0], start_info['point'][1]), (start_info['point'][0], end_info['point'][1]))
+    vertical_distance = dist((start_info['point'][0], start_info['point'][1]), (end_info['point'][0], start_info['point'][1]))
+    if (horizontal_distance > vertical_distance) and (start_info['point'][1] > end_info['point'][1]):
+        route['name'] = end_info['name'] + ' to ' + start_info['name']
+    elif (horizontal_distance < vertical_distance) and (start_info['point'][0] < end_info['point'][0]):
+        route['name'] = end_info['name'] + ' to ' + start_info['name']
+    else:
+        route['name'] = start_info['name'] + ' to ' + end_info['name']
+        
+        
     route['description'] = 'This route goes from '+start_info['area'] + ' to ' + end_info['area'] \
                            + ' and features '+str(len(route['legs']))+' stops.'
     

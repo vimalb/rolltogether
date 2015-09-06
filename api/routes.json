@@ -405,7 +405,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Vila Suzana to Lim\u00e3o"
+    "name": "Lim\u00e3o to Vila Suzana"
   }, 
   {
     "transit_distance_km": 14.935435513810548, 
@@ -501,7 +501,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Cambuci to Vila Suzana"
+    "name": "Vila Suzana to Cambuci"
   }, 
   {
     "transit_distance_km": 0, 
@@ -861,7 +861,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Campo Belo to Lim\u00e3o"
+    "name": "Lim\u00e3o to Campo Belo"
   }, 
   {
     "transit_distance_km": 8.31211779874791, 
@@ -921,7 +921,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Vila Mariana to Lim\u00e3o"
+    "name": "Lim\u00e3o to Vila Mariana"
   }, 
   {
     "transit_distance_km": 0, 
@@ -1041,7 +1041,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Bom Retiro to Pinheiros"
+    "name": "Pinheiros to Bom Retiro"
   }, 
   {
     "transit_distance_km": 0, 
@@ -1197,7 +1197,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Moema to Vila Leopoldina"
+    "name": "Vila Leopoldina to Moema"
   }, 
   {
     "transit_distance_km": 14.328779440871596, 
@@ -1257,7 +1257,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Moema to Vila Suzana"
+    "name": "Vila Suzana to Moema"
   }, 
   {
     "transit_distance_km": 13.391915445378544, 
@@ -1329,7 +1329,7 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Vila Mariana to Vila Leopoldina"
+    "name": "Vila Leopoldina to Vila Mariana"
   }, 
   {
     "transit_distance_km": 0, 
@@ -1377,6 +1377,6 @@
         "nominal_kmph": 50.0
       }
     ], 
-    "name": "Vila Mariana to Pinheiros"
+    "name": "Pinheiros to Vila Mariana"
   }
 ]
