@@ -29,6 +29,9 @@ angular.module(MODULE_NAME, [])
       if(!$rootScope.currentUser.user_id) {
         $rootScope.currentUser.user_id = rand4()+rand4()+rand4()+rand4();
       }
+      if(!$rootScope.currentUser.photo_url) {
+        $rootScope.currentUser.photo_url = CLIENT_SETTINGS.SERVER_URL+'/profiles/anonymous.jpg';
+      }
 
       document.currentUser = $rootScope.currentUser;
 

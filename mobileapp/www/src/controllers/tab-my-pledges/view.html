@@ -1,13 +1,15 @@
 <ion-view>
-  <ion-nav-title>Pledges</ion-nav-title>
+  <ion-nav-title>My Pledges</ion-nav-title>
   <ion-content class="padding pledges">
     <div class="name">
       <h3>My Pledges</h3>
     </div>
+
     <div class="list">
+
       <div class="card" ng-repeat="pledge in my_pledges" ng-click="goPledgeDetail(pledge)">
         <div class="item item-avatar">
-          <img class="profile-img" src="assets/img/profile_pic.png">
+          <img class="profile-img" ng-src="{{ pledge.my_profile.photo_url }}">
           <h2>
             R$ {{ pledge.mine_amount | number: 2 }}
           </h2>
@@ -19,21 +21,31 @@
         </div><!-- /item item-body -->
       </div><!-- /card -->
 
+      <div class="card" ng-show="my_pledges.length == 0" ng-click="goMyRoutes()">
+        <h2>
+          You have no pledges!
+        </h2>
+        <h2>
+          Check out your routes and pledge now!
+        </h2>
+      </div><!-- /card -->
+
+
       <div class="item item-divider section">
         Friends' Pledges 
       </div> 
 
-      <div class="card" ng-repeat="pledge in pledges" ng-click="goPledgeDetail(pledge)">
+      <div class="card" ng-repeat="pledge in friend_pledges">
         <div class="item item-avatar">
-          <img class="profile-img" src="assets/img/profile_pic.png">
+          <img class="profile-img" ng-src="{{ pledge.friend_profile.photo_url }}">
           <h2>
-            {{ pledge.amount | currency }}
+            R$ {{ pledge.friend_amount | number: 2 }} by {{ pledge.friend_profile.name }}
           </h2>
-          <p>Grupo Ultro to Skye Bar</p>
+          <p>{{ pledge.name }}</p>
         </div>
         <div class="item item-body">
           <div class="spacer"> </div>
-          <img class="trip-map-summary" src="assets/img/map1.png" >
+          <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+pledge.route_id.toString()+'/map' }}" >
         </div><!-- /item item-body -->
       </div><!-- /card -->
     </div><!-- /list -->

@@ -36,9 +36,6 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.totalTransitMin = 0;
       $scope.totalTransitCost = 0;
 
-      $scope.refreshTrips = function(route) {
-      }
-
       $scope.$on('$ionicView.beforeEnter', function(){
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;

@@ -29,15 +29,20 @@ angular.module(MODULE_NAME, ['ionic'])
     console.log("Instantiating controller", CONTROLLER_NAME);
 
     $scope.my_pledges = [];
+    $scope.friend_pledges = [];
     $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
 
     $scope.refreshPledges = function() {
       tripSearchService.getPledges().then(function(pledges) {
         $scope.my_pledges = [];
+        $scope.friend_pledges = [];
         _.forOwn(pledges, function(pledge) {
           if(pledge.mine) {
             $scope.my_pledges.push(pledge);
+          }
+          else if(pledge.has_friends) {
+            $scope.friend_pledges.push(pledge);
           }
         });
       });
@@ -50,6 +55,12 @@ angular.module(MODULE_NAME, ['ionic'])
     $scope.goPledgeDetail = function(pledge) {
       $state.go('tab.my-pledges-detail', {routeId: pledge.route_id});
     }
+
+    $scope.goMyRoutes = function() {
+      $state.go('tab.my-routes');
+    }
+
+
   })
 })();
 

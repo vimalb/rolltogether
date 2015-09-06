@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-nav-title>Pledge {{ pledge.pledgeId }}</ion-nav-title>
+  <ion-nav-title>Pledge: {{ pledges[route.route_id].name }}</ion-nav-title>
   <ion-content class="padding pledges-detail">
     <div class="name">
       <h3>My Pledge</h3>
@@ -25,7 +25,7 @@
         <div class="details">
           <ul class="detailed-stats">
             <li>
-              <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount }}%</div>
+              <div class="stats-value">{{ (100 * pledges[route.route_id].total_amount / route.target_amount) | number : 0 }}%</div>
               <span class="stats-label">funded</span>
             </li>
             <li>

@@ -423,15 +423,41 @@ def user_pledges(user_id):
     if request.method in ['POST']:
         req = json.loads(request.get_data())
     else:
-        req = {}  
-    route_ids = req.get('route_ids') or [p['route_id'] for p in MONGO_DB.pledges.find({'user_id': user_id})]
+        req = {}
+
+    friend_ids = (MONGO_DB.friends.find_one({'user_id': user_id}) or {'friend_ids': []})['friend_ids']
+    route_ids = req.get('route_ids', [])
+    if not route_ids:
+        route_ids = list(set([p['route_id'] for p in MONGO_DB.pledges.find({'user_id': {'$in': [user_id] + friend_ids }})]))
+
+    user_profiles = dict([(p['user_id'],p) for p in MONGO_DB.users.find({'user_id': {'$in': [user_id] + friend_ids}})])
+    for u_id in [user_id] + friend_ids:
+        user_profiles[u_id] = user_profiles.get(u_id) or {'user_id': u_id,
+                                                          'name': 'Anonymous',
+                                                          'photo_url': WWW_SERVER_URL+'/profiles/anonymous.jpg'
+                                                         }
+        if '_id' in user_profiles[u_id]:
+            del user_profiles[u_id]['_id']
     
     pledge_map = {}
     for route_id in route_ids:
-        pledge_map[route_id] = {'total_count': 0, 'total_amount': 0.0, 'pledges': [], 'mine': False, 'mine_amount': 0.0 }
+        pledge_map[route_id] = {'total_count': 0,
+                                'total_amount': 0.0,
+                                'pledges': [],
+                                'mine': False,
+                                'mine_amount': 0.0,
+                                'my_profile': user_profiles[user_id],
+                                'has_friends': False }
 
     for pledge in MONGO_DB.pledges.find({'route_id': { '$in': route_ids }}):
         del pledge['_id']
+        pledge['is_friend'] = pledge['user_id'] in friend_ids
+        if pledge['is_friend']:
+            pledge_map[route_id]['has_friends'] = True
+            pledge['user_profile'] = user_profiles[pledge['user_id']]
+            pledge_map[route_id]['friend_profile'] = user_profiles[pledge['user_id']]
+            pledge_map[route_id]['friend_amount'] = pledge['amount']
+        
         route_id = pledge['route_id']
         pledge_map[route_id]['route_id'] = route_id
         pledge_map[route_id]['user_id'] = user_id

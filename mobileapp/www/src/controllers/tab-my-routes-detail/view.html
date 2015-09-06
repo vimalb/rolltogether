@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-nav-title>Suggested Route {{ route.route_id}} </ion-nav-title>
+  <ion-nav-title>{{ route.name}} </ion-nav-title>
   <ion-content class="padding route-detail">
     <!-- route title, should this be constructed? -->
     <div class="name">
@@ -16,7 +16,7 @@
     <div class="details">
       <ul class="detailed-stats">
         <li>
-          <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount | number:2}}%</div>
+          <div class="stats-value">{{ 100 * pledges[route.route_id].total_amount / route.target_amount | number:0 }}%</div>
           <span class="stats-label">funded</span>
         </li>
         <li>
@@ -69,7 +69,7 @@
       <div class="item item-body video-item">
         <div class="list header">
           <div class="item item-avatar header">
-            <img class="profile-img" src="assets/img/profile_pic.png">
+            <img class="profile-img" ng-src="{{ currentUser.photo_url }}">
             <div>{{ trip.local_timestamp | date : "h:mm a" }}</div>
             <div>{{ trip.name }}</div>
             <div>
