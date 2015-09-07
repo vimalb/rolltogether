@@ -5,7 +5,7 @@
 img.header-logo-left {
   width: 30px;
   height: 30px;
-  margin-top: 8px;
+  margin-top: 2px;
   margin-right: 6px;
   float: left;
 }
@@ -25,6 +25,7 @@ ui-gmap-google-map.trip-map-summary > div.angular-google-map > div.angular-googl
 
 .bar.bar-stable .title {
   color: white !important;
+  padding-top: 4px;
 }
 
 .bar-stable .back-button .icon.ion-ios-arrow-back {
