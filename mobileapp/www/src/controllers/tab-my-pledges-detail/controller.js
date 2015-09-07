@@ -13,7 +13,7 @@ var CONTROLLER_NAME = MODULE_NAME.replace(/\./g,'_').replace(/-/g,'_');
 document.APP_MODULES.push(MODULE_NAME);
 
 console.log(MODULE_NAME, "Registering route", ROUTE_URL);
-angular.module(MODULE_NAME, ['ionic'])
+angular.module(MODULE_NAME, ['ionic', 'ngCordova'])
   .config(function($stateProvider) {
     $stateProvider.state('tab.my-pledges-detail', {
       url: ROUTE_URL,
@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, CLIENT_SETTINGS, $timeout) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, $state, $cordovaSocialSharing, CLIENT_SETTINGS, $timeout) {
       $scope.pledges = {};
       $scope.route = {};
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
@@ -49,8 +49,24 @@ angular.module(MODULE_NAME, ['ionic'])
           $state.go('tab.my-routes-pledge', {routeId: route.route_id});
         }, 10);
         $state.go('tab.my-routes');
-
       }
+
+      $scope.shareOnFacebook = function () {
+        var message = null;
+        var image = null;
+        var link = $scope.SERVER_URL+'/share/'+$scope.route.route_id;
+        
+        $cordovaSocialSharing
+          .shareViaFacebook(message, image, link)
+          .then(function(result) {
+            console.log(link, 'shared via facebook!');
+          }, function(err) {
+            // An error occurred. Show a message to the user
+             console.log(link, 'Facebook share failed');
+             console.dir(err.toString());
+          });
+      }
+
   })
 
 
