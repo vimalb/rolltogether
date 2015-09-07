@@ -38,7 +38,8 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.profiles = [];
 
       $scope.$on('$ionicView.beforeEnter', function(){
-        //generateProfilePics();
+        generateProfilePics();
+
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;
           tripSearchService.getRouteTrips(route).then(function(trips) {
@@ -84,20 +85,22 @@ angular.module(MODULE_NAME, ['ionic'])
 
       generateProfilePics = function() {
         var numberPics = Math.floor(Math.random()*5);
-        var url = $scope.SERVER_URL;
-
-        for (var i = 0; i < numberPics; i++) {
-          var i = Math.floor(Math.random() * 50);
+        var pics = [];
+ 
+        var i = 0;
+        while (i <= numberPics) {
+          var url = $scope.SERVER_URL;
+          var j = Math.floor(Math.random() * 50);
           var coinFlip = Math.random();
+
           if (coinFlip > 0.5) {
-            url = url +'/profiles/woman'+str(i%50)+'.jpg');
-            console.log('pushing profile: ', url );
+            url = url +'/profiles/woman'+j+'.jpg';
             $scope.profiles.push(url);
           } else {
-            url = url +'/profiles/woman'+str(i%50)+'.jpg');
-            console.log('pushing profile: ', url );
+            url = url +'/profiles/woman'+j+'.jpg';
             $scope.profiles.push(url);
           }
+          i += 1;
         }
       }
 

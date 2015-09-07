@@ -288,6 +288,15 @@ progress[value]::-webkit-progress-value {
   color: darkgray;
 }
 
+.route-detail img.avatar {
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .route-detail .hr-divider {
   border: none;
   background-color: #E0E0E0;
