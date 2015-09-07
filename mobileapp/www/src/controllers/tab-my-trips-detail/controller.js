@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic'])
       }
     });
   })
-  .controller(CONTROLLER_NAME, function($scope, $stateParams, tripSearchService, userService, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, $stateParams, $state, $timeout, tripSearchService, userService, CLIENT_SETTINGS) {
       $scope.trip = {};
       $scope.SERVER_URL = CLIENT_SETTINGS.SERVER_URL;
 
@@ -38,6 +38,14 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.$on('$ionicView.beforeLeave', function(){
         $scope.trip = {};
       });
+
+      $scope.goRouteDetail = function(routeId) {
+        $timeout(function() {
+          $state.go('tab.my-routes-detail', {routeId: routeId});
+          console.log('lolwut');
+        }, 10);
+        $state.go('tab.my-routes');
+      }
 
   })
 

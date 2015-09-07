@@ -73,8 +73,8 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
     }
 
     $scope.goPledgeDetail = function(feedItem) {
-      var pledgeId = feedItem.item_details.pledge.pledge_id;
-      $state.go('tab.my-pledges-detail', {pledgeId: pledgeId});
+      var routeId = feedItem.item_details.pledge.route_id;
+      $state.go('tab.my-pledges-detail', {routeId: routeId});
     }
 
     $scope.goLogin = function() {
