@@ -46,7 +46,7 @@ angular.module(MODULE_NAME, ['ionic'])
         }, 10);
         $state.go('tab.my-routes');
       }
-
+    
   })
 
   

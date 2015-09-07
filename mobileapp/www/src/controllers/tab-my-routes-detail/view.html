@@ -30,6 +30,18 @@
       </ul>
     </div>
 
+    <div class="friends">
+      <h4>Friends who have pledged</h4>
+      <div>
+        <img class="avatar" ng-repeat="pic in profiles" src="{{pic}}" >
+        profile pic: {{profiles}}
+            
+        <!--img class="avatar" src="{{profiles[0]}}">
+        <img class="avatar" src="{{profiles[1]}}">
+        <img class="avatar" src="{{profiles[2]}}"-->
+      </div>
+    </div>
+
     <hr class="hr-divider">
 
     <div class="total">

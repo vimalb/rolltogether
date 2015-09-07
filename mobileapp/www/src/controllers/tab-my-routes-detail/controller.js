@@ -35,8 +35,10 @@ angular.module(MODULE_NAME, ['ionic'])
       $scope.totalDrivingCost = 0;
       $scope.totalTransitMin = 0;
       $scope.totalTransitCost = 0;
+      $scope.profiles = [];
 
       $scope.$on('$ionicView.beforeEnter', function(){
+        //generateProfilePics();
         tripSearchService.getRoute($stateParams.routeId).then(function(route) {
           $scope.route = route;
           tripSearchService.getRouteTrips(route).then(function(trips) {
@@ -62,6 +64,41 @@ angular.module(MODULE_NAME, ['ionic'])
 
       $scope.goRoutePledge = function(route) {
         $state.go('tab.my-routes-pledge', {routeId: route.route_id});
+      }
+
+      /*$scope.profilePic = function() {
+        var url = $scope.SERVER_URL;
+
+        var i = Math.floor(Math.random() * 50);
+        var coinFlip = Math.random();
+        if (coinFlip > 0.5) {
+          console.log('pushing profile');
+          return $scope.SERVER_URL +'/profiles/woman'+str(i%50)+'.jpg';
+        } else {
+          console.log('pushing profile');
+          return $scope.SERVER_URL +'/profiles/man'+str(i%50)+'.jpg';
+        }
+        
+        return 5;
+      }*/
+
+      generateProfilePics = function() {
+        var numberPics = Math.floor(Math.random()*5);
+        var url = $scope.SERVER_URL;
+
+        for (var i = 0; i < numberPics; i++) {
+          var i = Math.floor(Math.random() * 50);
+          var coinFlip = Math.random();
+          if (coinFlip > 0.5) {
+            url = url +'/profiles/woman'+str(i%50)+'.jpg');
+            console.log('pushing profile: ', url );
+            $scope.profiles.push(url);
+          } else {
+            url = url +'/profiles/woman'+str(i%50)+'.jpg');
+            console.log('pushing profile: ', url );
+            $scope.profiles.push(url);
+          }
+        }
       }
 
       $scope.$on('$ionicView.beforeLeave', function(){

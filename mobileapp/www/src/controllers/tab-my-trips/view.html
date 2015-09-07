@@ -42,13 +42,7 @@
             <h2>{{ feedItem.user_profile.name }} pledged <span class="amount">R$ {{ feedItem.item_details.pledge.amount | number: 2 }}</span></h2>
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>{{ feedItem.item_details.route.name }}</p>
-            <!--button class="button button-outline button-positive">
-              See Route
-            </button-->
           </div><!-- /item item-avatar header -->
-          <!--div class="item item-image">
-            <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+feedItem.item_id.toString()+'/map' }}"></img>
-          </div-->
         </div>
 
         <div ng-if="feedItem.item_type == 'my_pledge'" ng-click="goPledgeDetail(feedItem)" class="card my-pledge pledge">
@@ -58,13 +52,7 @@
             <img class="backer" src="assets/img/backer-badge.png" />
             <p>{{ feedItem.item_local_timestamp | date : "EEE h:mm a" }}</p>
             <p>{{ feedItem.item_details.route.name }}</p>
-            <!--button class="button button-balanced">
-              See Pledge
-            </button-->
           </div><!-- /item item-avatar header -->
-          <!--div class="item item-image">
-            <img class="trip-map-summary" ng-src="{{ SERVER_URL+'/api/routes/all/'+feedItem.item_id.toString()+'/map' }}"></img>
-          </div>
         </div--><!-- /card -->
       </div>
     </div>
