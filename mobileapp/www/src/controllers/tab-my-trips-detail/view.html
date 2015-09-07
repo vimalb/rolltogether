@@ -23,8 +23,8 @@
       </div>
       <br>
       <div class="stats-bold">
-        <span>Suggested route time:</span>
-        <span class="right">{{ trip.total_nominal_duration_min | number:0 }} minutes</span>
+        <span>Traffic delay:</span>
+        <span class="right">{{ trip.total_actual_duration_min - trip.total_nominal_duration_min | number:0 }} minutes</span>
       </div>
     </div>
 
