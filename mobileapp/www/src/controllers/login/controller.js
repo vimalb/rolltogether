@@ -46,11 +46,11 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
 
             var htmlHeader = "<div class='card avatar'><div class='item item-avatar header'><img class='profile-img' src='"+picture.data.url+"'> <h2>"+name+"</h2></div></div>";
 
-            document.getElementById("profileHeader").innerHTML = htmlHeader;
-            document.getElementById("login-button").className = "hide";
+            //document.getElementById("profileHeader").innerHTML = htmlHeader;
+            //document.getElementById("login-button").className = "hide";
 
-            document.getElementsByClassName("sign-in-text")[0].className = "sign-in-text hide";
-            document.getElementsByClassName("success")[0].className -= "hide";
+            //document.getElementsByClassName("sign-in-text")[0].className = "sign-in-text hide";
+            //document.getElementsByClassName("success")[0].className -= "hide";
             
         }, function(error) {
             alert("Error: " + error);
@@ -62,6 +62,7 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
       console.log('Logging in with Facebook');
       $cordovaOauth.facebook("1466619133643813", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result) {
         $localStorage.accessToken = result.access_token;
+        userService.getCurrentUser().access_token = result.access_token;
         displayData(result.access_token);
         $scope.loggedIn = true;
         $state.go("tab.my-trips");
@@ -73,9 +74,6 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage', 'ngCordova'])
     }
 
     $scope.$on('$ionicView.beforeEnter', function(){
-      if ($scope.loggedIn)  {
-        $state.go('tab.my-pledges');
-      }
     });
 
     $scope.goToFeed = function () {

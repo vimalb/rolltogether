@@ -9,9 +9,7 @@
       on-refresh="goRefresh()">
     </ion-refresher>
 
-    <button id="login-button" class="login button button-full button-calm" ng-click="goLogin()">Sign in</button>
-
-    <div ng-show="false" id="profileHeader"></div>
+    <button ng-show="!currentUser.access_token" id="login-button" class="login button button-full button-calm" ng-click="goLogin()">Sign in</button>
 
     <div class="list">
       <div ng-repeat="feedItem in feedItems">
