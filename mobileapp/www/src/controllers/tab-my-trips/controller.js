@@ -25,7 +25,7 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
         }
       });
   })
-  .controller(CONTROLLER_NAME, function($scope, tripSearchService, openXCService, $state, $localStorage, CLIENT_SETTINGS) {
+  .controller(CONTROLLER_NAME, function($scope, tripSearchService, openXCService, $state, $timeout, $localStorage, CLIENT_SETTINGS) {
     console.log("Instantiating controller", CONTROLLER_NAME);
 
     $scope.feedItems = [];
@@ -69,12 +69,18 @@ angular.module(MODULE_NAME, ['ionic', 'ngStorage'])
 
     $scope.goRouteDetail = function(feedItem) {
       var routeId = feedItem.item_details.route.route_id;
-      $state.go('tab.my-routes-detail', {routeId: routeId});
+      $timeout(function() {
+        $state.go('tab.my-routes-detail', {routeId: routeId});
+      }, 10);
+      $state.go('tab.my-routes');
     }
 
     $scope.goPledgeDetail = function(feedItem) {
       var routeId = feedItem.item_details.pledge.route_id;
-      $state.go('tab.my-pledges-detail', {routeId: routeId});
+      $timeout(function() {
+        $state.go('tab.my-pledges-detail', {routeId: routeId});
+      }, 10);
+      $state.go('tab.my-pledges');
     }
 
     $scope.goLogin = function() {
