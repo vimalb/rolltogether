@@ -84,11 +84,11 @@ angular.module(MODULE_NAME, ['ionic'])
       }*/
 
       generateProfilePics = function() {
-        var numberPics = Math.floor(Math.random()*5);
+        var numberPics = Math.floor(Math.random()*3) + 2;
         var pics = [];
  
         var i = 0;
-        while (i <= numberPics) {
+        while (i < numberPics) {
           var url = $scope.SERVER_URL;
           var j = Math.floor(Math.random() * 50);
           var coinFlip = Math.random();
